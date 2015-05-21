@@ -5,14 +5,14 @@
  * Base structure
  */
 /* Move down content because we have a fixed navbar that is 50px tall */
-/* line 21, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/assets/css/webappstyles.scss */
+/* line 21, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/webappstyles.scss */
 body {
   padding-top: 50px; }
 
 /*
  * Global add-ons
  */
-/* line 30, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/assets/css/webappstyles.scss */
+/* line 30, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/webappstyles.scss */
 .sub-header {
   padding-bottom: 10px;
   border-bottom: 1px solid #eee; }
@@ -21,7 +21,7 @@ body {
  * Top navigation
  * Hide default border to remove 1px line.
  */
-/* line 39, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/assets/css/webappstyles.scss */
+/* line 39, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/webappstyles.scss */
 .navbar-fixed-top {
   border: 0; }
 
@@ -29,12 +29,12 @@ body {
  * Sidebar
  */
 /* Hide for mobile, show later */
-/* line 48, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/assets/css/webappstyles.scss */
+/* line 48, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/webappstyles.scss */
 .sidebar {
   display: none; }
 
 @media (min-width: 768px) {
-  /* line 52, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/assets/css/webappstyles.scss */
+  /* line 52, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/webappstyles.scss */
   .sidebar {
     position: fixed;
     top: 51px;
@@ -50,19 +50,19 @@ body {
     border-right: 1px solid #eee; } }
 
 /* Sidebar navigation */
-/* line 68, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/assets/css/webappstyles.scss */
+/* line 68, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/webappstyles.scss */
 .nav-sidebar {
   margin-right: -21px;
   /* 20px padding + 1px border */
   margin-bottom: 20px;
   margin-left: -20px; }
 
-/* line 73, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/assets/css/webappstyles.scss */
+/* line 73, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/webappstyles.scss */
 .nav-sidebar > li > a {
   padding-right: 20px;
   padding-left: 20px; }
 
-/* line 79, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/assets/css/webappstyles.scss */
+/* line 79, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/webappstyles.scss */
 .nav-sidebar > .active > a, .nav-sidebar > .active > a:hover, .nav-sidebar > .active > a:focus {
   color: #fff;
   background-color: #428bca; }
@@ -70,37 +70,37 @@ body {
 /*
  * Main content
  */
-/* line 89, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/assets/css/webappstyles.scss */
+/* line 89, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/webappstyles.scss */
 .main {
   padding: 20px; }
 
 @media (min-width: 768px) {
-  /* line 93, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/assets/css/webappstyles.scss */
+  /* line 93, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/webappstyles.scss */
   .main {
     padding-right: 40px;
     padding-left: 40px; } }
 
-/* line 98, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/assets/css/webappstyles.scss */
+/* line 98, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/webappstyles.scss */
 .main .page-header {
   margin-top: 0; }
 
 /*
  * Placeholder dashboard ideas
  */
-/* line 107, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/assets/css/webappstyles.scss */
+/* line 107, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/webappstyles.scss */
 .placeholders {
   margin-bottom: 30px;
   text-align: center; }
 
-/* line 111, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/assets/css/webappstyles.scss */
+/* line 111, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/webappstyles.scss */
 .placeholders h4 {
   margin-bottom: 0; }
 
-/* line 114, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/assets/css/webappstyles.scss */
+/* line 114, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/webappstyles.scss */
 .placeholder {
   margin-bottom: 20px; }
 
-/* line 117, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/assets/css/webappstyles.scss */
+/* line 117, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/webappstyles.scss */
 .placeholder img {
   display: inline-block;
   border-radius: 50%; }
