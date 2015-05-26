@@ -1,52 +1,72 @@
-angular.module('app')
-  .controller('HomeController', ['$rootScope', '$scope', '$location', '$localStorage', 'Auth',
-       function ($rootScope, $scope, $location, $localStorage, Auth) {
-      function successAuth(res) {
-        $localStorage.token = res.token;
-        window.location = "/";
-      }
-
-      $scope.signin = function () {
-        var formData = {
-          email: $scope.email,
-          password: $scope.password
-        };
-
-        Auth.signin(formData, successAuth, function () {
-          $rootScope.error = 'Invalid credentials.';
-        })
-      };
-
-      $scope.signup = function () {
-        var formData = {
-          email: $scope.email,
-          password: $scope.password
-        };
-
-        Auth.signup(formData, successAuth, function () {
-          $rootScope.error = 'Failed to signup';
-        })
-      };
-
-      $scope.logout = function () {
-        Auth.logout(function () {
-          window.location = "/"
-        });
-      };
-      $scope.token = $localStorage.token;
-      $scope.tokenClaims = Auth.getTokenClaims();
-       }]);
-
-angular.module('app')
-  .controller('RestrictedController', ['$rootScope', '$scope', 'Data', function ($rootScope, $scope, Data) {
-    Data.getRestrictedData(function (res) {
-      $scope.data = res.data;
-    }, function () {
-      $rootScope.error = 'Failed to fetch restricted content.';
-    });
-    Data.getApiData(function (res) {
-      $scope.api = res.data;
-    }, function () {
-      $rootScope.error = 'Failed to fetch restricted API content.';
-    });
-   }]);
+//'use strict';
+//
+///* Controllers */
+//
+//angular.module('coastlineWebApp')
+//  .controller('HomeCtrl', ['$rootScope', '$scope', '$location', '$localStorage', 'Main', function ($rootScope, $scope, $location, $localStorage, Main) {
+//
+//    $scope.signin = function () {
+//      var formData = {
+//        email: $scope.email,
+//        password: $scope.password
+//      }
+//
+//      Main.signin(formData, function (res) {
+//        if (res.type == false) {
+//          alert(res.data)
+//        } else {
+//          $localStorage.token = res.data.token;
+//          window.location = "/";
+//        }
+//      }, function () {
+//        $rootScope.error = 'Failed to signin';
+//      })
+//    };
+//
+//    $scope.signUp = function () {
+//      var formData = {
+//        username: $scope.username,
+//        firstName: $scope.firstName,
+//        lastName: $scope.lastName,
+//        email: $scope.email,
+//        password: $scope.password
+//      }
+//
+//      Main.save(formData, function (res) {
+//        if (res.type == false) {
+//          alert(res.data)
+//        } else {
+//          $localStorage.token = res.data.token;
+//          window.location = "/"
+//        }
+//      }, function () {
+//        $rootScope.error = 'Failed to signup';
+//      })
+//    };
+//
+//    $scope.me = function () {
+//      Main.me(function (res) {
+//        $scope.myDetails = res;
+//      }, function () {
+//        $rootScope.error = 'Failed to fetch details';
+//      })
+//    };
+//
+//    $scope.logout = function () {
+//      Main.logout(function () {
+//        window.location = "/"
+//      }, function () {
+//        alert("Failed to logout!");
+//      });
+//    };
+//    $scope.token = $localStorage.token;
+//    }])
+//
+//.controller('MeCtrl', ['$rootScope', '$scope', '$location', 'Main', function ($rootScope, $scope, $location, Main) {
+//
+//  Main.me(function (res) {
+//    $scope.myDetails = res;
+//  }, function () {
+//    $rootScope.error = 'Failed to fetch details';
+//  })
+//}]);
