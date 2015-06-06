@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../css/basestyles.css" type="text/css">
+<!--<link rel="stylesheet" href="../../css/basestyles.css" type="text/css">-->
 <link rel="stylesheet" href="../../css/landingstyles.css" type="text/css">
 <div ng-controller="authCtrl">
 
@@ -31,11 +31,13 @@
 
           <ul class="nav navbar-nav navbar-right">
 
-            <li><a data-ng-show=true ui-sref="login">{{theToken}}</a>
+            <li><a data-ng-show=$storage.token ui-sref="login">{{$storage.token[0]}}</a>
             </li>
-            <li><a data-ng-hide="token" ui-sref="login">Login</a>
+            <li><a data-ng-show=$storage.token ui-sref="home">Logout</a>
             </li>
-            <li><a data-ng-hide="token" ui-sref="signUp">Sign Up</a>
+            <li><a data-ng-hide="$storage.token" ui-sref="login">Login</a>
+            </li>
+            <li><a data-ng-hide="$storage.token" ui-sref="signUp">Sign Up</a>
             </li>
 
           </ul>
