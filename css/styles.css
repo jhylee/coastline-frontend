@@ -1,82 +1,82 @@
 @import url('http://fonts.googleapis.com/css?family=Raleway');
 @import url('http://fonts.googleapis.com/css?family=Josefin+Slab');
 @import url('http://fonts.googleapis.com/css?family=Lobster');
-/* line 16, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+/* line 16, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 body {
   background-color: #FFF;
   font-family: "Open Sans", serif;
   line-height: 2em; }
 
-/* line 22, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+/* line 22, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 h1 {
   font-family: "Raleway";
   font-size: 4em;
   text-align: center;
   line-height: 5em; }
 
-/* line 29, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+/* line 29, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 h2 {
   font-family: "Raleway";
   font-size: 2em;
   text-align: center;
   line-height: 2.5em; }
 
-/* line 36, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+/* line 36, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 p {
   font-family: "Raleway";
   font-size: 1.25em; }
 
-/* line 42, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+/* line 42, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 nav {
   background-color: #7c0303;
   font-family: "Lobster"; }
-  /* line 46, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+  /* line 46, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   nav .navbar-header {
     height: 5em; }
-  /* line 49, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+  /* line 49, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   nav .navbar-brand {
     padding-top: 0;
     display: block; }
-    /* line 52, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+    /* line 52, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
     nav .navbar-brand a {
       color: #F2F2F2;
       line-height: 5em;
       height: 5em;
       padding-top: 0; }
-      /* line 57, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+      /* line 57, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
       nav .navbar-brand a:hover, nav .navbar-brand a:focus {
         color: black;
         background-color: #7c0303;
         text-decoration: none; }
-  /* line 65, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+  /* line 65, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   nav .navbar-nav a {
     color: #F2F2F2;
     line-height: 5em;
     height: 5em;
     padding-top: 0;
     font-size: 1.25em; }
-    /* line 71, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+    /* line 71, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
     nav .navbar-nav a:hover, nav .navbar-nav a:focus {
       color: black;
       background-color: #7c0303; }
-  /* line 77, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+  /* line 77, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   nav .navbar-left {
     float: left; }
-  /* line 80, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+  /* line 80, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   nav .navbar-right {
     float: right; }
 
-/* line 85, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+/* line 85, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 .headerwrap {
   background: url("../images/header.jpg") center;
   background-size: 100%; }
 
-/* line 92, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+/* line 92, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 .redwrap {
   background-color: #7c0303;
   line-height: 5em; }
 
-/* line 97, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+/* line 97, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 .wrap1 {
   background-color: #F2F2F2;
   border-bottom: solid;
@@ -84,29 +84,29 @@ nav {
   border-width: thin;
   border-color: #D5D5D5; }
 
-/* line 105, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+/* line 105, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 .wrap2 {
   background-color: #FFF; }
 
-/* line 109, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+/* line 109, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 .footerwrap {
   background-color: #7c0303;
   text-align: center; }
-  /* line 112, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+  /* line 112, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   .footerwrap p {
     color: #F2F2F2; }
-  /* line 115, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+  /* line 115, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   .footerwrap a {
     color: #F2F2F2;
     text-underline-position: below; }
 
-/* line 121, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+/* line 121, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 .auth-form {
   width: 400px;
   margin: 60px auto;
   padding-top: 60px;
   padding-bottom: 60px; }
-  /* line 128, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+  /* line 128, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   .auth-form .auth-form-header {
     position: relative;
     padding: 10px 20px;
@@ -116,13 +116,13 @@ nav {
     background-color: #7c0303;
     border: 1px solid #D5D5D5;
     border-radius: 3px 3px 0 0; }
-    /* line 137, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+    /* line 137, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
     .auth-form .auth-form-header h2 {
       margin-top: 0;
       margin-bottom: 0;
       font-size: 16px; }
 
-/* line 145, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+/* line 145, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 .auth-form-body {
   padding: 20px;
   font-size: 14px;
@@ -130,17 +130,17 @@ nav {
   border: 1px solid #d8dee2;
   border-top: 0;
   border-radius: 0 0 3px 3px; }
-  /* line 152, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+  /* line 152, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   .auth-form-body label {
     font-size: 13px;
     font-weight: bold;
     font-family: "Raleway"; }
-  /* line 157, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+  /* line 157, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   .auth-form-body input {
     font-family: "Raleway";
     font-size: 13px; }
 
-/* line 163, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/landingstyles.scss */
+/* line 163, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 .btn {
   position: relative;
   display: inline-block;
@@ -164,4 +164,4 @@ nav {
   -webkit-appearance: none;
   font-family: "Raleway"; }
 
-/*# sourceMappingURL=landingstyles.css.map */
+/*# sourceMappingURL=styles.css.map */
