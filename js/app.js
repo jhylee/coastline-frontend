@@ -32,6 +32,11 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     templateUrl: '/views/landing/signUp.html'
   })
 
+  .state('about', {
+    url: '/about',
+    templateUrl: '/views/landing/about.html'
+  })
+
   .state('buyerWebApp', {
     url: '/webapp/buyer',
     templateUrl: '/views/buy-side/buyerWebApp.html'
