@@ -28,8 +28,8 @@ p {
 
 /* line 42, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 nav {
-  background-color: #7c0303;
-  font-family: "Lobster"; }
+  background-color: #477488;
+  font-family: "Raleway"; }
   /* line 46, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   nav .navbar-header {
     height: 5em; }
@@ -46,7 +46,7 @@ nav {
       /* line 57, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
       nav .navbar-brand a:hover, nav .navbar-brand a:focus {
         color: black;
-        background-color: #7c0303;
+        background-color: #477488;
         text-decoration: none; }
   /* line 65, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   nav .navbar-nav a {
@@ -58,7 +58,7 @@ nav {
     /* line 71, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
     nav .navbar-nav a:hover, nav .navbar-nav a:focus {
       color: black;
-      background-color: #7c0303; }
+      background-color: #477488; }
   /* line 77, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   nav .navbar-left {
     float: left; }
@@ -68,12 +68,12 @@ nav {
 
 /* line 85, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 .headerwrap {
-  background: url("../images/header.jpg") center;
+  background: url("/img/header.jpg") center;
   background-size: 100%; }
 
 /* line 92, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 .redwrap {
-  background-color: #7c0303;
+  background-color: #477488;
   line-height: 5em; }
 
 /* line 97, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
@@ -90,7 +90,7 @@ nav {
 
 /* line 109, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 .footerwrap {
-  background-color: #7c0303;
+  background-color: #99A2AD;
   text-align: center; }
   /* line 112, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   .footerwrap p {
@@ -113,7 +113,7 @@ nav {
     margin: 0;
     color: #fff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
-    background-color: #7c0303;
+    background-color: #477488;
     border: 1px solid #D5D5D5;
     border-radius: 3px 3px 0 0; }
     /* line 137, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
@@ -165,3 +165,10 @@ nav {
   font-family: "Raleway"; }
 
 /*# sourceMappingURL=styles.css.map */
+
+.img {
+    display: block;
+    max-height: inherit;
+    max-width: inherit;
+    margin: auto;
+}

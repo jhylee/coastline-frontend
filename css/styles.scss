@@ -9,7 +9,7 @@ $black: #000000;
 $grey: #333;
 $navbar-height: 5em;
 $border-color: #D5D5D5;
-$navbar-font:"Lobster";
+$navbar-font:"Raleway";
 $header-font:"Raleway";
 $body-font:$header-font;
 $green: #60b044;
@@ -83,7 +83,7 @@ nav {
 }
 
 .headerwrap {
-  background: url("../images/header.jpg") center;
+  background: url("/img/header.jpg") center;
   //background: url("../images/header.jpg") center;
   //padding-top: $navbar-height;
   background-size: 100%;
@@ -100,6 +100,7 @@ nav {
   border-top: solid;
   border-width: thin;
   border-color: #D5D5D5;
+    p {
 }
 
 .wrap2 {
@@ -182,4 +183,11 @@ nav {
   user-select: none;
   -webkit-appearance: none;
   font-family: $body-font;
+}
+
+.img {
+    display: block;
+    max-height: inherit;
+    max-width: inherit;
+    margin: auto;
 }
