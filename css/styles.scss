@@ -2,7 +2,7 @@
 @import url('http://fonts.googleapis.com/css?family=Josefin+Slab');
 @import url('http://fonts.googleapis.com/css?family=Lobster');
 $brown: #484041;
-$red: #7c0303;
+$red: #386075;
 $off-white: #F2F2F2;
 $very-light-brown: #a5a5a5;
 $black: #000000;
@@ -100,22 +100,20 @@ nav {
   border-top: solid;
   border-width: thin;
   border-color: #D5D5D5;
-    p {
-}
-
-.wrap2 {
-  background-color: #FFF;
-}
-
-.footerwrap {
-  background-color: $red;
-  text-align: center;
-  p {
-    color: $off-white;
+  p {}
+  .wrap2 {
+    background-color: #FFF;
   }
-  a {
-    color: $off-white;
-    text-underline-position: below;
+  .footerwrap {
+    background-color: $red;
+    text-align: center;
+    p {
+      color: $off-white;
+    }
+    a {
+      color: $off-white;
+      text-underline-position: below;
+    }
   }
 }
 
@@ -186,13 +184,36 @@ nav {
 }
 
 .img {
-    display: block;
-    max-height: inherit;
-    max-width: inherit;
-    margin: auto;
+  display: block;
+  max-height: inherit;
+  max-width: inherit;
+  margin: auto;
 }
-    
-.col-lg-4 {
-    color: beige;
-    opacity: 0.6;
+
+.selection {
+  padding-top: 8em;
+  .panel-primary {
+    font-family: $body-font;
+    border-color: $red;
+    .panel-heading {
+      background-color: $red;
+    }
+    .panel-body {
+      background-color: $off-white;
+      font-weight: bolder;
+    }
+    .form-group {
+      display: inline-block;
+      vertical-align: middle;
+      padding-bottom: 0.75em;
+      //      .form-element-inline {
+      //        margin: 0 20px
+      //      }
+    }
+    p {
+      color: black;
+      font-size: 1em;
+      opacity: 0.6;
+    }
+  }
 }

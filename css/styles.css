@@ -28,7 +28,7 @@ p {
 
 /* line 42, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 nav {
-  background-color: #477488;
+  background-color: #386075;
   font-family: "Raleway"; }
   /* line 46, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   nav .navbar-header {
@@ -46,7 +46,7 @@ nav {
       /* line 57, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
       nav .navbar-brand a:hover, nav .navbar-brand a:focus {
         color: black;
-        background-color: #477488;
+        background-color: #386075;
         text-decoration: none; }
   /* line 65, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   nav .navbar-nav a {
@@ -58,7 +58,7 @@ nav {
     /* line 71, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
     nav .navbar-nav a:hover, nav .navbar-nav a:focus {
       color: black;
-      background-color: #477488; }
+      background-color: #386075; }
   /* line 77, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   nav .navbar-left {
     float: left; }
@@ -73,7 +73,7 @@ nav {
 
 /* line 92, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 .redwrap {
-  background-color: #477488;
+  background-color: #386075;
   line-height: 5em; }
 
 /* line 97, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
@@ -83,46 +83,44 @@ nav {
   border-top: solid;
   border-width: thin;
   border-color: #D5D5D5; }
+  /* line 104, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+  .wrap1 .wrap2 {
+    background-color: #FFF; }
+  /* line 107, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+  .wrap1 .footerwrap {
+    background-color: #386075;
+    text-align: center; }
+    /* line 110, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+    .wrap1 .footerwrap p {
+      color: #F2F2F2; }
+    /* line 113, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+    .wrap1 .footerwrap a {
+      color: #F2F2F2;
+      text-underline-position: below; }
 
-/* line 105, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
-.wrap2 {
-  background-color: #FFF; }
-
-/* line 109, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
-.footerwrap {
-  background-color: #99A2AD;
-  text-align: center; }
-  /* line 112, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
-  .footerwrap p {
-    color: #F2F2F2; }
-  /* line 115, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
-  .footerwrap a {
-    color: #F2F2F2;
-    text-underline-position: below; }
-
-/* line 121, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+/* line 120, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 .auth-form {
   width: 400px;
   margin: 60px auto;
   padding-top: 60px;
   padding-bottom: 60px; }
-  /* line 128, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+  /* line 127, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   .auth-form .auth-form-header {
     position: relative;
     padding: 10px 20px;
     margin: 0;
     color: #fff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
-    background-color: #477488;
+    background-color: #386075;
     border: 1px solid #D5D5D5;
     border-radius: 3px 3px 0 0; }
-    /* line 137, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+    /* line 136, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
     .auth-form .auth-form-header h2 {
       margin-top: 0;
       margin-bottom: 0;
       font-size: 16px; }
 
-/* line 145, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+/* line 144, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 .auth-form-body {
   padding: 20px;
   font-size: 14px;
@@ -130,17 +128,17 @@ nav {
   border: 1px solid #d8dee2;
   border-top: 0;
   border-radius: 0 0 3px 3px; }
-  /* line 152, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+  /* line 151, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   .auth-form-body label {
     font-size: 13px;
     font-weight: bold;
     font-family: "Raleway"; }
-  /* line 157, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+  /* line 156, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
   .auth-form-body input {
     font-family: "Raleway";
     font-size: 13px; }
 
-/* line 163, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+/* line 162, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 .btn {
   position: relative;
   display: inline-block;
@@ -164,11 +162,36 @@ nav {
   -webkit-appearance: none;
   font-family: "Raleway"; }
 
-/*# sourceMappingURL=styles.css.map */
-
+/* line 186, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
 .img {
-    display: block;
-    max-height: inherit;
-    max-width: inherit;
-    margin: auto;
-}
+  display: block;
+  max-height: inherit;
+  max-width: inherit;
+  margin: auto; }
+
+/* line 193, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+.selection {
+  padding-top: 8em; }
+  /* line 195, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+  .selection .panel-primary {
+    font-family: "Raleway";
+    border-color: #386075; }
+    /* line 198, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+    .selection .panel-primary .panel-heading {
+      background-color: #386075; }
+    /* line 201, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+    .selection .panel-primary .panel-body {
+      background-color: #F2F2F2;
+      font-weight: bolder; }
+    /* line 205, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+    .selection .panel-primary .form-group {
+      display: inline-block;
+      vertical-align: middle;
+      padding-bottom: 0.75em; }
+    /* line 213, /Users/abdulkhan/Work/Dev/poros/coastline/coastline-frontend/css/styles.scss */
+    .selection .panel-primary p {
+      color: black;
+      font-size: 1em;
+      opacity: 0.6; }
+
+/*# sourceMappingURL=styles.css.map */

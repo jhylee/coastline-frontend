@@ -18,7 +18,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
   // HOME STATES AND NESTED VIEWS ========================================
     .state('home', {
     url: '/',
-    templateUrl: '/views/buy-side/buyercomponents.html'
+    templateUrl: '/views/buy-side/profileSelection.html'
   })
 
   // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
