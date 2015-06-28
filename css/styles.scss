@@ -100,10 +100,7 @@ nav {
   border-top: solid;
   border-width: thin;
   border-color: #D5D5D5;
-<<<<<<< HEAD
-=======
-    height: 100%;
->>>>>>> origin/patch1-rob
+  height: 100%;
   p {}
   .wrap2 {
     background-color: #FFF;
@@ -194,7 +191,6 @@ nav {
   margin: auto;
 }
 
-<<<<<<< HEAD
 .selection {
   padding-top: 8em;
   .panel-primary {
@@ -221,18 +217,16 @@ nav {
       opacity: 0.6;
     }
   }
-=======
-.seller-profile {
+  .seller-profile {
     max-height: 100%;
     height: 100%;
     background-color: black;
-  p {
-    color: beige;
-    opacity: 0.6;
+    p {
+      color: beige;
+      opacity: 0.6;
+    }
   }
-}
-
-.body {
+  .body {
     min-height: 100%;
->>>>>>> origin/patch1-rob
+  }
 }
