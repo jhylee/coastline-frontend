@@ -2,10 +2,8 @@
 
 var app = angular.module('coastlineWebApp', ['ui.router',
     'ngStorage',
-//    'ngRoute',
-//    'angular-loading-bar',
-    'coastlineWebApp.controllers',
-    'coastlineWebApp.services'
+    'coastlineWebApp.auth.controllers',
+    'coastlineWebApp.auth.services'
 ]);
 
 
@@ -18,23 +16,41 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
   // HOME STATES AND NESTED VIEWS ========================================
     .state('home', {
     url: '/',
-    templateUrl: '/views/buy-side/profileSelection.html'
+    templateUrl: '/views/tests/home.html'
   })
 
   // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
   .state('login', {
     url: '/login',
-    templateUrl: '/views/landing/login.html'
+    templateUrl: '/views/tests/login.html'
   })
 
   .state('signUp', {
     url: '/signUp',
-    templateUrl: '/views/landing/signUp.html'
+    templateUrl: '/views/tests/signUp.html'
   })
 
   .state('about', {
     url: '/about',
-    templateUrl: '/views/landing/about.html'
+    templateUrl: '/views/tests/about.html'
+  })
+
+  .state('account', {
+    url: '/account',
+    templateUrl: '/views/landing/about.html',
+    resolve: {
+      auth: ["$q", "authenticationSvc", function ($q, authService) {
+        var userInfo = authService.getUserInfo();
+
+        if (userInfo) {
+          return $q.when(userInfo);
+        } else {
+          return $q.reject({
+            authenticated: false
+          });
+        }
+    }]
+    }
   })
 
   .state('buyerWebApp', {
