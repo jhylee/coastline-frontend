@@ -21,9 +21,9 @@
   <script src="/lib/ngStorage.js"></script>
 
 
-  <script src="/js/app.js"></script>
-  <script src="/js/auth/controllers.js"></script>
-  <script src="/js/auth/services.js"></script>
+  <!--  <script src="/js/app.js"></script>-->
+  <!--  <script src="/js/auth/controllers.js"></script>-->
+  <!--  <script src="/js/auth/services.js"></script>-->
   <!--  <script src="/js/controllers/controllers.js"></script>-->
   <!--  <script src="/js/services/services.js"></script>-->
 
@@ -46,15 +46,86 @@
 
 <body ng-app="coastlineWebApp">
   <!--  <div ng-controller="authCtrl">-->
-  <div ui-view>
-    <h1>Something went wrong.</h1>
+  <!--<link rel="stylesheet" href="../../css/basestyles.css" type="text/css">-->
+  <link rel="stylesheet" href="/css/styles.css" type="text/css">
+  <div ng-controller="authCtrl">
+
+    <div class="container-fluid">
+      <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="navbar-header">
+            <div class="navbar-brand">
+              <a ui-sref="home">Coastline</a>
+
+            </div>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbar-collapse-1">
+
+            <ul class="nav navbar-nav navbar-left" role="search">
+              <li><a ui-sref="about">About</a>
+              </li>
+              <li><a href="#getting-started">Getting Started</a>
+              </li>
+              <li><a href="pricing">Pricing</a>
+              </li>
+              <li><a href="contact">Contact Us</a>
+              </li>
+            </ul>
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+
+            <ul class="nav navbar-nav navbar-right">
+
+              <li><a data-ng-show=$storage.token ui-sref="login">{{$storage.token[0]}}</a>
+              </li>
+              <li><a data-ng-show=$storage.token ui-sref="home">Logout</a>
+              </li>
+              <li><a data-ng-hide="$storage.token" ui-sref="login">Login</a>
+              </li>
+              <li><a data-ng-hide="$storage.token" ui-sref="signUp">Sign Up</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+        <!-- /.navbar-collapse -->
+      </nav>
+    </div>
+
+
+
+
+    <div class="container-fluid headerwrap">
+      <div class="container">
+        <div class="row">
+          <br>
+          <br>
+          <br>
+          <h1>Coastline</h1>
+          <h2>Fresh, Local Fish. Caught Daily.</h2>
+          </br>
+          <br>
+          </br>
+          </br>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid footerwrap">
+      <div class="container">
+        <div class="row">
+          </br>
+          <p>Fresh passion caught daily at <a href="http://www.poros.me">Poros.me</a>
+          </p>
+          </br>
+        </div>
+      </div>
+    </div>
+
   </div>
-  <div class="container">
-    <div class="headerwrap"></div>
-    <div class="content"></div>
-    <div class="footerwrap"></div>
-  </div>
-  <!--  </div>-->
 
 </body>
 

@@ -7,7 +7,7 @@ var app = angular.module('coastlineWebApp', ['ui.router',
 ]);
 
 
-app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
+app.config(function ($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider) {
 
   $urlRouterProvider.otherwise('/');
 
@@ -35,22 +35,22 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     templateUrl: '/views/tests/about.html'
   })
 
-  .state('account', {
-    url: '/account',
-    templateUrl: '/views/landing/about.html',
-    resolve: {
-      auth: ["$q", "authenticationSvc", function ($q, authService) {
-        var userInfo = authService.getUserInfo();
-
-        if (userInfo) {
-          return $q.when(userInfo);
-        } else {
-          return $q.reject({
-            authenticated: false
-          });
-        }
-    }]
-    }
+  .state('dashboard', {
+    url: '/dashboard',
+    templateUrl: '/views/tests/dashboard.html',
+    //    resolve: {
+    //      auth: ["$q", "authenticationSvc", function ($q, authService) {
+    //        var userInfo = authService.getUserInfo();
+    //
+    //        if (userInfo) {
+    //          return $q.when(userInfo);
+    //        } else {
+    //          return $q.reject({
+    //            authenticated: false
+    //          });
+    //        }
+    //    }]
+    //    }
   })
 
   .state('buyerWebApp', {
@@ -62,6 +62,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     url: '/webapp/seller',
     templateUrl: '/views/sell-side/sellerWebApp.html'
   })
+
 
   //  $httpProvider.interceptors.push(['$q', '$location', '$localStorage', function ($q, $location, $localStorage) {
   //    return {
