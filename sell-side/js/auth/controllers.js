@@ -21,7 +21,7 @@ angular.module('coastlineWebApp.auth.controllers', ['ui.router', 'ngStorage', 'c
 
 }])
 
-// CONTROLLER FOR LOGIN/LOGOUT 
+// CONTROLLER FOR LOGIN/LOGOUT
 .controller('loginCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'AuthService', function ($rootScope, $scope, $state, $location, $localStorage, AuthService) {
 
   //  if ($localStorage.token == undefined) {
@@ -29,9 +29,10 @@ angular.module('coastlineWebApp.auth.controllers', ['ui.router', 'ngStorage', 'c
   //
   //  }
 
+  $scope.isToken = AuthService.isAuthenticated();
+
   $scope.$storage = $localStorage;
 
-  $scope.isToken = !($scope.$storage.token === undefined || $scope.$storage.token === null);
 
   console.log("on creation");
   console.log("localStorage: " + $localStorage.token);

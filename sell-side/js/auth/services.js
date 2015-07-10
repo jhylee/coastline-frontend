@@ -40,6 +40,14 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage'])
     var token = "";
 
     return {
+      isAuthenticated: function() {
+        if ($localStorage.token === undefined || $localStorage.token === null) {
+          return false;
+        } else {
+          return true;
+        }
+      },
+
       signUpBuyer: function (data, success, error) {
         $http.post(baseUrl + '/users/signUp/buyer', data).success(success).error(error)
       },
@@ -65,7 +73,8 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage'])
         console.log("setting token: " + token + ", " + newToken);
         token = newToken;
         console.log("token now: " + token);
-      }
+      },
+      isLoggedIn : false
 
     };
 

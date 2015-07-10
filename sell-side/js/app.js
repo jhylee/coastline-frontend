@@ -9,58 +9,77 @@ var app = angular.module('coastlineWebApp', ['ui.router',
 
 app.config(function ($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider) {
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/dashboard');
 
   $stateProvider
 
   // HOME STATES AND NESTED VIEWS ========================================
-    .state('home', {
-    url: '/',
-    templateUrl: '/views/tests/home.html'
-  })
+  //   .state('home', {
+  //   url: '/',
+  //   templateUrl: '/sell-side/views/login.html'
+  // })
 
   // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
+
+  .state('dashboard', {
+    url: '/dashboard',
+  //  templateUrl: '/sell-side/views/dashboard.html',
+    data : {requireLogin : true },
+    views: {
+
+      'nav-top': {
+        templateUrl: '/sell-side/views/dashboard/nav-top.html'
+      },
+      'nav-side': {
+        templateUrl: '/sell-side/views/dashboard/nav-side.html'
+      },
+      'body': {
+        templateUrl: '/sell-side/views/dashboard/body.html'
+      },
+      'footer': {
+        templateUrl: '/sell-side/views/dashboard/footer.html'
+      },
+
+    }
+
+  })
+
+
   .state('login', {
     url: '/login',
-    templateUrl: '/views/tests/login.html'
+
+    views: {
+
+      'nav-top': {
+        templateUrl: '/sell-side/views/login/nav-top.html'
+      },
+      'nav-side': {
+        templateUrl: '/sell-side/views/login/nav-side.html'
+      },
+      'body': {
+        templateUrl: '/sell-side/views/login/body.html'
+      },
+      'footer': {
+        templateUrl: '/sell-side/views/login/footer.html'
+      },
+
+    }
+
   })
 
   .state('signUp', {
     url: '/signUp',
-    templateUrl: '/views/tests/signUp.html'
+    templateUrl: '/sell-side/views/signUp.html'
   })
 
   .state('about', {
     url: '/about',
-    templateUrl: '/views/tests/about.html'
-  })
-
-  .state('dashboard', {
-    url: '/dashboard',
-    templateUrl: '/views/tests/dashboard.html',
-    //    resolve: {
-    //      auth: ["$q", "authenticationSvc", function ($q, authService) {
-    //        var userInfo = authService.getUserInfo();
-    //
-    //        if (userInfo) {
-    //          return $q.when(userInfo);
-    //        } else {
-    //          return $q.reject({
-    //            authenticated: false
-    //          });
-    //        }
-    //    }]
-    //    }
-  })
-
-  .state('buyerWebApp', {
-    url: '/webapp/buyer',
-    templateUrl: '/views/buy-side/buyerWebApp.html'
+    templateUrl: '/sell-side/views/about.html'
   })
 
   .state('sellerWebApp', {
     url: '/webapp/seller',
-    templateUrl: '/views/sell-side/sellerWebApp.html'
+    templateUrl: '/sell-side/views/sell-side/sellerWebApp.html'
   })
 
 
@@ -83,6 +102,55 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider, $htt
   //    }]);
 
 
+})
+
+app.run(function ($rootScope, $state, $location, AuthService) {
+
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
+
+      console.log("beginning redirect logic");
+
+      var shouldLogin = toState.data !== undefined
+                    && toState.data.requireLogin
+                    && !AuthService.isAuthenticated() ;
+
+      // NOT authenticated - wants any private stuff
+      if(shouldLogin)
+      {
+        console.log(AuthService.isAuthenticated());
+        console.log("should login");
+        $state.go('login');
+        event.preventDefault();
+        return;
+      }
+
+
+      // authenticated (previously) comming not to root main
+      if(AuthService.isAuthenticated())
+      {
+        var shouldGoToMain = fromState.name === ""
+                          && toState.name !== "dashboard" ;
+
+        if (shouldGoToMain)
+        {
+            $state.go('dashboard');
+            event.preventDefault();
+        }
+        return;
+      }
+
+      // // UNauthenticated (previously) comming not to root public
+      // var shouldGoToPublic = fromState.name === ""
+      //                   && toState.name !== "login" ;
+      //
+      // if(shouldGoToPublic)
+      // {
+      //     $state.go('login');console.log('p')
+      //     event.preventDefault();
+      // }
+
+      // unmanaged
+    });
 });
 
 
