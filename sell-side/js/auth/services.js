@@ -74,7 +74,7 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage'])
         token = newToken;
         console.log("token now: " + token);
       },
-      isLoggedIn : false
+
 
     };
 
@@ -89,4 +89,44 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage'])
     //    };
 
   }
-]);
+])
+
+.factory('HttpInterceptorForToken', ['$rootScope', '$localStorage', function ($rootScope, $localStorage) {
+    return {
+      // request : function(config) {
+      //     console.log("intercepting");
+      //     var access_token = $localStorage.token;
+      //
+      //     if (access_token !== null && access_token !== undefined && access_token !== "") {
+      //         config.headers.Authorization = "Bearer " + access_token;
+      //     }
+      //     return config;
+      // },
+      //
+      // responseError : function(response) {
+      //     if (response.status === 401) {
+      //         $rootScope.$broadcast('unauthorized');
+      //     }
+      //     return response;
+      // },
+
+      request: function (config) {
+        config.headers = config.headers || {};
+        console.log("attaching token: " + $localStorage.token);
+        if ($localStorage.token) {
+          console.log("attaching token now");
+          config.headers.Authorization = 'Bearer ' + $localStorage.token;
+          console.log(config.headers.Authorization);
+        }
+        return config;
+      },
+
+      response: function (response) {
+        if (response.status === 401) {
+          // handle the case where the user is not authenticated
+        }
+        return response || $q.when(response);
+      }
+
+    }
+}])

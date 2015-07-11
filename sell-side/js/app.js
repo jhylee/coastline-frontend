@@ -3,7 +3,9 @@
 var app = angular.module('coastlineWebApp', ['ui.router',
     'ngStorage',
     'coastlineWebApp.auth.controllers',
-    'coastlineWebApp.auth.services'
+    'coastlineWebApp.auth.services',
+    'coastlineWebApp.dashboard.controllers',
+    'coastlineWebApp.dashboard.services'
 ]);
 
 
@@ -39,8 +41,7 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider, $htt
       'footer': {
         templateUrl: '/sell-side/views/dashboard/footer.html'
       },
-
-    }
+    },
 
   })
 
@@ -81,6 +82,8 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider, $htt
     url: '/webapp/seller',
     templateUrl: '/sell-side/views/sell-side/sellerWebApp.html'
   })
+
+  $httpProvider.interceptors.push('HttpInterceptorForToken');
 
 
   //  $httpProvider.interceptors.push(['$q', '$location', '$localStorage', function ($q, $location, $localStorage) {
