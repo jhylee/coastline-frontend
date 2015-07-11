@@ -1,13 +1,27 @@
 angular.module('coastlineWebApp.dashboard.services', ['ngStorage'])
 
-.factory('NavTopService', ['$http', '$localStorage', function ($http, $localStorage) {
+.factory('DashboardService', ['$http', '$localStorage', function ($http, $localStorage) {
     var baseUrl = "http://localhost:3000";
     var token = "";
 
     return {
-      firstName: function (success, error) {
-        var response = $http.get(baseUrl + '/api/seller/account/firstName').success(success).error(error)
-        console.log(response);
+      accountDetails: function () {
+        $http.get(baseUrl + '/api/seller/account/details')
+
+        .success(function (res) {
+          console.log ("res: " + res.firstName);
+          return res;
+        })
+
+        .error(function (err) {
+          console.log ("err: " + err);
+
+          // TODO - account for error connecting
+
+          return err;
+        })
+
+
       },
     };
 
