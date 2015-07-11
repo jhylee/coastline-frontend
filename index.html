@@ -10,7 +10,7 @@
 
   <!-- Bootstrap -->
   <link rel="stylesheet" href="/lib/bootstrap.min.css">
-  <!--  <link rel="stylesheet" href="css/landingstyles.css">-->
+    <link rel="stylesheet" href="common/css/styles.css">
   <!--    <link rel="stylesheet" href="assets/css/vex.css" />-->
   <!--    <link rel="stylesheet" href="assets/css/vex-theme-os.css" />-->
 
@@ -40,17 +40,49 @@
     <![endif]-->
 </head>
 
-<body ng-app="coastlineWebApp">
+<body >
   <!--  <div ng-controller="authCtrl">-->
-  <div ui-view>
-    <h1>Something went wrong.</h1>
-  </div>
-    <div class="container">
-        <div class="headerwrap"></div>
-        <div class="content"></div>
-        <div class="footerwrap"></div>
+
+
+    <div class="container-fluid">
+      <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="navbar-header">
+            <div class="navbar-brand">
+              <a href="/sell-side/index.html">Coastline</a>
+
+            </div>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbar-collapse-1">
+
+            <ul class="nav navbar-nav navbar-left" role="search">
+              <li><a ui-sref="#about">About</a>
+              </li>
+              <li><a href="#getting-started">Getting Started</a>
+              </li>
+              <li><a href="#contact">Contact Us</a>
+              </li>
+            </ul>
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+
+            <ul class="nav navbar-nav navbar-right">
+
+              <li><a href="landing/login.html">Login</a>
+              </li>
+              <li><a href="landing/signUp.html">Sign Up</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+        <!-- /.navbar-collapse -->
+      </nav>
     </div>
-  <!--  </div>-->
+
 
 </body>
 

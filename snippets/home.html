@@ -1,5 +1,8 @@
 <!--<link rel="stylesheet" href="../../css/basestyles.css" type="text/css">-->
 <link rel="stylesheet" href="/css/styles.css" type="text/css">
+
+
+
 <div ng-controller="authCtrl">
 
   <div class="container-fluid">
@@ -26,18 +29,19 @@
             <li><a href="contact">Contact Us</a>
             </li>
           </ul>
+          
 
           <!-- Brand and toggle get grouped for better mobile display -->
 
           <ul class="nav navbar-nav navbar-right">
 
-            <li><a data-ng-show=$storage.token ui-sref="login">{{$storage.token[0]}}</a>
+            <li><a data-ng-show="isToken" ui-sref="dashboard">Dashboard</a>
             </li>
-            <li><a data-ng-show=$storage.token ui-sref="home">Logout</a>
+            <li><a data-ng-show="isToken" href="#" ng-click="logout()">Logout</a>
             </li>
-            <li><a data-ng-hide="$storage.token" ui-sref="login">Login</a>
+            <li><a data-ng-hide="isToken" ui-sref="login">Login</a>
             </li>
-            <li><a data-ng-hide="$storage.token" ui-sref="signUp">Sign Up</a>
+            <li><a data-ng-hide="isToken" ui-sref="signUp">Sign Up</a>
             </li>
 
           </ul>
