@@ -1,0 +1,339 @@
+@import url('http://fonts.googleapis.com/css?family=Raleway');
+@import url('http://fonts.googleapis.com/css?family=Josefin+Slab');
+@import url('http://fonts.googleapis.com/css?family=Lobster');
+$brown: #484041;
+$red: #386075;
+$off-white: #F2F2F2;
+$very-light-brown: #a5a5a5;
+$black: #000000;
+$grey: #333;
+$navbar-height: 5em;
+$border-color: #D5D5D5;
+$navbar-font:"Raleway";
+$header-font:"Raleway";
+$body-font:$header-font;
+$green: #60b044;
+body {
+  background-color: #FFF;
+  font-family: "Open Sans", serif;
+  line-height: 2em;
+}
+
+h1 {
+  font-family: $header-font;
+  font-size: 4em;
+  text-align: center;
+  line-height: 5em;
+}
+
+h2 {
+  font-family: $header-font;
+  font-size: 2em;
+  text-align: center;
+  line-height: 2.5em;
+}
+
+p {
+  font-family: $body-font;
+  font-size: 1.25em;
+  //text-align: center;
+}
+
+nav {
+  background-color: $red;
+  font-family: $navbar-font;
+  //    height: $navbar-height;
+  .navbar-header {
+    height: $navbar-height
+  }
+  .navbar-brand {
+    padding-top: 0;
+    display: block;
+    a {
+      color: $off-white;
+      line-height: $navbar-height;
+      height: $navbar-height;
+      padding-top: 0;
+      &:hover, &:focus {
+        color: black;
+        background-color: $red;
+        text-decoration: none
+      }
+    }
+  }
+  .navbar-nav {
+    a {
+      color: $off-white;
+      line-height: $navbar-height;
+      height: $navbar-height;
+      padding-top: 0;
+      font-size: 1.25em;
+      &:hover, &:focus {
+        color: black;
+        background-color: $red
+      }
+    }
+  }
+  .navbar-left {
+    float: left;
+  }
+  .navbar-right {
+    float: right;
+  }
+}
+
+.headerwrap {
+  background: url("/img/header.jpg") center;
+  //background: url("../images/header.jpg") center;
+  //padding-top: $navbar-height;
+  background-size: 100%;
+}
+
+.redwrap {
+  background-color: $red;
+  line-height: $navbar-height;
+}
+
+.wrap1 {
+  background-color: $off-white;
+  border-bottom: solid;
+  border-top: solid;
+  border-width: thin;
+  border-color: #D5D5D5;
+  height: 100%;
+  p {}
+  .wrap2 {
+    background-color: #FFF;
+  }
+  .footerwrap {
+    background-color: $red;
+    text-align: center;
+    p {
+      color: $off-white;
+    }
+    a {
+      color: $off-white;
+      text-underline-position: below;
+    }
+  }
+}
+
+.auth-form {
+  width: 400px;
+  margin: 60px auto;
+  padding-top: 60px;
+  //margin-right: auto;
+  padding-bottom: 60px;
+  //margin-left: auto;
+  .auth-form-header {
+    position: relative;
+    padding: 10px 20px;
+    margin: 0;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+    background-color: $red;
+    border: 1px solid $border-color;
+    border-radius: 3px 3px 0 0;
+    h2 {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 16px;
+    }
+  }
+}
+
+.auth-form-body {
+  padding: 20px;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #d8dee2;
+  border-top: 0;
+  border-radius: 0 0 3px 3px;
+  label {
+    font-size: 13px;
+    font-weight: bold;
+    font-family: $body-font;
+  }
+  input {
+    font-family: $body-font;
+    font-size: 13px;
+  }
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 20px;
+  color: $grey;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: $green;
+  background-image: -webkit-linear-gradient(#fcfcfc, #eee);
+  background-image: linear-gradient(#fcfcfc, #eee);
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: none;
+  font-family: $body-font;
+}
+
+.img {
+  display: block;
+  max-height: inherit;
+  max-width: inherit;
+  margin: auto;
+}
+
+.selection {
+  padding-top: 8em;
+  .panel-primary {
+    font-family: $body-font;
+    border-color: $red;
+    .panel-heading {
+      background-color: $red;
+    }
+    .panel-body {
+      background-color: $off-white;
+      font-weight: bolder;
+    }
+    .form-group {
+      display: inline-block;
+      vertical-align: middle;
+      padding-bottom: 0.75em;
+      //      .form-element-inline {
+      //        margin: 0 20px
+      //      }
+    }
+    p {
+      color: black;
+      font-size: 1em;
+      opacity: 1;
+    }
+  }
+  .seller-profile {
+    max-height: 100%;
+    height: 100%;
+    background-color: black;
+    p {
+      color: beige;
+      opacity: 1;
+    }
+  }
+  .body {
+    min-height: 100%;
+  }
+}
+
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
