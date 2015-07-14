@@ -3,10 +3,15 @@ var jshint = require('gulp-jshint');
 var connect = require('gulp-connect');
 var sass = require('gulp-sass');
 
-gulp.task('process-js', function() {
+gulp.task('lint ', function() {
   return gulp.src(['src/buy-side/**/*.js', 'src/common/**/*.js', 'src/landing/**/*.js', 'src/sell-side/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
+    .pipe(gulp.dest('build/'))
+});
+
+gulp.task('process-js', function() {
+  return gulp.src('src/**/*.js')
     .pipe(gulp.dest('build/'))
 });
 

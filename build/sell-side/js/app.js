@@ -79,7 +79,7 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider, $htt
   .state('sellerWebApp', {
     url: '/webapp/seller',
     templateUrl: '/sell-side/views/sell-side/sellerWebApp.html'
-  })
+  });
 
   $httpProvider.interceptors.push('HttpInterceptorForToken');
 
@@ -103,7 +103,7 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider, $htt
   //    }]);
 
 
-})
+});
 
 app.run(function ($rootScope, $state, $location, AuthService) {
 
@@ -111,9 +111,7 @@ app.run(function ($rootScope, $state, $location, AuthService) {
 
       console.log("beginning redirect logic");
 
-      var shouldLogin = toState.data !== undefined
-                    && toState.data.requireLogin
-                    && !AuthService.isAuthenticated() ;
+      var shouldLogin = toState.data !== undefined && toState.data.requireLogin && !AuthService.isAuthenticated();
 
       // NOT authenticated - wants any private stuff
       if(shouldLogin)
@@ -129,8 +127,7 @@ app.run(function ($rootScope, $state, $location, AuthService) {
       // authenticated (previously) comming not to root main
       if(AuthService.isAuthenticated())
       {
-        var shouldGoToMain = fromState.name === ""
-                          && toState.name !== "dashboard" ;
+        var shouldGoToMain = fromState.name === "" && toState.name !== "dashboard" ;
 
         if (shouldGoToMain)
         {

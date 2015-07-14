@@ -1,26 +1,26 @@
-<div ng-controller=bodyCtrl class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <h1 class="page-header">{{username}}</h1>
+<div ng-controller="bodyCtrl" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h1 class="page-header">{{details.username}}</h1>
 
   <div class="row placeholders">
     <div class="col-xs-6 col-sm-3 placeholder">
       <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
       <h4>Label</h4>
-      <span class="text-muted">{{firstName}}</span>
+      <span class="text-muted">{{details.firstName}}</span>
     </div>
     <div class="col-xs-6 col-sm-3 placeholder">
       <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
       <h4>Label</h4>
-      <span class="text-muted">{{lastName}}</span>
+      <span class="text-muted">{{details.lastName}}</span>
     </div>
     <div class="col-xs-6 col-sm-3 placeholder">
       <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
       <h4>Label</h4>
-      <span class="text-muted">{{email}}</span>
+      <span class="text-muted">{{details.email}}</span>
     </div>
     <div class="col-xs-6 col-sm-3 placeholder">
       <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-      <h4>Label</h4>
-      <span class="text-muted">{{phoneNumber}}</span>
+      <h4>{{details.phoneNumber}}</h4>
+      <span class="text-muted">{{details.phoneNumber}}</span>
     </div>
   </div>
 

@@ -114,4 +114,4 @@ angular.module('coastlineWebApp.auth.controllers', ['ui.router', 'ngStorage', 'c
     });
   };
 
-}])
+}]);

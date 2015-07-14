@@ -5,25 +5,12 @@ angular.module('coastlineWebApp.dashboard.services', ['ngStorage'])
     var token = "";
 
     return {
-      accountDetails: function () {
-        $http.get(baseUrl + '/api/seller/account/details')
-
-        .success(function (res) {
-          console.log ("res: " + res.firstName);
-          return res;
-        })
-
-        .error(function (err) {
-          console.log ("err: " + err);
-
-          // TODO - account for error connecting
-
-          return err;
-        })
-
-
+      accountDetails: function (success, error) {
+        $http.get(baseUrl + '/api/seller/account/details').success(success).error(error);
       },
+      orders: function (success, error) {
+        $http.get(baseUrl + '/api/seller/account/details').success(success).error(error);
+      }
     };
-
   }
 ]);
