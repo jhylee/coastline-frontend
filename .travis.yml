@@ -1,9 +1,16 @@
 language: node_js
 node_js:
-  - "0.12"
-  - "0.11"
-  - "0.10"
-  - "0.8"
-  - "0.6"
-  - "iojs"
-  - "iojs-v1.0.4" 
+- '0.12'
+- '0.11'
+- '0.10'
+- '0.8'
+- '0.6'
+- iojs
+- iojs-v1.0.4
+env:
+  global:
+  - secure: ASZcsMZBRZIHMQqirPXrwwBs6P7uX4m8CVGLZcQ7UE7Y1mmI98Xf+6BN+I6Qqc7sQ6zn5JG+UZas/N1jTqaO3FteX4loklS6kmdouQ2W/zRmicWWiA/Oc6liCr+4YAyWy6Imrf6exa1K+dkYoc3dE2VViM1gH4GyvilMmixcMzQ=
+  - secure: ipuulTYU2uD3rhiX5XiI8WSEGjSdRzlXLUTh3ErnWEOuJOLQOqrIQ8M2A+sit3iB2wqZ9uvKm93riZwC46IA4vVB+dUm/DrYLpWZoCTEZxltcqA/DMMWDJjgyo1CnDEPqaQtIGuKWcwgq7iILpGDbJn+HtuI3/inv5HZExDKO9E=
+
+after_success:
+    "curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASSWORD ftp://162.243.187.9/home/abdul/coastline-frontend"

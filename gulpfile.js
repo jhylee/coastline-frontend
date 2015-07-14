@@ -2,6 +2,9 @@ var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var connect = require('gulp-connect');
 var sass = require('gulp-sass');
+var replace = require('gulp-replace-task');
+var args = require('yargs').argv;
+var fs = require('fs');
 
 gulp.task('lint ', function() {
   return gulp.src(['src/buy-side/**/*.js', 'src/common/**/*.js', 'src/landing/**/*.js', 'src/sell-side/**/*.js'])
@@ -10,10 +13,28 @@ gulp.task('lint ', function() {
     .pipe(gulp.dest('build/'))
 });
 
-gulp.task('process-js', function() {
-  return gulp.src('src/**/*.js')
-    .pipe(gulp.dest('build/'))
-});
+gulp.task('process-js', function () {
+  // Get the environment from the command line
+  var env = args.env || 'localdev';
+
+  // Read the settings from the right file
+  var filename = env + '.json';
+  var settings = JSON.parse(fs.readFileSync('./config/' + filename, 'utf8'));
+
+  // Replace each placeholder with the correct value for the variable.
+  gulp.src('src/**/*.js')
+    .pipe(replace({
+      patterns: [
+        {
+          match: 'apiUrl',
+          replacement: settings.apiUrl
+        }
+      ]
+    }))
+    .pipe(gulp.dest('build/'));
+  }
+);
+
 
 gulp.task('process-html', function() {
   return gulp.src('src/**/*.html')

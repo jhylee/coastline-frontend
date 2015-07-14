@@ -1,7 +1,7 @@
-angular.module('coastlineWebApp.dashboard.services', ['ngStorage'])
+angular.module('coastlineWebApp.dashboard.services', ['ngStorage','coastlineConstants'])
 
-.factory('DashboardService', ['$http', '$localStorage', function ($http, $localStorage) {
-    var baseUrl = "http://localhost:3000";
+.factory('DashboardService', ['$http', '$localStorage', 'apiUrl', function ($http, $localStorage, apiUrl) {
+    var baseUrl = apiUrl;
     var token = "";
 
     return {

@@ -151,6 +151,8 @@ app.run(function ($rootScope, $state, $location, AuthService) {
     });
 });
 
+angular.module('coastlineConstants',[])
+  .constant('apiUrl', '@@apiUrl');
 
 //app.controller('authCtrl', ['$rootScope', '$scope', '$location', '$localStorage', 'Main', function ($rootScope, $scope, $location, $localStorage, Main) {
 //

@@ -1,4 +1,4 @@
-angular.module('coastlineWebApp.auth.services', ['ngStorage'])
+angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants'])
 
 
 //.factory("AuthService", function ($http, $q, $window) {
@@ -35,8 +35,8 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage'])
 //  };
 //})
 
-.factory('AuthService', ['$http', '$localStorage', function ($http, $localStorage) {
-    var baseUrl = "http://localhost:3000";
+.factory('AuthService', ['$http', '$localStorage', 'apiUrl', function ($http, $localStorage, apiUrl) {
+    var baseUrl = apiUrl;
     var token = "";
 
     return {
