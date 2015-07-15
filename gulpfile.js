@@ -15,10 +15,10 @@ gulp.task('lint ', function() {
 
 gulp.task('process-js', function () {
   // Get the environment from the command line
-  var env = args.env || 'localdev';
+  var env = args.gulpEnv || 'localdev';
 
   // Read the settings from the right file
-  var filename = env + '.json';
+  var filename = gulpEnv + '.json';
   var settings = JSON.parse(fs.readFileSync('./config/' + filename, 'utf8'));
 
   // Replace each placeholder with the correct value for the variable.
