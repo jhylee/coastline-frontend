@@ -39,25 +39,27 @@
 </head>
 
 <body ng-app="coastlineWebApp">
-  <!--  <div ng-controller="authCtrl">-->
-  <div ui-view="nav-top">
-    <!-- <h1>top nav</h1> -->
-  </div>
+  <div ng-controller="dashboardCtrl">
+    <!--  <div ng-controller="authCtrl">-->
+    <div ui-view="nav-top">
+      <!-- <h1>top nav</h1> -->
+    </div>
 
-  <div class="container-fluid">
-    <div class="row">
-      <div ui-view="nav-side">
-        <!-- <h1>side nav</h1> -->
-      </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div ui-view="nav-side">
+          <!-- <h1>side nav</h1> -->
+        </div>
 
-      <div ui-view="body">
-        <h1>body</h1>
+        <div ui-view="body">
+          <h1>body</h1>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div ui-view="footer">
-    <p><center>footer</center></p>
+    <div ui-view="footer">
+      <p><center>footer</center></p>
+    </div>
   </div>
 
 

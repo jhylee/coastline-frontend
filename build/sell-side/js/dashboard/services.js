@@ -9,7 +9,7 @@ angular.module('coastlineWebApp.dashboard.services', ['ngStorage','coastlineCons
         $http.get(baseUrl + '/api/seller/account/details').success(success).error(error);
       },
       orders: function (success, error) {
-        $http.get(baseUrl + '/api/seller/account/details').success(success).error(error);
+        $http.get(baseUrl + '/api/seller/orders').success(success).error(error);
       }
     };
   }

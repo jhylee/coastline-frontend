@@ -1,12 +1,12 @@
 <div class="col-sm-3 col-md-2 sidebar">
   <ul class="nav nav-sidebar">
-    <li ><a href="#">Home</a>
+    <li ng-click="setToHome()" ng-class="homeStyle"><a href="javascript:void(0)">Home</a>
     </li>
-    <li class="active"><a href="#">My Orders <span class="sr-only">(current)</span></a>
+    <li ng-click="setToOrders()" ng-class="ordersStyle"><a href="javascript:void(0)">My Orders</a>
     </li>
-    <li><a href="#">My Store</a>
+    <li ng-click="setToStore()" ng-class="storeStyle"><a href="javascript:void(0)">My Store</a>
     </li>
-    <li><a href="#">My Messages</a>
+    <li ng-click="setToMessages()" ng-class="messagesStyle"><a href="javascript:void(0)">My Messages</a>
     </li>
   </ul>
 </div>
