@@ -44,6 +44,7 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
     $scope.ordersStyle = "";
     $scope.storeStyle = "active";
     $scope.messagesStyle = "";
+    
 
     console.log('go to store');
 
