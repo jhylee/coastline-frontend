@@ -62,7 +62,7 @@ gulp.task('watch', function() {
 gulp.task('connect', function () {
   connect.server({
     root: 'build/',
-    port: 8000
+    port: process.env.PORT || 8000
   });
 });
 
