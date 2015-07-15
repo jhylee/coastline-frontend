@@ -15,7 +15,7 @@ gulp.task('lint ', function() {
 
 gulp.task('process-js', function () {
   // Get the environment from the command line
-  var env = args.gulpEnv || 'localdev';
+  var gulpEnv = args.gulpEnv || 'localdev';
 
   // Read the settings from the right file
   var filename = gulpEnv + '.json';
