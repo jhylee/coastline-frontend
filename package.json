@@ -4,9 +4,9 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "npm install -g gulp; npm install; gulp --gulpEnv remotedev",
+    "test": "npm install -g gulp; npm install; gulp",
 
-    "start": "npm install -g gulp; npm install;  gulp --gulpEnv remotedev"
+    "start": "npm install -g gulp; npm install;  gulp "
   },
   "repository": {
     "type": "git",
