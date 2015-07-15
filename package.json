@@ -5,7 +5,8 @@
   "main": "gulpfile.js",
   "scripts": {
     "test": "npm install -g gulp; npm install; gulp --env localdev",
-    "start": "npm install -g gulp; npm install;  gulp --env localdev"
+    
+    "start": "npm install -g gulp; npm install;  gulp --env remotedev"
   },
   "repository": {
     "type": "git",
