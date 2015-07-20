@@ -1,224 +1,300 @@
-
-<div ng-switch on="selection">
-
-    <!-- HOME -->
-  <div ng-switch-default>
-    <div ng-controller="ordersCtrl" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-      <h1 class="page-header">Home</h1>
-
-      <div class="row placeholders">
-        <div class="col-xs-6 col-sm-3 placeholder">
-          <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-          <h4>Label</h4>
-          <span class="text-muted">{{details.firstName}}</span>
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Joseph's Store</h1>
         </div>
-        <div class="col-xs-6 col-sm-3 placeholder">
-          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-          <h4>Label</h4>
-          <span class="text-muted">{{details.lastName}}</span>
-        </div>
-        <div class="col-xs-6 col-sm-3 placeholder">
-          <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-          <h4>Label</h4>
-          <span class="text-muted">{{details.email}}</span>
-        </div>
-        <div class="col-xs-6 col-sm-3 placeholder">
-          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-          <h4>{{details.phoneNumber}}</h4>
-          <span class="text-muted">{{details.phoneNumber}}</span>
-        </div>
-      </div>
-
-      <h2 class="sub-header">Section title</h2>
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Product Name</th>
-              <th>Customer Name</th>
-              <th>Product(s)</th>
-              <th>Reference #</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="order in orders track by $index">
-              <td>{{$index + 1}}</td>
-              <td>{{order.productName}}</td>
-              <td>{{order.buyerName}}</td>
-              <td>{{order.productQuantity}}</td>
-              <td>{{order._id}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <!-- /.col-lg-12 -->
     </div>
-  </div>
-
-    <!-- MY ORDERS -->
-    <div ng-switch-when="orders">
-
-      <div ng-controller="ordersCtrl" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h1 class="page-header">My Orders</h1>
-
-        <div class="row placeholders">
-          <div class="col-xs-6 col-sm-3 placeholder">
-            <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>Label</h4>
-            <span class="text-muted">{{details.firstName}}</span>
-          </div>
-          <div class="col-xs-6 col-sm-3 placeholder">
-            <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>Label</h4>
-            <span class="text-muted">{{details.lastName}}</span>
-          </div>
-          <div class="col-xs-6 col-sm-3 placeholder">
-            <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>Label</h4>
-            <span class="text-muted">{{details.email}}</span>
-          </div>
-          <div class="col-xs-6 col-sm-3 placeholder">
-            <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>{{details.phoneNumber}}</h4>
-            <span class="text-muted">{{details.phoneNumber}}</span>
-          </div>
+    <!-- /.row -->
+    <div class="row">
+<!--
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-comments fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">26</div>
+                            <div>New Reviews!</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
         </div>
+-->
 
-        <h2 class="sub-header">Section title</h2>
-        <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Product Name</th>
-                <th>Customer Name</th>
-                <th>Product(s)</th>
-                <th>Reference #</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="order in orders track by $index">
-                <td>{{$index + 1}}</td>
-                <td>{{order.productName}}</td>
-                <td>{{order.buyerName}}</td>
-                <td>{{order.productQuantity}}</td>
-                <td>{{order._id}}</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-tasks fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">2470</div>
+                            <div>New Inventory!</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="inventory.html">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
         </div>
-      </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-money fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">124</div>
+                            <div>New Orders!</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="tables.html">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-red">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-gear fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">13</div>
+                            <div>Support Tickets!</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="blank.html">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
+    <!-- /.row -->
+    <div class="row">
 
-    <!-- MY STORE -->
-  <div ng-switch-when="store">
 
-    <div ng-controller="ordersCtrl" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-      <h1 class="page-header">My Store</h1>
 
-      <div class="row placeholders">
-        <div class="col-xs-6 col-sm-3 placeholder">
-          <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-          <h4>Label</h4>
-          <span class="text-muted">{{details.firstName}}</span>
-        </div>
-        <div class="col-xs-6 col-sm-3 placeholder">
-          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-          <h4>Label</h4>
-          <span class="text-muted">{{details.lastName}}</span>
-        </div>
-        <div class="col-xs-6 col-sm-3 placeholder">
-          <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-          <h4>Label</h4>
-          <span class="text-muted">{{details.email}}</span>
-        </div>
-        <div class="col-xs-6 col-sm-3 placeholder">
-          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-          <h4>{{details.phoneNumber}}</h4>
-          <span class="text-muted">{{details.phoneNumber}}</span>
-        </div>
-      </div>
+        <div class="col-lg-8">
 
-      <h2 class="sub-header">Section title</h2>
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Product Name</th>
-              <th>Customer Name</th>
-              <th>Product(s)</th>
-              <th>Reference #</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="order in orders track by $index">
-              <td>{{$index + 1}}</td>
-              <td>{{order.productName}}</td>
-              <td>{{order.buyerName}}</td>
-              <td>{{order.productQuantity}}</td>
-              <td>{{order._id}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-credit-card fa-fw"></i> Recent Transactions<br><br>
+
+                   <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Date</th>
+                                            <th>Quantity</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Lobster</td>
+                                            <td>10/21/2015</td>
+                                            <td>16</td>
+                                            <td>$321.33</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Salmon</td>
+                                            <td>10/21/2015</td>
+                                            <td>4</td>
+                                            <td>$234.34</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Drugz</td>
+                                            <td>10/21/2015</td>
+                                            <td>100</td>
+                                            <td>$72021344.17</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tuna</td>
+                                            <td>10/21/2015</td>
+                                            <td>47</td>
+                                            <td>$339.71</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bass</td>
+                                            <td>10/21/2015</td>
+                                            <td>1300</td>
+                                            <td>$8345.23</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Flounder</td>
+                                            <td>10/21/2015</td>
+                                            <td>20</td>
+                                            <td>$245.12</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Dungeness Crab</td>
+                                            <td>10/21/2015</td>
+                                            <td>17</td>
+                                            <td>$943.45</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                </div>
+            </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-check fa-fw"></i> My Recent Catches<br><br>
+
+                   <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Date</th>
+                                            <th>Quantity</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Lobster</td>
+                                            <td>10/20/2015</td>
+                                            <td>160</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>Salmon</td>
+                                            <td>10/19/2015</td>
+                                            <td>400</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>Tuna</td>
+                                            <td>10/18/2015</td>
+                                            <td>150</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>Bass</td>
+                                            <td>10/17/2015</td>
+                                            <td>1500</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>Flounder</td>
+                                            <td>10/17/2015</td>
+                                            <td>150</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>Dungeness Crab</td>
+                                            <td>10/17/2015</td>
+                                            <td>150</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bell fa-fw"></i> Notifications Panel
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">
+                            <i class="fa fa-comment fa-fw"></i> New Comment
+                            <span class="pull-right text-muted small"><em>4 minutes ago</em>
+                            </span>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                            <span class="pull-right text-muted small"><em>12 minutes ago</em>
+                            </span>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <i class="fa fa-envelope fa-fw"></i> Message Sent
+                            <span class="pull-right text-muted small"><em>27 minutes ago</em>
+                            </span>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <i class="fa fa-tasks fa-fw"></i> New Task
+                            <span class="pull-right text-muted small"><em>43 minutes ago</em>
+                            </span>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                            <span class="pull-right text-muted small"><em>11:32 AM</em>
+                            </span>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <i class="fa fa-bolt fa-fw"></i> Server Crashed!
+                            <span class="pull-right text-muted small"><em>11:13 AM</em>
+                            </span>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <i class="fa fa-warning fa-fw"></i> Server Not Responding
+                            <span class="pull-right text-muted small"><em>10:57 AM</em>
+                            </span>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
+                            <span class="pull-right text-muted small"><em>9:49 AM</em>
+                            </span>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <i class="fa fa-money fa-fw"></i> Payment Received
+                            <span class="pull-right text-muted small"><em>Yesterday</em>
+                            </span>
+                        </a>
+                    </div>
+                    <!-- /.list-group -->
+                    <a href="#" class="btn btn-default btn-block">View All Alerts</a>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+
+
+        </div>
+        <!-- /.col-lg-4 -->
     </div>
-  </div>
-
-
-    <!-- MY MESSAGES -->
-  <div ng-switch-when="messages">
-
-    <div  ng-controller="ordersCtrl" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-      <h1 class="page-header">My Messages</h1>
-
-      <div class="row placeholders">
-        <div class="col-xs-6 col-sm-3 placeholder">
-          <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-          <h4>Label</h4>
-          <span class="text-muted">{{details.firstName}}</span>
-        </div>
-        <div class="col-xs-6 col-sm-3 placeholder">
-          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-          <h4>Label</h4>
-          <span class="text-muted">{{details.lastName}}</span>
-        </div>
-        <div class="col-xs-6 col-sm-3 placeholder">
-          <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-          <h4>Label</h4>
-          <span class="text-muted">{{details.email}}</span>
-        </div>
-        <div class="col-xs-6 col-sm-3 placeholder">
-          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-          <h4>{{details.phoneNumber}}</h4>
-          <span class="text-muted">{{details.phoneNumber}}</span>
-        </div>
-      </div>
-
-      <h2 class="sub-header">Section title</h2>
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Product Name</th>
-              <th>Customer Name</th>
-              <th>Product(s)</th>
-              <th>Reference #</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="order in orders track by $index">
-              <td>{{$index + 1}}</td>
-              <td>{{order.productName}}</td>
-              <td>{{order.buyerName}}</td>
-              <td>{{order.productQuantity}}</td>
-              <td>{{order._id}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
+    <!-- /.row -->
 </div>
