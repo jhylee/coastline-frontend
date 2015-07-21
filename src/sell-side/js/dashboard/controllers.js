@@ -5,21 +5,21 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
   $scope.$storage = $localStorage;
 
   $scope.items = ['home', 'orders', 'products', 'add-product'];
-  $scope.selection = 1;
 
   console.log("hi");
 
   $scope.getStyle = function (index) {
-    if (index == $scope.selection) return "active";
+    if (index == DashboardService.getSelection()) return "active";
     else return "";
   };
 
   $scope.setSelection = function (index) {
-    $scope.selection = index;
-    console.log($scope.selection);
+    DashboardService.setSelection(index);
   };
 
-
+  $scope.getSelection = function () {
+    return DashboardService.getSelection();
+  };
 
 }])
 
@@ -87,7 +87,7 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
 
 
     DashboardService.addProduct(formData, function (res) {
-
+        DashboardService.setSelection(2);
       },
       function (err) {
         console.log(err);

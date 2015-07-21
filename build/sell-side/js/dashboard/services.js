@@ -3,6 +3,8 @@ angular.module('coastlineWebApp.dashboard.services', ['ngStorage','coastlineCons
 .factory('DashboardService', ['$http', '$localStorage', 'apiUrl', function ($http, $localStorage, apiUrl) {
     var baseUrl = apiUrl;
     var token = "";
+    var selection = 0;
+
 
     return {
       accountDetails: function (success, error) {
@@ -13,6 +15,12 @@ angular.module('coastlineWebApp.dashboard.services', ['ngStorage','coastlineCons
       },
       products: function (success, error) {
         $http.get(baseUrl + '/api/sell-side/products').success(success).error(error);
+      },
+      setSelection: function (index) {
+        selection = index;
+      },
+      getSelection: function (index) {
+        return selection;
       },
       addProduct: function (formData, success, error) {
         console.log("service");
