@@ -4,75 +4,33 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
 
   $scope.$storage = $localStorage;
 
-  $scope.items = ['home', 'orders', 'store', 'messages'];
-  $scope.selection = $scope.items[0];
+  $scope.items = ['home', 'orders', 'products', 'add-product'];
+  $scope.selection = 1;
 
-  $scope.homeStyle = "active";
-  $scope.ordersStyle = "";
-  $scope.storeStyle = "";
-  $scope.messagesStyle = "";
+  console.log("hi");
 
-
-  $scope.setToHome = function() {
-    $scope.selection = $scope.items[0];
-
-    $scope.homeStyle = "active";
-    $scope.ordersStyle = "";
-    $scope.storeStyle = "";
-    $scope.messagesStyle = "";
-
-    console.log('go to home');
-
+  $scope.getStyle = function (index) {
+    if (index == $scope.selection) return "active";
+    else return "";
   };
 
-  $scope.setToOrders = function() {
-    $scope.selection = $scope.items[1];
-
-    $scope.homeStyle = "";
-    $scope.ordersStyle = "active";
-    $scope.storeStyle = "";
-    $scope.messagesStyle = "";
-
-    console.log('go to orders');
-
+  $scope.setSelection = function (index) {
+    $scope.selection = index;
+    console.log($scope.selection);
   };
 
-  $scope.setToStore = function() {
-    $scope.selection = $scope.items[2];
-
-    $scope.homeStyle = "";
-    $scope.ordersStyle = "";
-    $scope.storeStyle = "active";
-    $scope.messagesStyle = "";
-    
-
-    console.log('go to store');
-
-  };
-
-  $scope.setToMessages = function() {
-    $scope.selection = $scope.items[3];
-
-    $scope.homeStyle = "";
-    $scope.ordersStyle = "";
-    $scope.storeStyle = "";
-    $scope.messagesStyle = "active";
-
-    console.log('go to messages');
-
-  };
 
 
 }])
 
-.controller('ordersCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService) {
+.controller('transactionsCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService) {
 
   $scope.$storage = $localStorage;
 
-  DashboardService.orders(
+  DashboardService.transactions(
     function (res) {
-      $scope.orders = res;
-      console.log ("res: " + $scope.orders);
+      $scope.transactions = res;
+      console.log ("res: " + $scope.transactions);
     },
     function (err) {
       console.log ("err: " + err);
@@ -91,6 +49,51 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
       // TODO - account for error connecting
     }
   );
+}])
+
+.controller('productDisplayCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService) {
+  DashboardService.products(
+    function (res) {
+      console.log("length" + res.length);
+      $scope.products = res;
+    },
+    function (err) {
+      console.log("err" + err);
+    }
+  )
+}])
+
+.controller('productEditCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService) {
+  $scope.addProduct = function () {
+
+    console.log("addProduct");
+
+    var formData = {
+      name: $scope.name,
+      unitPrice: $scope.unitPrice,
+      units: $scope.units,
+      availability: $scope.availability,
+      featured: $scope.featured
+    };
+
+    console.log("name: " + formData.name);
+    console.log("unitPrice: " + formData.unitPrice);
+    console.log("units: " + formData.units);
+    console.log("availability: " + formData.availability);
+    console.log("featured: " + formData.featured);
+
+
+
+
+
+    DashboardService.addProduct(formData, function (res) {
+
+      },
+      function (err) {
+        console.log(err);
+      });
+
+  }
 }])
 
 .controller('navTopCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService) {

@@ -1,300 +1,391 @@
-<div id="page-wrapper">
-    <div class="row">
+<div ng-switch on="items[selection]">
+
+  <div ng-switch-default>
+    <div id="page-wrapper">
+      <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Joseph's Store</h1>
+          <h1 class="page-header">Joseph's Store</h1>
         </div>
         <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
-    <div class="row">
-<!--
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-comments fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">26</div>
-                            <div>New Reviews!</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
--->
+      </div>
+      <!-- /.row -->
+      <div class="row">
+
 
         <div class="col-lg-3 col-md-6">
-            <div class="panel panel-green">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-tasks fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">2470</div>
-                            <div>New Inventory!</div>
-                        </div>
-                    </div>
+          <div class="panel panel-green">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-3">
+                  <i class="fa fa-tasks fa-5x"></i>
                 </div>
-                <a href="inventory.html">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
+                <div class="col-xs-9 text-right">
+                  <div class="huge">2470</div>
+                  <div>New Inventory!</div>
+                </div>
+              </div>
             </div>
+            <a href="inventory.html">
+              <div class="panel-footer">
+                <span class="pull-left">View Details</span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+              </div>
+            </a>
+          </div>
         </div>
         <div class="col-lg-3 col-md-6">
-            <div class="panel panel-yellow">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-money fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">124</div>
-                            <div>New Orders!</div>
-                        </div>
-                    </div>
+          <div class="panel panel-yellow">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-3">
+                  <i class="fa fa-money fa-5x"></i>
                 </div>
-                <a href="tables.html">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
+                <div class="col-xs-9 text-right">
+                  <div class="huge">124</div>
+                  <div>New Orders!</div>
+                </div>
+              </div>
             </div>
+            <a href="tables.html">
+              <div class="panel-footer">
+                <span class="pull-left">View Details</span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+              </div>
+            </a>
+          </div>
         </div>
         <div class="col-lg-3 col-md-6">
-            <div class="panel panel-red">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-gear fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">13</div>
-                            <div>Support Tickets!</div>
-                        </div>
-                    </div>
+          <div class="panel panel-red">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-3">
+                  <i class="fa fa-gear fa-5x"></i>
                 </div>
-                <a href="blank.html">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
+                <div class="col-xs-9 text-right">
+                  <div class="huge">13</div>
+                  <div>Support Tickets!</div>
+                </div>
+              </div>
             </div>
+            <a href="blank.html">
+              <div class="panel-footer">
+                <span class="pull-left">View Details</span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+              </div>
+            </a>
+          </div>
         </div>
-    </div>
-    <!-- /.row -->
-    <div class="row">
+      </div>
+      <!-- /.row -->
+      <div class="row">
 
 
 
         <div class="col-lg-8">
 
 
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <i class="fa fa-credit-card fa-fw"></i> Recent Transactions<br><br>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <i class="fa fa-credit-card fa-fw"></i> Recent Transactions
+              <br>
+              <br>
 
-                   <table class="table table-bordered table-hover table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Type</th>
-                                            <th>Date</th>
-                                            <th>Quantity</th>
-                                            <th>Amount</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Lobster</td>
-                                            <td>10/21/2015</td>
-                                            <td>16</td>
-                                            <td>$321.33</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Salmon</td>
-                                            <td>10/21/2015</td>
-                                            <td>4</td>
-                                            <td>$234.34</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Drugz</td>
-                                            <td>10/21/2015</td>
-                                            <td>100</td>
-                                            <td>$72021344.17</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tuna</td>
-                                            <td>10/21/2015</td>
-                                            <td>47</td>
-                                            <td>$339.71</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bass</td>
-                                            <td>10/21/2015</td>
-                                            <td>1300</td>
-                                            <td>$8345.23</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Flounder</td>
-                                            <td>10/21/2015</td>
-                                            <td>20</td>
-                                            <td>$245.12</td>
-                                        </tr>
+              <table class="table table-bordered table-hover table-striped">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Quantity</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Lobster</td>
+                    <td>10/21/2015</td>
+                    <td>16</td>
+                    <td>$321.33</td>
+                  </tr>
+                  <tr>
+                    <td>Salmon</td>
+                    <td>10/21/2015</td>
+                    <td>4</td>
+                    <td>$234.34</td>
+                  </tr>
+                  <tr>
+                    <td>Drugz</td>
+                    <td>10/21/2015</td>
+                    <td>100</td>
+                    <td>$72021344.17</td>
+                  </tr>
+                  <tr>
+                    <td>Tuna</td>
+                    <td>10/21/2015</td>
+                    <td>47</td>
+                    <td>$339.71</td>
+                  </tr>
+                  <tr>
+                    <td>Bass</td>
+                    <td>10/21/2015</td>
+                    <td>1300</td>
+                    <td>$8345.23</td>
+                  </tr>
+                  <tr>
+                    <td>Flounder</td>
+                    <td>10/21/2015</td>
+                    <td>20</td>
+                    <td>$245.12</td>
+                  </tr>
 
-                                        <tr>
-                                            <td>Dungeness Crab</td>
-                                            <td>10/21/2015</td>
-                                            <td>17</td>
-                                            <td>$943.45</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                </div>
+                  <tr>
+                    <td>Dungeness Crab</td>
+                    <td>10/21/2015</td>
+                    <td>17</td>
+                    <td>$943.45</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                    <i class="fa fa-check fa-fw"></i> My Recent Catches<br><br>
-
-                   <table class="table table-bordered table-hover table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Type</th>
-                                            <th>Date</th>
-                                            <th>Quantity</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Lobster</td>
-                                            <td>10/20/2015</td>
-                                            <td>160</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>Salmon</td>
-                                            <td>10/19/2015</td>
-                                            <td>400</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>Tuna</td>
-                                            <td>10/18/2015</td>
-                                            <td>150</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>Bass</td>
-                                            <td>10/17/2015</td>
-                                            <td>1500</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>Flounder</td>
-                                            <td>10/17/2015</td>
-                                            <td>150</td>
-
-                                        </tr>
-
-                                        <tr>
-                                            <td>Dungeness Crab</td>
-                                            <td>10/17/2015</td>
-                                            <td>150</td>
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                </div>
-            </div>
-
-
-
-
-
-
+          </div>
 
         </div>
         <!-- /.col-lg-8 -->
-        <div class="col-lg-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <i class="fa fa-bell fa-fw"></i> Notifications Panel
-                </div>
-                <!-- /.panel-heading -->
-                <div class="panel-body">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-comment fa-fw"></i> New Comment
-                            <span class="pull-right text-muted small"><em>4 minutes ago</em>
-                            </span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                            <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                            </span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-envelope fa-fw"></i> Message Sent
-                            <span class="pull-right text-muted small"><em>27 minutes ago</em>
-                            </span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-tasks fa-fw"></i> New Task
-                            <span class="pull-right text-muted small"><em>43 minutes ago</em>
-                            </span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                            <span class="pull-right text-muted small"><em>11:32 AM</em>
-                            </span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-bolt fa-fw"></i> Server Crashed!
-                            <span class="pull-right text-muted small"><em>11:13 AM</em>
-                            </span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-warning fa-fw"></i> Server Not Responding
-                            <span class="pull-right text-muted small"><em>10:57 AM</em>
-                            </span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
-                            <span class="pull-right text-muted small"><em>9:49 AM</em>
-                            </span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-money fa-fw"></i> Payment Received
-                            <span class="pull-right text-muted small"><em>Yesterday</em>
-                            </span>
-                        </a>
-                    </div>
-                    <!-- /.list-group -->
-                    <a href="#" class="btn btn-default btn-block">View All Alerts</a>
-                </div>
-                <!-- /.panel-body -->
-            </div>
 
-
-        </div>
         <!-- /.col-lg-4 -->
+      </div>
+      <!-- /.row -->
     </div>
-    <!-- /.row -->
+  </div>
+
+  <div ng-switch-when="orders">
+
+    <div ng-controller="transactionsCtrl" id="page-wrapper">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="page-header">My Orders</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+      </div>
+      <!-- /.row -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Recent Order History
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+              <div class="dataTable_wrapper">
+                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                  <thead>
+                    <tr>
+                      <th>Order Number</th>
+                      <th>Order Status</th>
+                      <th>Fish Type</th>
+                      <th>Date</th>
+                      <th>Quantity</th>
+                      <th>Payment Type</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="transaction in transactions" class="odd gradeX">
+                      <td><a href="media/invoice.pdf">{{transaction.ref}}<a></td>
+                      <td></td>
+                      <td>{{transaction.type}}</td>
+                      <td>{{transaction.dateInitialized}}</td>
+                      <td class="center">{{transaction.products[0].quantity}}</td>
+                      <td class="center">VISA</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+            <!-- /.panel-body -->
+          </div>
+          <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+      </div>
+      <!-- /.row -->
+
+    </div>
+
+  </div>
+
+  <div ng-switch-when="products">
+    <div ng-controller="productDisplayCtrl" id="page-wrapper">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="page-header">My Products</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+      </div>
+      <!-- /.row -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <p align="right">
+
+                <button type="button" class="btn btn-outline btn-primary btn-success" ng-click="setSelection(3)">Add New Product</button>
+                <button type="button" class="btn btn-outline btn-primary btn-danger">Delete Product</button>
+              </p>
+
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+              <div class="dataTable_wrapper">
+                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                  <thead>
+                    <tr>
+
+                      <th>Name</th>
+                      <th>Unit Price</th>
+                      <th>Availability</th>
+                      <th>Photo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="product in products" class="odd gradeX">
+                      <td>{{product.name}}</td>
+                      <td>${{product.unitPrice}}</td>
+                      <td class="center">{{product.availability}}</td>
+                      <td class="center"><a href ="#">View/edit photo</a></td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div ng-switch-when="add-product">
+    <div ng-controller="productEditCtrl" id="page-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="page-header">Add or Delete a Product</h1>
+          </div>
+          <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                Add/Delete Product Form
+              </div>
+              <!-- /.panel-heading -->
+              <div class="panel-body">
+                <form role="form" ng-submit="addProduct()">
+
+                  <div class="contact-form">
+                    <div class="container">
+
+
+
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <h4>Featured:
+                            <select ng-model="featured" name="mydropdown">
+                              <option value="true">Yes</option>
+                              <option value="false">No</option>
+                            </select>
+                          </h4>
+                        </div>
+                      </div>
+
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <h4>Availability:
+                            <select ng-model="availability" name="mydropdown">
+                              <option value="Fish">Low</option>
+                              <option value="Cool">Medium</option>
+                              <option value="Beer">High</option>
+                            </select>
+                          </h4>
+                        </div>
+                      </div>
+
+                      <br>
+                      <br>
+
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <input ng-model="name" type="name" class="form-control" id="exampleInputEmail1" placeholder="Fish Type (Must Be Exact For Deletion)">
+                        </div>
+                      </div>
+
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <input ng-model="unitPrice" type="unitPrice" class="form-control" id="exampleInputEmail1" placeholder="Unit Price in $">
+                        </div>
+                      </div>
+
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <h4>Units:
+                            <select ng-model="units" name="mydropdown">
+                              <option value="lb">Pound</option>
+                              <option value="kg">Kilogram</option>
+                              <option value="unit">Unit</option>
+                            </select>
+                          </h4>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <!--<input type="email" class="form-control" id="exampleInputEmail1" placeholder="email">-->
+                        </div>
+                      </div>
+
+
+                    </div>
+
+                    <div class="container">
+                      <div class="col-lg-10">
+                        <br>
+
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <h4>Picture Attachement</h4>
+                            <form method="post" action="#" enctype="multipart/form-data">
+                              <input type="file" name="attachedfile" maxlength=50 allow="text/*"></input>
+                            </form>
+                          </div>
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <div class="form-group">
+                          <br>
+                          <button type="submit" name="submit" class="btn btn-outline btn-primary btn-lg btn-block" required="required">Add Product</button>
+                          <br>
+                          <button type="#" name="delete" class="btn btn-outline btn-danger btn-lg btn-block" required="required">Delete Item</button>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
