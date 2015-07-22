@@ -263,54 +263,71 @@
 
                       <br>
                       <br>
-
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <input ng-model="name" type="name" class="form-control" id="exampleInputEmail1" placeholder="Fish Type (Must Be Exact For Deletion)">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <h4>Seafood Type:</h4><input ng-model="name" type="name" class="form-control" id="exampleInputEmail1" placeholder="i.e. Cod, Lobster, etc.">
+                          </div>
                         </div>
                       </div>
 
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <input ng-model="unitPrice" type="unitPrice" class="form-control" id="exampleInputEmail1" placeholder="Unit Price in $">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <h4>Availability:</h4><input ng-model="unitPrice" type="unitPrice" class="form-control" id="exampleInputEmail1" placeholder="i.e. 4.50">
+                          </div>
                         </div>
                       </div>
 
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <h4>Units:
-                            <select ng-model="units" name="mydropdown">
-                              <option value="lb">Pound</option>
-                              <option value="kg">Kilogram</option>
-                              <option value="unit">Unit</option>
-                            </select>
-                          </h4>
-                        </div>
-                      </div>
+                      <div class="row">
 
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <h4>Availability:
-                            <select ng-model="availability" name="mydropdown">
-                              <option value="None">None</option>
-                              <option value="Low">Low</option>
-                              <option value="High">High</option>
-                            </select>
-                          </h4>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <h4>Units:
+                              <select ng-model="units" name="mydropdown">
+                                <option value="lb">Pound</option>
+                                <option value="kg">Kilogram</option>
+                                <option value="unit">Unit</option>
+                              </select>
+                            </h4>
+                          </div>
                         </div>
+
                       </div>
 
 
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <h4>Featured:
-                            <select ng-model="featured" name="mydropdown">
-                              <option value="true">Yes</option>
-                              <option value="false">No</option>
-                            </select>
-                          </h4>
+                      <div class="row">
+
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <h4>Availability:
+                              <select ng-model="availability" name="mydropdown">
+                                <option value="None">None</option>
+                                <option value="Low">Low</option>
+                                <option value="High">High</option>
+                              </select>
+                            </h4>
+                          </div>
                         </div>
+
                       </div>
+
+
+                      <div class="row">
+
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <h4>Featured:
+                              <select ng-model="featured" name="mydropdown">
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                              </select>
+                            </h4>
+                          </div>
+                        </div>
+
+                      </div>
+
 
 
 
