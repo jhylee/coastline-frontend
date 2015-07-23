@@ -3,23 +3,37 @@ angular.module('coastlineWebApp.dashboard.services', ['ngStorage','coastlineCons
 .factory('DashboardService', ['$http', '$localStorage', 'apiUrl', function ($http, $localStorage, apiUrl) {
     var baseUrl = apiUrl;
     var token = "";
-    var selection = 0;
+    var selection = 1;
+    var currentOrderRef = null;
 
 
     return {
       accountDetails: function (success, error) {
         $http.get(baseUrl + '/api/sell-side/account/details').success(success).error(error);
       },
-      transactions: function (success, error) {
-        $http.get(baseUrl + '/api/sell-side/transactions').success(success).error(error);
+      orders: function (success, error) {
+        $http.get(baseUrl + '/api/sell-side/orders').success(success).error(error);
       },
       products: function (success, error) {
         $http.get(baseUrl + '/api/sell-side/products').success(success).error(error);
       },
+      getCurrentOrder: function (success, error) {
+        var formData = {
+          ref: currentOrderRef
+        };
+
+        $http.post(baseUrl + '/api/sell-side/get-order', formData).success(success).error(error);
+      },
+      getCurrentOrderRef: function () {
+        return currentOrderRef;
+      },
+      setCurrentOrderRef: function (ref) {
+        currentOrderRef = ref;
+      },
       setSelection: function (index) {
         selection = index;
       },
-      getSelection: function (index) {
+      getSelection: function () {
         return selection;
       },
       addProduct: function (formData, success, error) {
