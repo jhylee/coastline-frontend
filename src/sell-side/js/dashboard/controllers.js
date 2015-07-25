@@ -154,6 +154,133 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
     return err;
   });
 
+  $scope.fulfillOrder = function(ref) {
+    var formData = {
+      ref: ref
+    };
+
+    DashboardService.fulfillOrder(formData, function (res) {
+      // TODO - Callback
+      console.log("fulfilled order");
+
+      DashboardService.getCurrentOrder(function(res) {
+        $scope.order = res;
+        console.log($scope.order);
+
+        console.log($scope.order.ref);
+      }, function(err) {
+        return err;
+      });
+
+
+    }, function (err) {
+      console.log("error fulfilling order");
+      console.log(err);
+    })
+  };
+
+
+  // TODO - DRY approach (repeated in other controller)
+  $scope.getRef = function (order) {
+    return order.ref;
+  };
+
+  $scope.getName = function (order) {
+    return order.buyerName;
+  };
+
+  $scope.getPaymentMethod = function (order) {
+    return order.paymentMethod;
+  };
+
+  $scope.getStatus = function (order) {
+    if (order.dateCleared != null) {
+      if (order.dateCharged != null) {
+        return "Charged";
+      } else {
+        return "Fulfilled";
+      }
+    } else {
+      return "Outstanding";
+    }
+  };
+
+  $scope.getDateInitialized = function (order) {
+    // /return order.dateInitialized.toString();
+
+    var today = new Date(order.dateInitialized.toString());
+    console.log(today.getDate());
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+
+    var yyyy = today.getFullYear();
+      if(dd<10){
+          dd='0'+dd
+      }
+      if(mm<10){
+          mm='0'+mm
+      }
+    return mm+'/'+dd+'/'+yyyy;
+  };
+
+  $scope.getDateFulfilled = function (order) {
+    // /return order.dateInitialized.toString();
+
+    if (order.dateFulfilled == null) {
+      return "N/A";
+    }
+
+    var today = new Date(order.dateFulfilled.toString());
+    console.log(today.getDate());
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+
+    var yyyy = today.getFullYear();
+      if(dd<10){
+          dd='0'+dd
+      }
+      if(mm<10){
+          mm='0'+mm
+      }
+    return mm+'/'+dd+'/'+yyyy;
+  };
+
+  $scope.getTotalAmount = function (order) {
+    var val = Math.round(order.totalAmount * 100) / 100;
+    var str = val.toString();
+
+    var afterDecimal = false;
+    var digitAfterDecimal = 0;
+    var number = true;
+
+    for (i = 0; i < str.length; i++) {
+      if (afterDecimal==true) {
+        digitAfterDecimal += 1;
+      };
+
+      if (str.charAt(i) == ".") {
+        afterDecimal = true;
+      };
+
+      // case 1: no decimal (i.e. 4)
+      if ((i == str.length - 1)&&(afterDecimal==false)){
+        return "$" + str + ".00";
+      };
+
+      // case 2: 4.1 scenario
+      if ((i == str.length - 1)&&(digitAfterDecimal==1)){
+        return "$" + str + "0";
+      };
+
+      // case 3: 4.11 (will definitely be at end, if not, then bug, but there shouldn't be a bug)
+      if ((digitAfterDecimal==2)) {
+        return "$" + str;
+      }
+    }
+
+    return ;
+  };
+
 
 }])
 

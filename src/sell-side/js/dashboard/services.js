@@ -36,6 +36,9 @@ angular.module('coastlineWebApp.dashboard.services', ['ngStorage','coastlineCons
       getSelection: function () {
         return selection;
       },
+      fulfillOrder: function (formData, success, error) {
+        $http.post(baseUrl + '/api/sell-side/fulfill-order', formData).success(success).error(error);
+      },
       addProduct: function (formData, success, error) {
         console.log("service");
         console.log("name: " + formData.name);

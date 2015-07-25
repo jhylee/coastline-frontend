@@ -1,0 +1,110 @@
+<!--<link rel="stylesheet" href="../../css/basestyles.css" type="text/css">-->
+<link rel="stylesheet" href="/css/styles.css" type="text/css">
+<div ng-controller="authCtrl">
+
+  <div class="container-fluid">
+    <nav class="navbar navbar-fixed-top" role="navigation">
+      <div class="container">
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="navbar-header">
+          <div class="navbar-brand">
+            <a ui-sref="home">Coastline</a>
+
+          </div>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+
+          <ul class="nav navbar-nav navbar-left" role="search">
+            <li><a ui-sref="about">About</a>
+            </li>
+            <li><a href="#getting-started">Getting Started</a>
+            </li>
+            <li><a href="pricing">Pricing</a>
+            </li>
+            <li><a href="contact">Contact Us</a>
+            </li>
+          </ul>
+
+          <!-- Brand and toggle get grouped for better mobile display -->
+
+          <ul class="nav navbar-nav navbar-right">
+
+            <li><a data-ng-show=$storage.token ui-sref="login">{{$storage.token[0]}}</a>
+            </li>
+            <li><a data-ng-show=$storage.token ui-sref="home">Logout</a>
+            </li>
+            <li><a data-ng-hide="$storage.token" ui-sref="login">Login</a>
+            </li>
+            <li><a data-ng-hide="$storage.token" ui-sref="signUp">Sign Up</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+  </div>
+    
+     <div class="container-fluid wrap1">
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-4"> 
+              <br>
+              <br>
+              <br>
+              <br>
+              <p>Fisherman 1 <p>Information about fisherman 1</p><p>
+              <br>
+              </br>
+              <p>Fisherman 2 <p>Information about fisherman 2</p><p>
+              </br>
+            <br>
+              <p>Fisherman 3 <p>Information about Fisherman 3</p><p>
+          </br>
+         <br>
+              <p>Fisherman 4 <p>Information about fisherman 4</p><p>
+              <br>
+              </br>
+              <p>Fisherman 5 <p>Information about fisherman 5</p><p>
+              </br>
+            <br>
+              <p>Fisherman 6 <p>Information about Fisherman 6</p><p>
+          </br>
+              </br>
+          </br>
+        </br>
+         </br> 
+          </div>
+        <div class="col-lg-8">
+            <br>
+            <br>
+            <br>
+            <h1>Google Maps integration</h1>
+            </br>
+            </br>
+            </br>
+        <br>
+        <br>
+        <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <h2></h2>
+          </br>
+          </br>
+          </br>
+        </br>
+          </br>
+        </br>
+        </br>
+        <br>
+        </br>
+        </br>
+      </div>
+    </div>
+  </div>
