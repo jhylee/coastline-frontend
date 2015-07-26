@@ -1,16 +1,18 @@
 angular.module('coastlineWebApp.auth.controllers', ['ui.router', 'ngStorage', 'coastlineWebApp.auth.services'])
 
-.controller('authCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'AuthService', function ($rootScope, $scope, $state, $location, $localStorage, AuthService) {
+.controller('accountCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'AuthService', function ($rootScope, $scope, $state, $location, $localStorage, AuthService) {
 
-  $scope.$storage = $localStorage;
-  $scope.isToken = !($scope.$storage.token === undefined || $scope.$storage.token === null);
+  // $scope.$storage = $localStorage;
+  // $scope.isToken = !($scope.$storage.token === undefined || $scope.$storage.token === null);
 
   $scope.logout = function () {
-    console.log("attempting to logout");
+    console.log("TEST");
+    // console.log("token before logout: " + $localStorage.token);
 
-    $localStorage.token = null;
-    $localStorage.$save();
-    window.location = '/';
+
+    AuthService.logout(function() {
+      $state.go('login');
+    });
 
     //    AuthService.logout(function () {
     //      window.location = "/"
@@ -38,7 +40,7 @@ angular.module('coastlineWebApp.auth.controllers', ['ui.router', 'ngStorage', 'c
   console.log("localStorage: " + $localStorage.token);
   console.log("scope storage: " + $scope.$storage.token);
 
-  $scope.login = function () {
+  $scope.login1 = function () {
     var formData = {
       username: $scope.username,
       password: $scope.password
@@ -62,48 +64,43 @@ angular.module('coastlineWebApp.auth.controllers', ['ui.router', 'ngStorage', 'c
       });
   };
 
-  $scope.signUp = function () {
+  $scope.login = function () {
     var formData = {
+      username: $scope.username,
+      password: $scope.password
+    };
+
+    AuthService.login(formData, function (res) {
+        $state.go('dashboard');
+      },
+      function (err) {
+        $rootScope.error = 'Failed to signin';
+        console.log("error signing in");
+      });
+  };
+
+  $scope.signUp = function () {
+    $state.go('redirect');
+
+    var formData = {
+      organization: $scope.organization,
       username: $scope.username,
       firstName: $scope.firstName,
       lastName: $scope.lastName,
       email: $scope.email,
-      password: $scope.password
+      password: $scope.password,
+      phoneNumber: $scope.phoneNumber
     };
 
-    if ($scope.buySell == "buy") {
-
-      console.log("sign up buyer");
-
-      AuthService.signUpBuyer(formData, function (res) {
-        if (res.type === false) {
-          alert(res.data);
-        } else {
-          //$localStorage.token = res.data.token;
-          window.location = "/";
-        }
-      }, function () {
-        $rootScope.error = 'Failed to signup';
+    AuthService.signUp(formData, function (res) {
+      AuthService.login(formData, function (res) {
+        $state.go('dashboard');
       });
-    } else if ($scope.buySell == "sell") {
+    }, function (err) {
+      console.log("signup then login then error");
+      console.log(err);
+    });
 
-      console.log("sign up seller");
-
-
-      AuthService.signUpSeller(formData, function (res) {
-        if (res.type === false) {
-          alert(res.data);
-        } else {
-          //$localStorage.token = res.body.token;
-          window.location = "/";
-        }
-      }, function () {
-        $rootScope.error = 'Failed to signup';
-      });
-
-    } else {
-      console.log("neither" + $scope.buySell);
-    }
   };
 
   $scope.me = function () {

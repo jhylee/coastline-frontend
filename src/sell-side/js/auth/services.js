@@ -1,43 +1,9 @@
 angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants'])
 
 
-//.factory("AuthService", function ($http, $q, $window) {
-//  var userInfo;
-//
-//  function login(username, password) {
-//    var deferred = $q.defer();
-//
-//    $http.post("/users/login", {
-//      username: username,
-//      password: password
-//    }).then(function (res) {
-//      userInfo = {
-//        accessToken: res.data.token,
-//      };
-//      $window.sessionStorage["userInfo"] = JSON.stringify(userInfo);
-//      deferred.resolve(userInfo);
-//    }, function (error) {
-//      deferred.reject(error);
-//    });
-//
-//    return deferred.promise;
-//  }
-//
-//  function getUserInfo() {
-//    return userInfo;
-//  }
-//
-//  return {
-//    login: login,
-//
-//    getUserInfo: getUserInfo
-//
-//  };
-//})
-
 .factory('AuthService', ['$http', '$localStorage', 'apiUrl', function ($http, $localStorage, apiUrl) {
     var baseUrl = apiUrl;
-    var token = "";
+    var token = $localStorage.token;
 
     return {
       isAuthenticated: function() {
@@ -48,22 +14,32 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants
         }
       },
 
-      signUpBuyer: function (data, success, error) {
-        $http.post(baseUrl + '/users/signUp/buyer', data).success(success).error(error);
-      },
-
-      signUpSeller: function (data, success, error) {
-        var response = $http.post(baseUrl + '/users/signUp/seller', data).success(success).error(error);
-        console.log(response);
+      signUp: function (data, success, error) {
+        $http.post(baseUrl + '/users/sell-side/sign-up', data).success(success).error(error);
       },
 
       login: function (data, success, error) {
-        $http.post(baseUrl + '/users/login', data).success(success).error(error);
+        $http.post(baseUrl + '/users/login', data).success(function (res) {
+          $localStorage.token = res.token;
+          console.log("on login");
+          console.log("localStorage: " + $localStorage.token);
+          // console.log("scope storage: " + $scope.  $storage.token);
+          $localStorage.$save();
+
+          success(res);
+
+        }).error(function (err) {
+
+          error(err);
+
+        });
       },
 
-      logout: function (success) {
-        $localStorage.token = null;
-        success();
+      logout: function (done) {
+        delete $localStorage.token;
+        $localStorage.$save();
+        console.log("token: " + $localStorage.token);
+        done();
       },
       getToken: function () {
         console.log("getting token: " + token);
@@ -77,17 +53,6 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants
 
 
     };
-
-
-
-    //    function getToken() {
-    //      return token;
-    //    };
-
-    //    function setToken(newToken) {
-    //      token = newToken;
-    //    };
-
   }
 ])
 

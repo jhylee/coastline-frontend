@@ -66,20 +66,39 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider, $htt
 
   })
 
-  .state('signUp', {
-    url: '/signUp',
-    templateUrl: '/sell-side/views/signUp.html'
+  .state('sign-up', {
+    url: '/sign-up',
+
+    views: {
+
+      'nav-top': {
+        templateUrl: '/sell-side/views/sign-up/nav-top.html'
+      },
+      'nav-side': {
+        templateUrl: '/sell-side/views/sign-up/nav-side.html'
+      },
+      'body': {
+        templateUrl: '/sell-side/views/sign-up/body.html'
+      },
+      'footer': {
+        templateUrl: '/sell-side/views/sign-up/footer.html'
+      },
+
+    }
+
   })
 
-  .state('about', {
-    url: '/about',
-    templateUrl: '/sell-side/views/about.html'
+  .state('redirect', {
+    url: '/redirect',
+
+    views: {
+      'body': {
+        templateUrl: '/sell-side/views/redirect/redirect.html'
+      },
+    }
+
   })
 
-  .state('sellerWebApp', {
-    url: '/webapp/seller',
-    templateUrl: '/sell-side/views/sell-side/sellerWebApp.html'
-  });
 
   $httpProvider.interceptors.push('HttpInterceptorForToken');
 
