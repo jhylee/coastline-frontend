@@ -9,6 +9,29 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+    <!-- // <script src="../lib/metisMenu.min.js"></script> -->
+    <!-- // <script src="../lib/raphael-min.js"></script> -->
+    <!-- // <script src="../lib/morris.min.js"></script> -->
+    <!-- // <script src="../lib/morris-data.js"></script> -->
+    <script src="../lib/jquery.dataTables.min.js"></script>
+    <script src="../lib/dataTables.bootstrap.min.js"></script>
+    <!-- // <script src="../lib/sb-admin-2.js"></script> -->
+
+
+    <!-- JS Libraries -->
+    <script src="../lib/angular.min.js"></script>
+    <script src="../lib/angular-ui-router.js"></script>
+    <script src="../lib/ngStorage.js"></script>
+    <script src="../lib/loading-bar.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/shop/controllers.js"></script>
+    <script src="js/shop/services.js"></script>
+
+
+
 
     <title>Shop | Coastline Market</title>
 
@@ -28,219 +51,21 @@
 
 </head>
 
-<body>
+<body ng-app="coastlineShop">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <a class="navbar-brand" href="index.html">Coastline Market</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="services.html">Services</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <!-- Page Header -->
-        <div class="row">
-
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                    <i class="fa fa-users"></i> Joe's Fish Market <small> Vancouver, B.C</small>
-                </h1>
-            </div>
-        </div>
-        <!-- /.row -->
-
-         <!-- Pagination -->
-        <div class="row text-center">
-            <div class="col-lg-12">
-
-                <ul class="pagination">
-
-
-                    <li class="active">
-                        <a href="index.html">Shop Seafood</a>
-                    </li>
-
-                    <li>
-                        <a href="page2.html">Cart (6)</a>
-                    </li>
-                    <li>
-                        <a href="page3.html">Check Out</a>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Projects Row -->
-        <section class="portfolio text-center section-padding" id= "portfolio">
-          <div class="container">
-            <div class="row">
-
-
-                    <div class="col-md-4 wp4 delay-05s">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="img/salmon.jpg">
-                          <h3>Fresh Salmon</h3>
-                          <h4>$4.50/lb</h4>
-
-                          <p>170g units approx. Flank steak from pasture-raised Angus, hormones and antibiotics free and tender.
-                          </p>
-
-                          <button type="button" class="btn btn-outline btn-primary btn-lg btn-block">Add To Cart</button>
-                        </div>
-                      </div>
-                    </div>
-
-
-
-                    <div class="col-md-4 wp4 delay-05s">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="img/bass.jpg">
-                          <h3>Fresh Salmon</h3>
-                          <h4>$4.50/lb</h4>
-
-                          <p>170g units approx. Flank steak from pasture-raised Angus, hormones and antibiotics free and tender.
-                          </p>
-                          <button type="button" class="btn btn-outline btn-primary btn-lg btn-block">Add To Cart</button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 wp4 delay-05s">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="img/crab.jpg">
-                          <h3>Fresh Salmon</h3>
-                          <h4>$4.50/lb</h4>
-
-                          <p>170g units approx. Flank steak from pasture-raised Angus, hormones and antibiotics free and tender.
-                          </p>
-                          <button type="button" class="btn btn-outline btn-primary btn-lg btn-block">Add To Cart</button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4 wp4 delay-05s">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="img/crab.jpg">
-                          <h3>Fresh Salmon</h3>
-                          <h4>$4.50/lb</h4>
-
-                          <p>170g units approx. Flank steak from pasture-raised Angus, hormones and antibiotics free and tender.
-                          </p>
-                          <button type="button" class="btn btn-outline btn-primary btn-lg btn-block">Add To Cart</button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 wp4 delay-05s">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="img/salmon.jpg">
-                          <h3>Fresh Salmon</h3>
-                          <h4>$4.50/lb</h4>
-
-                          <p>170g units approx. Flank steak from pasture-raised Angus, hormones and antibiotics free and tender.
-                          </p>
-                          <button type="button" class="btn btn-outline btn-primary btn-lg btn-block">Add To Cart</button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 wp4 delay-05s">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="img/bass.jpg">
-                          <h3>Fresh Salmon</h3>
-                          <h4>$4.50/lb</h4>
-
-                          <p>170g units approx. Flank steak from pasture-raised Angus, hormones and antibiotics free and tender.
-                          </p>
-                          <button type="button" class="btn btn-outline btn-primary btn-lg btn-block">Add To Cart</button>
-                      </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- /.row -->
-
-        <hr>
-
-         <!-- Pagination -->
-        <div class="row text-center">
-            <div class="col-lg-12">
-                <ul class="pagination">
-                    <li>
-                        <a href="#">&laquo;</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">4</a>
-                    </li>
-                    <li>
-                        <a href="#">5</a>
-                    </li>
-                    <li>
-                        <a href="#">&raquo;</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Coastline Market</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
-
+    <div ui-view="nav-top">
+      <h1>NAVTOP</h1>
     </div>
-    <!-- /.container -->
+
+
+    <div ui-view="body">
+      <h1>BODY</h1>
+    </div>
+
+    <div ui-view="footer">
+      <h1>FOOTER</h1>
+    </div>
+
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
