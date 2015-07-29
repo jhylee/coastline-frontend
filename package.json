@@ -4,9 +4,9 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "npm install -g gulp; npm install; gulp",
+    "test": "npm install; gulp",
 
-    "start": "npm install -g gulp; npm install; gulp"
+    "start": "npm install; gulp"
   },
   "repository": {
     "type": "git",
