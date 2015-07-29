@@ -1,6 +1,6 @@
 angular.module('coastlineShop.shop.services', ['ngStorage','coastlineConstants'])
 
-.factory('DashboardService', ['$http', '$localStorage', 'apiUrl', function ($http, $localStorage, apiUrl) {
+.factory('ShopService', ['$http', '$localStorage', 'apiUrl', function ($http, $localStorage, apiUrl) {
     var baseUrl = apiUrl;
     var selection = 0;
     var currentOrderRef = null;
@@ -28,6 +28,16 @@ angular.module('coastlineShop.shop.services', ['ngStorage','coastlineConstants']
       getSelection: function () {
         return selection;
       },
+      getProducts: function(success, error) {
+        var formData = {
+          username: "abdulkhan"
+        }
+        $http.post(baseUrl + '/api/buy-side/products', formData).success(success).error(error);
+      },
+      getItems: function() {
+        return $localStorage.cart;
+      },
+
       // post: function (formData, success, error) {
       //   $http.post(baseUrl + '/api/sell-side/fulfill-order', formData).success(success).error(error);
       // },

@@ -29,75 +29,16 @@
                     <th></th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody ng-controller="cartCtrl">
+                  <div ng-repeat="product in getItems"
                   <tr class="odd gradeX">
-                    <td>Salmon</td>
+                    <td>{{product.name}}</td>
                     <td>Joe's Fish</td>
-                    <td class="center">$4.50/lbs</td>
+                    <td class="center">${{product.unitPrice}}/{{product.units}}</td>
                     <td class="center">
-                      <input type="number" min="0" max="100" value="1">
+                      <input type="number" min="0" max="100" ng-model="quantity" value="1">
                     </td>
-                    <td class="center">$270.50</td>
-                    <td class="center">
-                      <input type="checkbox" name="msg[]" value="26" class="checkbox" />
-                    </td>
-                  </tr>
-                  <tr class="odd gradeX">
-                    <td>Salmon</td>
-                    <td>Joe's Fish</td>
-                    <td class="center">$4.50/lbs</td>
-                    <td class="center">
-                      <input type="number" min="0" max="100" value="1">
-                    </td>
-                    <td class="center">$270.50</td>
-                    <td class="center">
-                      <input type="checkbox" name="msg[]" value="26" class="checkbox" />
-                    </td>
-                  </tr>
-                  <tr class="odd gradeX">
-                    <td>Salmon</td>
-                    <td>Joe's Fish</td>
-                    <td class="center">$4.50/lbs</td>
-                    <td class="center">
-                      <input type="number" min="0" max="100" value="1">
-                    </td>
-                    <td class="center">$270.50</td>
-                    <td>
-                      <input type="checkbox" value="">
-                    </td>
-                  </tr>
-                  <tr class="odd gradeX">
-                    <td>Salmon</td>
-                    <td>Joe's Fish</td>
-                    <td class="center">$4.50/lbs</td>
-                    <td class="center">
-                      <input type="number" min="0" max="100" value="1">
-                    </td>
-                    <td class="center">$270.50</td>
-                    <td class="center">
-                      <input type="checkbox" name="msg[]" value="26" class="checkbox" />
-                    </td>
-                  </tr>
-                  <tr class="odd gradeX">
-                    <td>Salmon</td>
-                    <td>Joe's Fish</td>
-                    <td class="center">$4.50/lbs</td>
-                    <td class="center">
-                      <input type="number" min="0" max="100" value="1">
-                    </td>
-                    <td class="center">$270.50</td>
-                    <td class="center">
-                      <input type="checkbox" name="msg[]" value="26" class="checkbox" />
-                    </td>
-                  </tr>
-                  <tr class="odd gradeX">
-                    <td>Salmon</td>
-                    <td>Joe's Fish</td>
-                    <td class="center">$4.50/lbs</td>
-                    <td class="center">
-                      <input type="number" min="0" max="100" value="1">
-                    </td>
-                    <td class="center">$270.50</td>
+                    <td class="center">{{Number(quantity) * Number(unitPrice)}}</td>
                     <td class="center">
                       <input type="checkbox" name="msg[]" value="26" class="checkbox" />
                     </td>
