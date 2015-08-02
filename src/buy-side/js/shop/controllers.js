@@ -1,22 +1,41 @@
 angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coastlineShop.shop.services'])
 
-.controller('shopCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'ShopService', function ($rootScope, $scope, $state, $location, $localStorage, ShopService) {
+// for page navigation, first to be instantiated
+.controller('shopCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'ShopService', function($rootScope, $scope, $state, $location, $localStorage, ShopService) {
 
   $scope.$storage = $localStorage;
+
+
 
   $scope.items = ['products', 'cart', 'checkout'];
 
   console.log("hi");
 
-  $scope.setSelection = function (index) {
-    ShopService.setSelection(index);
+  $scope.init = function() {
+    ShopService.init();
   };
 
-  $scope.getSelection = function () {
-    return ShopService.getSelection();
+  $scope.selectItem = function(index) {
+    ShopService.selectItem(index);
   };
 
-  $scope.setCurrentOrderRef = function (ref) {
+  $scope.deselectItem = function(index) {
+    ShopService.deselectItem(index);
+  };
+
+  $scope.getSelectedItems = function(index) {
+    ShopService.getSelectedItems(index);
+  };
+
+  $scope.getPageSelection = function() {
+    return ShopService.getPageSelection();
+  };
+
+  $scope.setPageSelection = function(index) {
+    ShopService.setPageSelection(index);
+  };
+
+  $scope.setCurrentOrderRef = function(ref) {
     ShopService.setCurrentOrderRef(ref);
     $scope.setSelection(4);
   };
@@ -29,16 +48,20 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
     }
   };
 
+  $scope.init();
+
 }])
 
-.controller('productDisplayCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'ShopService', function ($rootScope, $scope, $state, $location, $localStorage, ShopService) {
+.controller('productDisplayCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'ShopService', function($rootScope, $scope, $state, $location, $localStorage, ShopService) {
 
   $scope.$storage = $localStorage;
 
+  console.log('init productDisplayCtrl');
+
   $scope.getProducts = function() {
-    ShopService.getProducts(function (res) {
-      $scope.products = res
-    }, function (err) {
+    ShopService.getProducts(function(res) {
+      $scope.products = res;
+    }, function(err) {
       console.log("error getting products");
     });
   }
@@ -49,21 +72,17 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 
 }])
 
-.controller('productCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'ShopService', function ($rootScope, $scope, $state, $location, $localStorage, ShopService) {
+.controller('productCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'ShopService', function($rootScope, $scope, $state, $location, $localStorage, ShopService) {
 
   $scope.$storage = $localStorage;
 
-  $scope.addItem = function(item) {
-    console.log("add to cart");
-    $localStorage.cart.push(item);
-    $localStorage.$save();
-    console.log($localStorage.cart[0]);
+  $scope.addToCart = function(item) {
+    ShopService.addToCart(item);
   };
-
 }])
 
 
-.controller('cartCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'ShopService', function ($rootScope, $scope, $state, $location, $localStorage, ShopService) {
+.controller('cartCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'ShopService', function($rootScope, $scope, $state, $location, $localStorage, ShopService) {
 
   $scope.$storage = $localStorage;
 
@@ -71,25 +90,46 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
   //   $localStorage.cart = [];
   // }
 
+  console.log("cartCtrl");
+  console.log($localStorage.cart[0]);
 
-  $scope.getCartLength = function() {
+  $scope.getCartLength = function () {
     return $localStorage.cart.length;
   };
 
-  $scope.getItems = function() {
-    console.log($localStorage.cart);
-    return $localStorage.cart;
-  }
-
-  $scope.addItem = function(item) {
-    console.log("add to cart");
-    $localStorage.cart.push(item);
-    $localStorage.$save();
-    console.log($localStorage.cart[0]);
+  $scope.getPrice = function (unitPrice, quantity) {
+    if (quantity) return Number(unitPrice) * Number(quantity);
+    return unitPrice;
   };
 
-  $scope.removeItem = function(index) {
+  $scope.addItem = function (item) {
+    ShopService.addItem(item)
+  };
+
+  $scope.removeItem = function (index) {
     $localStorage.cart.splice(index, 1);
   };
 
-}])
+  $scope.toggleItemSelection = function (index) {
+    console.log("toggleItemSelection");
+    ShopService.toggleItemSelection(index);
+    $scope.refreshDeleteButton();
+  };
+
+  $scope.deleteSelectedItems = function () {};
+
+  $scope.refreshDeleteButton = function () {
+    console.log("disabled: " + !ShopService.isAnythingSelected());
+    $scope.isDeleteButtonDisabled = (!ShopService.isAnythingSelected());
+  };
+
+  var getItems = function () {
+    console.log("getItems");
+    console.log(ShopService.getItems());
+    $scope.items = ShopService.getItems();
+  };
+
+  $scope.refreshDeleteButton();
+  $scope.items = getItems();
+
+}]);

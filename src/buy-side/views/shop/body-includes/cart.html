@@ -4,61 +4,62 @@
 
 
   <!-- /.row -->
-  <div class="container-fluid" padding:0>
-    <div class="row" padding:0>
-      <div class="col-lg-12" padding:0>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <p align="right">
-              <button type="submit" class="btn btn-danger" disabled>Delete Product</button>
-            </p>
+  <div ng-controller="cartCtrl">
+    <div class="container-fluid" padding:0>
+      <div class="row" padding:0>
+        <div class="col-lg-12" padding:0>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <p align="right">
+                <button type="submit" class="btn btn-danger" ng-disabled="isDeleteButtonDisabled">Delete Product</button>
+              </p>
 
-          </div>
-          <!-- /.panel-heading -->
-          <div class="panel-body">
-            <div class="dataTable_wrapper">
-              <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                <thead>
-                  <tr>
-
-                    <th>Product</th>
-                    <th>Vendor</th>
-                    <th>Unit Price</th>
-                    <th>Total Units</th>
-                    <th>Subtotal</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody ng-controller="cartCtrl">
-                  <div ng-repeat="product in getItems"
-                  <tr class="odd gradeX">
-                    <td>{{product.name}}</td>
-                    <td>Joe's Fish</td>
-                    <td class="center">${{product.unitPrice}}/{{product.units}}</td>
-                    <td class="center">
-                      <input type="number" min="0" max="100" ng-model="quantity" value="1">
-                    </td>
-                    <td class="center">{{Number(quantity) * Number(unitPrice)}}</td>
-                    <td class="center">
-                      <input type="checkbox" name="msg[]" value="26" class="checkbox" />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+              <div class="dataTable_wrapper">
+                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                  <thead>
+                    <tr>
 
+                      <th>Product</th>
+                      <th>Vendor</th>
+                      <th>Unit Price</th>
+                      <th>Total Units</th>
+                      <th>Subtotal</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="product in cartItems track by $index" class="odd gradeX">
+                      <td>{{product.name}}</td>
+                      <td>Joe's Fish</td>
+                      <td class="center">${{product.unitPrice}}/{{product.units}}</td>
+                      <td class="center">
+                        <input type="number" min="0" max="100" ng-model="product.quantity" value="1">
+                      </td>
+                      <td class="center">{{ getPrice(product.unitPrice, product.quantity)}}</td>
+                      <td class="center">
+                        <input type="checkbox" name="msg[]" value="26" class="checkbox" ng-click="toggleItemSelection($index)"/>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+            <!-- /.panel-body -->
           </div>
-          <!-- /.panel-body -->
+          <!-- /.panel -->
         </div>
-        <!-- /.panel -->
+        <!-- /.col-lg-12 -->
       </div>
-      <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
+      <!-- /.row -->
 
+    </div>
+    <p align="right">
+      <button type="order" ng-click="setSelection(2)" class="btn btn-success btn-lg">Submit the order bruh</button>
+    </p>
   </div>
-  <p align="right">
-    <button type="order" class="btn btn-success btn-lg">Submit the order bruh</button>
-  </p>
 
 </div>

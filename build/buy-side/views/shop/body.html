@@ -14,22 +14,22 @@
 
 
           <li class="active">
-            <a ng-click="setSelection(0)" href="javascript:void(0)">Shop Seafood</a>
+            <a ng-click="setPageSelection(0)" href="javascript:void(0)">Shop Seafood</a>
           </li>
 
           <li>
-            <a ng-click="setSelection(1)" href="javascript:void(0)">Cart ({{getCartLength()}})</a>
+            <a ng-click="setPageSelection(1)" href="javascript:void(0)">Cart ({{getCartLength()}})</a>
           </li>
 
           <li>
-            <a ng-click="setSelection(2)" href="javascript:void(0)">Check Out</a>
+            <a ng-click="setPageSelection(2)" href="javascript:void(0)">Check Out</a>
           </li>
 
         </ul>
       </div>
     </div>
     <!-- /.row -->
-    <div ng-switch on="items[getSelection()]">
+    <div ng-switch on="items[getPageSelection()]">
 
       <div ng-switch-when="products">
         <div ng-include src="'views/shop/body-includes/products.html'"></div>
