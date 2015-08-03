@@ -18,93 +18,53 @@
           <!-- /.panel-heading -->
           <div class="panel-body">
             <div class="dataTable_wrapper">
-              <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+              <table>
                 <thead>
                   <tr>
-
+                    <th></th>
                     <th>Product</th>
                     <th>Vendor</th>
                     <th>Unit Price</th>
                     <th>Total Units</th>
                     <th>Subtotal</th>
-                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="odd gradeX">
-                    <td>Salmon</td>
-                    <td>Joe's Fish</td>
-                    <td class="center">$4.50/lbs</td>
-                    <td class="center">
-                      <input type="number" min="0" max="100" value="1">
-                    </td>
-                    <td class="center">$270.50</td>
-                    <td class="center">
-                      <input type="checkbox" name="msg[]" value="26" class="checkbox" />
-                    </td>
+                  <tr>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td data-label="Product">Salmon</td>
+                    <td data-label="Vendor">Joe's Fish</td>
+                    <td data-label="Unit Price">$2.22/lb</td>
+                    <td data-label="Total Units"><input type="number" min="0" max="100" value="1"></td>
+                    <td data-label="Subtotal">$87.26</td>
                   </tr>
-                  <tr class="odd gradeX">
-                    <td>Salmon</td>
-                    <td>Joe's Fish</td>
-                    <td class="center">$4.50/lbs</td>
-                    <td class="center">
-                      <input type="number" min="0" max="100" value="1">
-                    </td>
-                    <td class="center">$270.50</td>
-                    <td class="center">
-                      <input type="checkbox" name="msg[]" value="26" class="checkbox" />
-                    </td>
+                  <tr>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td data-label="Product">Bass</td>
+                    <td data-label="Vendor">Joe's Fish</td>
+                    <td data-label="Unit Price">$2.22/lb</td>
+                    <td data-label="Total Units"><input type="number" min="0" max="100" value="1"></td>
+                    <td data-label="Subtotal">$87.26</td>
                   </tr>
-                  <tr class="odd gradeX">
-                    <td>Salmon</td>
-                    <td>Joe's Fish</td>
-                    <td class="center">$4.50/lbs</td>
-                    <td class="center">
-                      <input type="number" min="0" max="100" value="1">
-                    </td>
-                    <td class="center">$270.50</td>
-                    <td>
-                      <input type="checkbox" value="">
-                    </td>
+                  <tr>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td data-label="Product">Bass</td>
+                    <td data-label="Vendor">Joe's Fish</td>
+                    <td data-label="Unit Price">$2.22/lb</td>
+                    <td data-label="Total Units"><input type="number" min="0" max="100" value="1"></td>
+                    <td data-label="Subtotal">$87.26</td>
                   </tr>
-                  <tr class="odd gradeX">
-                    <td>Salmon</td>
-                    <td>Joe's Fish</td>
-                    <td class="center">$4.50/lbs</td>
-                    <td class="center">
-                      <input type="number" min="0" max="100" value="1">
-                    </td>
-                    <td class="center">$270.50</td>
-                    <td class="center">
-                      <input type="checkbox" name="msg[]" value="26" class="checkbox" />
-                    </td>
-                  </tr>
-                  <tr class="odd gradeX">
-                    <td>Salmon</td>
-                    <td>Joe's Fish</td>
-                    <td class="center">$4.50/lbs</td>
-                    <td class="center">
-                      <input type="number" min="0" max="100" value="1">
-                    </td>
-                    <td class="center">$270.50</td>
-                    <td class="center">
-                      <input type="checkbox" name="msg[]" value="26" class="checkbox" />
-                    </td>
-                  </tr>
-                  <tr class="odd gradeX">
-                    <td>Salmon</td>
-                    <td>Joe's Fish</td>
-                    <td class="center">$4.50/lbs</td>
-                    <td class="center">
-                      <input type="number" min="0" max="100" value="1">
-                    </td>
-                    <td class="center">$270.50</td>
-                    <td class="center">
-                      <input type="checkbox" name="msg[]" value="26" class="checkbox" />
-                    </td>
+                  <tr>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td data-label="Product">Lobster</td>
+                    <td data-label="Vendor">Joe's Fish</td>
+                    <td data-label="Unit Price">$2.22/lb</td>
+                    <td data-label="Total Units"><input type="number" min="0" max="100" value="1"></td>
+                    <td data-label="Subtotal">$87.26</td>
                   </tr>
                 </tbody>
               </table>
+
             </div>
 
           </div>
@@ -117,10 +77,10 @@
     <!-- /.row -->
 
   </div>
-  <div class = "btn-success-padding">
-  <p align="right">
-    <button type="order" class="btn btn-success btn-lg"><i class = "fa fa-check"></i> Checkout</button>
-  </p>
-</div>
+  <div class="btn-success-padding">
+    <p align="right">
+      <button type="order" class="btn btn-success btn-lg"><i class="fa fa-check"></i> Checkout</button>
+    </p>
+  </div>
 
 </div>
