@@ -19,22 +19,22 @@
         <!-- /.panel-heading -->
         <div class="panel-body">
           <div class="dataTable_wrapper">
-            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-              <thead>
-                <tr>
+            <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Unit Price</th>
+                    <th>Availability</th>
+                    <th>Photo</th>
+                  </tr>
+                </thead>
+                <tbody>
 
-                  <th>Name</th>
-                  <th>Unit Price</th>
-                  <th>Availability</th>
-                  <th>Photo</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat="product in products" class="odd gradeX">
-                  <td>{{product.name}}</td>
-                  <td>${{product.unitPrice}}</td>
-                  <td class="center">{{product.availability}}</td>
-                  <td class="center"><a href ="#">View/edit photo</a></td>
+                <tr ng-repeat="product in products">
+                  <td data-label="Seafood Type">{{product.name}}</td>
+                  <td data-label="Unit Price">${{product.unitPrice}}</td>
+                  <td data-label="Availability">{{product.availability}}</td>
+                  <td data-label="Photo"><a href="#">View/edit photo</a></td>
                 </tr>
 
               </tbody>
