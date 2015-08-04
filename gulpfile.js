@@ -65,7 +65,8 @@ gulp.task('process-png', function() {
 gulp.task('watch', function() {
   gulp.watch('src/**/*.js', ['process-js']);
   gulp.watch('src/**/*.html', ['process-html']);
-  gulp.watch('src/**/*.scss', ['process-css']);
+  gulp.watch('src/**/*.scss', ['process-scss']);
+  gulp.watch('src/**/*.css', ['process-css']);
   gulp.watch('src/**/*.jpg', ['process-jpg']);
   gulp.watch('src/**/*.png', ['process-png']);
 });

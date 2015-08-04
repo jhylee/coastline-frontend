@@ -11,7 +11,7 @@
           <div class="panel panel-default">
             <div class="panel-heading">
               <p align="right">
-                <button type="submit" class="btn btn-danger" ng-disabled="isDeleteButtonDisabled">Delete Product</button>
+                <button type="submit" class="btn btn-danger" ng-click="deleteSelectedItems()" ng-disabled="isDeleteButtonDisabled">Delete Product</button>
               </p>
 
             </div>
@@ -31,7 +31,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr ng-repeat="product in cartItems track by $index" class="odd gradeX">
+                    <tr ng-repeat="product in items track by $index" class="odd gradeX">
                       <td>{{product.name}}</td>
                       <td>Joe's Fish</td>
                       <td class="center">${{product.unitPrice}}/{{product.units}}</td>
@@ -40,7 +40,7 @@
                       </td>
                       <td class="center">{{ getPrice(product.unitPrice, product.quantity)}}</td>
                       <td class="center">
-                        <input type="checkbox" name="msg[]" value="26" class="checkbox" ng-click="toggleItemSelection($index)"/>
+                        <input type="checkbox" name="msg[]" value="26" class="checkbox" ng-checked="expression" ng-click="toggleItemSelection($index)"/>
                       </td>
                     </tr>
                   </tbody>

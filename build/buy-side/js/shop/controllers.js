@@ -93,6 +93,12 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
   console.log("cartCtrl");
   console.log($localStorage.cart[0]);
 
+  var getItems = function () {
+    console.log("getItems");
+    console.log(ShopService.getItems());
+    $scope.items = ShopService.getItems();
+  };
+
   $scope.getCartLength = function () {
     return $localStorage.cart.length;
   };
@@ -106,9 +112,6 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
     ShopService.addItem(item)
   };
 
-  $scope.removeItem = function (index) {
-    $localStorage.cart.splice(index, 1);
-  };
 
   $scope.toggleItemSelection = function (index) {
     console.log("toggleItemSelection");
@@ -116,20 +119,17 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
     $scope.refreshDeleteButton();
   };
 
-  $scope.deleteSelectedItems = function () {};
+  $scope.deleteSelectedItems = function () {
+    ShopService.deleteSelectedItems();
+    getItems();
+  };
 
   $scope.refreshDeleteButton = function () {
     console.log("disabled: " + !ShopService.isAnythingSelected());
     $scope.isDeleteButtonDisabled = (!ShopService.isAnythingSelected());
   };
 
-  var getItems = function () {
-    console.log("getItems");
-    console.log(ShopService.getItems());
-    $scope.items = ShopService.getItems();
-  };
-
   $scope.refreshDeleteButton();
-  $scope.items = getItems();
+  getItems();
 
 }]);
