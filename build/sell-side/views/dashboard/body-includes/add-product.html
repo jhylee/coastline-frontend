@@ -1,0 +1,116 @@
+<div ng-controller="productEditCtrl" id="page-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">Add or Delete a Product</h1>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Add/Delete Product Form
+          </div>
+          <!-- /.panel-heading -->
+          <div class="panel-body">
+            <form role="form" ng-submit="addProduct()">
+
+              <div class="contact-form">
+                <div class="container">
+
+
+
+
+
+                  <br>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <h4>Seafood Type:</h4><input ng-model="name" type="name" class="form-control" id="exampleInputEmail1" placeholder="i.e. Cod, Lobster, etc.">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <h4>Availability:</h4><input ng-model="unitPrice" type="unitPrice" class="form-control" id="exampleInputEmail1" placeholder="i.e. 4.50">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <h4>Units:
+                          <select ng-model="units" name="mydropdown">
+                            <option value="lb">Pound</option>
+                            <option value="kg">Kilogram</option>
+                            <option value="unit">Unit</option>
+                          </select>
+                        </h4>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="row">
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <h4>Availability:
+                          <select ng-model="availability" name="mydropdown">
+                            <option value="None">None</option>
+                            <option value="Low">Low</option>
+                            <option value="High">High</option>
+                          </select>
+                        </h4>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="row">
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <h4>Featured:
+                          <select ng-model="featured" name="mydropdown">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                          </select>
+                        </h4>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+
+
+
+                  <div class="container">
+                    <div class="col-lg-10">
+                      <br>
+                      <div class="form-group">
+                        <br>
+                        <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Add Product</button>
+                        <br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

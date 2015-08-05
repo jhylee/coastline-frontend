@@ -1,11 +1,13 @@
 var app = angular.module('coastlineShop', ['ui.router',
     'ngStorage',
     'coastlineShop.shop.controllers',
-    'coastlineShop.shop.services'
+    'coastlineShop.shop.services',
+    'angularPayments'
 ]);
 
 
 app.config(function ($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider) {
+
 
   $urlRouterProvider.otherwise('/shop');
 
@@ -39,6 +41,10 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider, $htt
 
 
 });
+
+app.run( function ($window) {
+  $window.Stripe.setPublishableKey('pk_test_Luo0IysTGeDXy8Pbql3sVYZR');
+})
 
 
 angular.module('coastlineConstants',[])
