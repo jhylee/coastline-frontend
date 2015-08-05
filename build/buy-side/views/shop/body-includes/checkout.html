@@ -6,19 +6,19 @@
       <div class='col-md-4'></div>
       <div class='col-md-4'>
 
-        <form stripe-form="stripeCallback" accept-charset="UTF-8" class="require-validation" id="payment-form">
-          <div style="margin:0;padding:0;display:inline">
-            <input name="utf8" type="hidden" value="✓" />
-            <input name="_method" type="hidden" value="PUT" />
-            <input name="authenticity_token" type="hidden" value="qLZ9cScer7ZxqulsUWazw4x3cSEzv899SP/7ThPCOV8=" />
-          </div>
-
-
-          <div ng-switch on="getCheckoutState()">
-            <div ng-switch-when="0">
 
 
 
+        <div ng-switch on="getCheckoutState()">
+          <div ng-switch-when="0">
+
+
+            <form accept-charset="UTF-8" class="require-validation" id="payment-form">
+              <div style="margin:0;padding:0;display:inline">
+                <input name="utf8" type="hidden" value="✓" />
+                <input name="_method" type="hidden" value="PUT" />
+                <input name="authenticity_token" type="hidden" value="qLZ9cScer7ZxqulsUWazw4x3cSEzv899SP/7ThPCOV8=" />
+              </div>
 
               <div class='form-row'>
                 <div class='col-xs-12 form-group required'>
@@ -95,9 +95,19 @@
               <label class='control-label'> </label>
               <input ng-model="exp_year" class='form-control card-expiry-year' placeholder='YY' size='2' type='text'>
             </div> -->
-            </div>
+            </form>
 
-            <div ng-switch-when="1">
+          </div>
+
+          <div ng-switch-when="1">
+
+            <form stripe-form="stripeCallback" accept-charset="UTF-8" class="require-validation" id="payment-form">
+              <div style="margin:0;padding:0;display:inline">
+                <input name="utf8" type="hidden" value="✓" />
+                <input name="_method" type="hidden" value="PUT" />
+                <input name="authenticity_token" type="hidden" value="qLZ9cScer7ZxqulsUWazw4x3cSEzv899SP/7ThPCOV8=" />
+              </div>
+
               <div class='form-row'>
                 <div class='col-xs-12 form-group required'>
                   <label class='control-label'>Card Number</label>
@@ -105,11 +115,11 @@
                 </div>
               </div>
               <div class='form-row'>
-                <div class='col-xs-4 form-group cvc required'>
+                <div class='col-xs-6 form-group cvc required'>
                   <label ng-model="cvc" class='control-label'>CVC</label>
                   <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4' type='text'>
                 </div>
-                <div class='col-xs-4 form-group expiration required'>
+                <div class='col-xs-6 form-group expiration required'>
                   <label class='control-label'>Expiration</label>
                   <input ng-model="expiry" class='form-control card-expiry-month' placeholder='MM/YYYY' size='7' type='text'>
                 </div>
@@ -124,11 +134,15 @@
                 </div>
               </div>
 
+            </form>
 
-            </div>
 
 
-            <!-- <div class='form-row'>
+
+          </div>
+
+
+          <!-- <div class='form-row'>
             <div class='col-md-12'>
               <div class='form-control total btn btn-info'>
                 Total:
@@ -138,9 +152,8 @@
           </div> -->
 
 
-          </div>
+        </div>
 
-        </form>
 
         <div class='col-md-4'></div>
 

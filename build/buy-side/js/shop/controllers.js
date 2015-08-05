@@ -233,6 +233,7 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
         // };
 
         var order = ShopService.getOrderDetails();
+        console.log(ShopService.getOrderDetails().name);
 
         order.buyerStripeToken = result.id;
 
