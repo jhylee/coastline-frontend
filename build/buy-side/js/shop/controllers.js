@@ -139,28 +139,46 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 
 }])
 
+
+
 .controller('checkoutCtrl', ['$rootScope', '$scope', '$window', '$state', '$location', '$localStorage', 'ShopService', function($rootScope, $scope, $window, $state, $location, $localStorage, ShopService) {
   console.log("checkoutCtrl");
   $scope.$storage = $localStorage;
 
   // CHECKOUT STATES : 0 is basic info input, 1 is for stripe info
-  $scope.checkoutState = 0;
 
   $scope.refreshState = function() {
     console.log("refresh, service: " + ShopService.getCheckoutState());
-
     $scope.checkoutState = ShopService.getCheckoutState();
-
     console.log("refresh, checkoutState: " + $scope.checkoutState);
 
   };
 
   $scope.getCheckoutState = function() {
-    console.log("**** " + ShopService.getCheckoutState());
     return ShopService.getCheckoutState();
-  }
+  };
 
+  $scope.setCheckoutState = function (value) {
+    ShopService.setCheckoutState(value);
+    $scope.refreshState();
+  };
+
+  console.log("checkoutCtrl");
+  console.log("cart length: " + $localStorage.cart.length);
+
+
+
+
+
+  $scope.refreshState();
+}])
+
+.controller('checkoutPart1Ctrl', ['$rootScope', '$scope', '$window', '$state', '$location', '$localStorage', 'ShopService', function($rootScope, $scope, $window, $state, $location, $localStorage, ShopService) {
   $scope.proceedToPayment = function () {
+
+    console.log("proceedToPayment");
+
+    console.log($scope.email);
 
     var orderDetails = {
       sellerUsername: "abdulkhan",
@@ -181,78 +199,41 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 
   };
 
-  $scope.backToOrderInfo = function () {
-    $scope.setCheckoutState(0);
-  };
-
-  $scope.setCheckoutState = function (value) {
-    ShopService.setCheckoutState(value);
-    $scope.refreshState();
-  };
+}])
 
 
-  // if (!$localStorage.cart) {
-  //   $localStorage.cart = [];
-  // }
-
-  console.log("checkoutCtrl");
-  console.log("cart length: " + $localStorage.cart.length);
-
+.controller('checkoutPart2Ctrl', ['$rootScope', '$scope', '$window', '$state', '$location', '$localStorage', 'ShopService', function($rootScope, $scope, $window, $state, $location, $localStorage, ShopService) {
   $scope.getTotalAmount = function() {
     return ShopService.getTotalCartValue();
   };
 
-  $scope.setOrderDetails = function () {
-
-    console.log("begin setOrderDetails")
-
-
-    console.log("end setOrderDetails")
-  }
 
   $scope.stripeCallback = function (code, result) {
-    console.log("begin stripeCallback")
-
+    console.log("begin stripeCallback");
 
     if (result.error) {
         window.alert('it failed! error: ' + result.error.message);
     } else {
-        // window.alert('success! token: ' + result.id);
-        // var order = {
-        //   sellerUsername: "abdulkhan",
-        //   buyerName: $scope.name,
-        //   buyerEmail: $scope.email,
-        //   buyerPhoneNumber: $scope.phoneNumber,
-        //   buyerAddress: $scope.address,
-        //   buyerCity: $scope.city,
-        //   buyerState: $scope.state,
-        //   buyerCountry: $scope.country,
-        //   buyerPostalCode: $scope.postalCode,
-        //   products: ShopService.getItems(),
-        //   paymentMethod: "Credit Card",
-        // };
-
         var order = ShopService.getOrderDetails();
         console.log(ShopService.getOrderDetails().name);
 
         order.buyerStripeToken = result.id;
 
+        console.log(order.sellerUsername + " " + order.buyerEmail);
 
         ShopService.makeOrder(order, function (res) {
-          window.alert("success! " + res.data.sellerUsername);
+          window.alert("success! " + res);
         }, function (error) {
           window.alert("error! " + error);
-
         });
-
     }
 
-
-    console.log("end stripeCallback")
-
+    console.log("end stripeCallback");
   };
 
-  $scope.refreshState();
-
+  $scope.setOrderDetails = function () {
+    console.log("begin setOrderDetails");
+    console.log("end setOrderDetails");
+  };
 
 }]);
