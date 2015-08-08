@@ -40,6 +40,28 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider, $htt
   })
 
 
+  .state('thank-you', {
+    url: '/thank-you',
+  //  templateUrl: '/sell-side/views/dashboard.html',
+    data : { requireLogin : true },
+    views: {
+      'nav-top': {
+        templateUrl: '/buy-side/views/thank-you/nav-top.html'
+      },
+
+      'body': {
+        templateUrl: '/buy-side/views/thank-you/body.html'
+      },
+
+      'footer': {
+        templateUrl: '/buy-side/views/thank-you/footer.html'
+      },
+
+    },
+
+  })
+
+
 });
 
 app.run( function ($window) {

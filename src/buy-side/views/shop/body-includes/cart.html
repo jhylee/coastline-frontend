@@ -28,7 +28,7 @@
                 <tbody>
                   <tr ng-repeat="product in items track by $index">
                     <td>
-                      <input type="checkbox" name="msg[]" value="26" class="checkbox" ng-checked="expression" ng-click="toggleItemSelection($index)" />
+                      <input type="checkbox" name="msg[]" value="26" class="checkbox" ng-checked="selectedItems[$index]" ng-click="toggleItemSelection($index)" />
                     </td>
                     <td data-label="Product">{{product.name}}</td>
                     <td data-label="Unit Price">${{product.unitPrice}}/{{product.units}}</td>

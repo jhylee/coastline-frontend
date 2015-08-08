@@ -7,6 +7,9 @@ angular.module('coastlineShop.shop.services', ['ngStorage','coastlineConstants']
 
     var orderDetails = null;
     var checkoutState = 0;
+    var products = [];
+
+    var addedItems = [];
 
     return {
       // at startup
@@ -43,8 +46,24 @@ angular.module('coastlineShop.shop.services', ['ngStorage','coastlineConstants']
         var formData = {
           username: "abdulkhan"
         }
-        $http.post(baseUrl + '/api/buy-side/products', formData).success(success).error(error);
+        $http.post(baseUrl + '/api/buy-side/products', formData).success(
+          function (res) {
+            products = res;
+
+            success(res);
+          }).error(error);
       },
+
+      isProductAdded: function (name) {
+        for (i = 0; i < $localStorage.cart.length; i++) {
+          if (name == $localStorage.cart[i].name) {
+            return true;
+          }
+        };
+
+        return false;
+      },
+
 
 
       setCheckoutState: function(value) {
@@ -82,6 +101,11 @@ angular.module('coastlineShop.shop.services', ['ngStorage','coastlineConstants']
       getItems: function() {
         return $localStorage.cart;
       },
+
+      getSelectedItems: function() {
+        return $localStorage.selectedItems;
+      },
+
       // for cart page
       getTotalCartValue: function() {
         var total = 0;
