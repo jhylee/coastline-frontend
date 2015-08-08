@@ -1,16 +1,27 @@
 angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants'])
 
 
-.factory('AuthService', ['$http', '$localStorage', 'apiUrl', function ($http, $localStorage, apiUrl) {
+.factory('AuthService', ['$http', '$window', '$localStorage', 'apiUrl', function ($http, $window, $localStorage, apiUrl) {
     var baseUrl = apiUrl;
     var token = $localStorage.token;
+
+    var parseJwt = function(token) {
+      var base64Url = token.split('.')[1];
+      var base64 = base64Url.replace('-', '+').replace('_', '/');
+      return JSON.parse($window.atob(base64));
+    }
 
     return {
       isAuthenticated: function() {
         if ($localStorage.token === undefined || $localStorage.token === null) {
+          console.log("token not present");
+
           return false;
         } else {
-          return true;
+          var params = parseJwt($localStorage.token);
+          console.log("is token expired? " + Math.round(new Date().getTime() / 1000) <= params.exp);
+
+          return Math.round(new Date().getTime() / 1000) <= params.exp;
         }
       },
 
