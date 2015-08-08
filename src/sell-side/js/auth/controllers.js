@@ -109,6 +109,6 @@ angular.module('coastlineWebApp.auth.controllers', ['ui.router', 'ngStorage', 'c
     }, function () {
       $rootScope.error = 'Failed to fetch details';
     });
-  };
+};
 
 }]);
