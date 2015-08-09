@@ -16,7 +16,7 @@ body {
 
 hr {
     max-width: 125px;
-    border-color: #00a8ff;
+    border-color: #00BCD4;
     border-width: 2px;
 }
 
@@ -25,7 +25,7 @@ hr.light {
 }
 
 a {
-    color: #00a8ff;
+    color: #00BCD4;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -33,7 +33,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #0081c4;
+    color: #00BCD4;
 }
 
 h1,
@@ -53,7 +53,7 @@ p {
 }
 
 .bg-primary {
-    background-color: #00a8ff ;
+    background-color: #00BCD4 ;
 }
 
 .bg-dark {
@@ -90,12 +90,12 @@ aside {
     text-transform: uppercase;
     font-family: 'Josefin Slab', serif;
     font-weight: 700;
-    color: #00a8ff;
+    color: #00BCD4;
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
 .navbar-default .navbar-header .navbar-brand:focus {
-    color: #0081c4;
+    color: #00BCD4;
 }
 
 .navbar-default .nav > li>a,
@@ -108,12 +108,12 @@ aside {
 
 .navbar-default .nav > li>a:hover,
 .navbar-default .nav>li>a:focus:hover {
-    color: #00a8ff ;
+    color: #00BCD4 ;
 }
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color: #00a8ff !important;
+    color: #00BCD4 !important;
     background-color: transparent;
 }
 
@@ -154,12 +154,12 @@ aside {
 
     .navbar-default.affix .navbar-header .navbar-brand {
         font-size: 14px;
-        color: #00a8ff ;
+        color: #00BCD4 ;
     }
 
     .navbar-default.affix .navbar-header .navbar-brand:hover,
     .navbar-default.affix .navbar-header .navbar-brand:focus {
-        color: #0081c4 ;
+        color: #00BCD4 ;
     }
 
     .navbar-default.affix .nav > li>a,
@@ -169,7 +169,7 @@ aside {
 
     .navbar-default.affix .nav > li>a:hover,
     .navbar-default.affix .nav>li>a:focus:hover {
-        color: #00a8ff ;
+        color: #00BCD4 ;
     }
 }
 
@@ -325,7 +325,7 @@ header .header-content .header-content-inner p {
 }
 
 .text-primary {
-    color: #00a8ff ;
+    color: #00BCD4 ;
 }
 
 .no-gutter > [class*=col-] {
@@ -473,18 +473,18 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .btn.btn-blue {
-	background: #00a8ff;
+	background: #00BCD4;
     border-color: #fff;
     border-width: thick;
     font-weight: bold;
 }
 
 .btn.btn-blue:hover {
-	background: #0081c4 ;
+	background: #00838F ;
 }
 
 .btn.btn-blue-fill {
-	color: #00a8ff;
+	color: #00838F;
 	border-color: #00a8ff;
 	background: transparent;
 }
@@ -504,7 +504,7 @@ fieldset[disabled] .btn-primary.active {
 .btn.btn-white-fill:hover {
 	color: #fff;
   font-weight: bold;
-	background: rgba(0, 168, 255, 0.47);
+	background: #4DD0E1;
 }
 
 .btn.btn-darkblue-fill {
@@ -512,7 +512,7 @@ fieldset[disabled] .btn-primary.active {
     font-weight: bold;
 	border-color: #fff;
     border-width: thick;
-	background: #0081c4 ;
+	background: #00B8D4 ;
 }
 
 .btn.btn-darkblue-fill:hover {
@@ -589,7 +589,9 @@ header .writing{
 OUR TEAM
 ========================================================================== */
 .team img { margin-bottom: 20px;
-margin-top: 20px;}
+margin-top: 20px;
+max-height: 250px;
+max-width: 250px;}
 .team{
   background-color: #fff;
 }
@@ -689,12 +691,15 @@ Form
   margin: 20px 0;
 }
 .cd-form h4, .cd-form .cd-label {
-  font-size: 1.3rem;
+  font-size: 2.9rem;
+  font-family: inherit;
   color: #94aab0;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 .cd-form .cd-label {
   display: block;
+  font-size: 20px;
 }
 .cd-form input, .cd-form textarea, .cd-form select, .cd-form label {
   font-family: "Open Sans", sans-serif;
@@ -720,18 +725,17 @@ Form
 .cd-form select {
   /* general style for input elements */
   padding: 12px;
-  border: 1px solid #cfd9db;
+  border: 4px solid #B2EBF2;
+  opacity: 0.8;
   background-color: #ffffff;
-  border-radius: .25em;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
+  border-radius: .15em;
 }
 .cd-form input[type="text"]:focus,
 .cd-form input[type="email"]:focus,
 .cd-form textarea:focus,
 .cd-form select:focus {
   outline: none;
-  border-color: #2c97de;
-  box-shadow: 0 0 5px rgba(44, 151, 222, 0.2);
+  border-color: #0097A7;
 }
 .cd-form .cd-select {
   /* select element wapper */
@@ -775,7 +779,7 @@ Form
   -ms-user-select: none;
   user-select: none;
   margin: 0 26px 16px 0;
-  float: left;
+  float: center;
 }
 .cd-form input[type=radio],
 .cd-form input[type=checkbox] {
@@ -796,6 +800,7 @@ Form
 .cd-form input[type="radio"] + label,
 .cd-form input[type="checkbox"] + label {
   padding-left: 24px;
+  font-family: inherit;
 }
 .cd-form input[type="radio"] + label::before,
 .cd-form input[type="radio"] + label::after,
@@ -813,8 +818,8 @@ Form
 }
 .cd-form input[type="radio"] + label::before,
 .cd-form input[type="checkbox"] + label::before {
-  border: 1px solid #cfd9db;
-  background: #ffffff;
+  border: 4px solid #cfd9db;
+  background: #E0F7FA;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
 }
 .cd-form input[type="radio"] + label::before,
@@ -865,9 +870,12 @@ Form
 }
 .cd-form input[type="submit"] {
   /* button style */
-  border: none;
-  background: #2c97de;
-  border-radius: .25em;
+  border: solid;
+  background: #00BCD4;
+  border-width: thick;
+  border-color: #00ACC1;
+  border-radius: .20em;
+  font-weight: bold;
   padding: 16px 20px;
   color: #ffffff;
   font-weight: bold;
@@ -880,6 +888,11 @@ Form
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
+
+
+
+
+
 }
 .no-touch .cd-form input[type="submit"]:hover {
   background: #42a2e1;
@@ -923,12 +936,14 @@ Form
   .cd-form h4, .cd-form .cd-label {
     font-size: 1.4rem;
     margin-bottom: 10px;
+    border-radius: 2px;
   }
   .cd-form input[type="text"],
   .cd-form input[type="email"],
   .cd-form textarea,
   .cd-form select {
-    padding: 16px;
+    padding: 12px;
+
   }
 }
 
@@ -992,12 +1007,49 @@ Custom icons
 }
 .cd-form .budget {
   background: url("../img/cd-icon-budget.svg") no-repeat 16px center;
+  font-size: 14px;
+  color: #757575;
 }
 .cd-form .message {
   background: url("../img/cd-icon-message.svg") no-repeat 16px 16px;
 }
 .cd-form [required].message {
   background: url("../img/cd-icon-message.svg") no-repeat 16px 16px, url("../img/cd-required.svg") no-repeat top right;
+}
+
+/* --------------------------------
+
+Placeholder Text Custom Styles
+
+-------------------------------- */
+::-webkit-input-placeholder {
+
+ text-align: left;
+ font-size: 14px;
+ opacity: 0.6;
+ font-family: sans-serif;
+
+}
+:-moz-placeholder { /* older Firefox*/
+
+  text-align: left;
+  font-size: 14px;
+  opacity: 0.6;
+  font-family: sans-serif;
+}
+::-moz-placeholder { /* Firefox 19+ */
+
+  text-align: left;
+  font-size: 14px;
+  opacity: 0.6;
+  font-family: sans-serif;
+}
+:-ms-input-placeholder {
+
+ text-align: left;
+ font-size: 14px;
+ opacity: 0.6;
+ font-family: sans-serif;
 }
 
 /* --------------------------------
