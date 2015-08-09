@@ -41,7 +41,7 @@ angular.module('coastlineShop.shop.services', ['ngStorage','coastlineConstants']
       // for product page
       getProducts: function(success, error) {
         var formData = {
-          username: "abdulkhan"
+          username: "abc123"
         }
         $http.post(baseUrl + '/api/buy-side/products', formData).success(success).error(error);
       },
