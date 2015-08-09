@@ -1,0 +1,223 @@
+<div ng-switch on="selection">
+
+  <!-- HOME -->
+  <div ng-switch-default>
+    <div ng-controller="ordersCtrl" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1 class="page-header">Home</h1>
+
+      <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Label</h4>
+          <span class="text-muted">{{details.firstName}}</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Label</h4>
+          <span class="text-muted">{{details.lastName}}</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Label</h4>
+          <span class="text-muted">{{details.email}}</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>{{details.phoneNumber}}</h4>
+          <span class="text-muted">{{details.phoneNumber}}</span>
+        </div>
+      </div>
+
+      <h2 class="sub-header">Section title</h2>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Product Name</th>
+              <th>Customer Name</th>
+              <th>Product(s)</th>
+              <th>Reference #</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="order in orders track by $index">
+              <td>{{$index + 1}}</td>
+              <td>{{order.productName}}</td>
+              <td>{{order.buyerName}}</td>
+              <td>{{order.productQuantity}}</td>
+              <td>{{order._id}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- MY ORDERS -->
+  <div ng-switch-when="orders">
+
+    <div ng-controller="ordersCtrl" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1 class="page-header">My Orders</h1>
+
+      <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Label</h4>
+          <span class="text-muted">{{details.firstName}}</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Label</h4>
+          <span class="text-muted">{{details.lastName}}</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Label</h4>
+          <span class="text-muted">{{details.email}}</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>{{details.phoneNumber}}</h4>
+          <span class="text-muted">{{details.phoneNumber}}</span>
+        </div>
+      </div>
+
+      <h2 class="sub-header">Section title</h2>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Product Name</th>
+              <th>Customer Name</th>
+              <th>Product(s)</th>
+              <th>Reference #</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="order in orders track by $index">
+              <td>{{$index + 1}}</td>
+              <td>{{order.productName}}</td>
+              <td>{{order.buyerName}}</td>
+              <td>{{order.productQuantity}}</td>
+              <td>{{order._id}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- MY STORE -->
+  <div ng-switch-when="store">
+
+    <div ng-controller="ordersCtrl" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1 class="page-header">My Store</h1>
+
+      <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Label</h4>
+          <span class="text-muted">{{details.firstName}}</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Label</h4>
+          <span class="text-muted">{{details.lastName}}</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Label</h4>
+          <span class="text-muted">{{details.email}}</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>{{details.phoneNumber}}</h4>
+          <span class="text-muted">{{details.phoneNumber}}</span>
+        </div>
+      </div>
+
+      <h2 class="sub-header">Section title</h2>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Product Name</th>
+              <th>Customer Name</th>
+              <th>Product(s)</th>
+              <th>Reference #</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="order in orders track by $index">
+              <td>{{$index + 1}}</td>
+              <td>{{order.productName}}</td>
+              <td>{{order.buyerName}}</td>
+              <td>{{order.productQuantity}}</td>
+              <td>{{order._id}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MY MESSAGES -->
+  <div ng-switch-when="messages">
+
+    <div ng-controller="ordersCtrl" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1 class="page-header">My Messages</h1>
+
+      <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Label</h4>
+          <span class="text-muted">{{details.firstName}}</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Label</h4>
+          <span class="text-muted">{{details.lastName}}</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Label</h4>
+          <span class="text-muted">{{details.email}}</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>{{details.phoneNumber}}</h4>
+          <span class="text-muted">{{details.phoneNumber}}</span>
+        </div>
+      </div>
+
+      <h2 class="sub-header">Section title</h2>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Product Name</th>
+              <th>Customer Name</th>
+              <th>Product(s)</th>
+              <th>Reference #</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="order in orders track by $index">
+              <td>{{$index + 1}}</td>
+              <td>{{order.productName}}</td>
+              <td>{{order.buyerName}}</td>
+              <td>{{order.productQuantity}}</td>
+              <td>{{order._id}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

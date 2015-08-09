@@ -1,0 +1,29 @@
+{
+  "name": "coastline-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "npm install -g gulp; npm install; gulp",
+
+    "start": "npm install -g gulp; npm install; gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/abdu1khan/coastline-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdu1khan/coastline-frontend/issues"
+  },
+  "homepage": "https://github.com/abdu1khan/coastline-frontend",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-replace-task": "^0.2.1",
+    "gulp-sass": "^2.0.3",
+    "yargs": "^3.15.0"
+  }
+}
