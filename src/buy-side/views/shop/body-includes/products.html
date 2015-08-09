@@ -43,19 +43,8 @@
                 <!-- <div class="content">
                   <p>170g units approx. Flank steak from pasture-raised Angus, hormones and antibiotics free and tender.</p>
                 </div> -->
-                <div ng-init="addButtonState = getAddButtonState(product.name)" class="action">
-
-                  <div ng-switch on="addButtonState">
-                    <div ng-switch-default>
-                      <a ng-click="addToCart(product)" href="javascript:void(0)" class="alignleft"><i class="fa fa-plus-square-o"></i> Add To Cart</a>
-                    </div>
-
-                    <div ng-switch-when="1">
-                      <a href="#" class="alignleft"><i class="fa fa-check-square-o"></i> Added!</a>
-                    </div>
-                  </div>
-
-
+                <div class="action">
+                  <a ng-click="addToCart(product)" href="javascript:void(0)" class="alignleft"><i class="fa fa-plus-square-o"></i> Add To Cart</a>
                   <a class="alignright">${{product.unitPrice}}/{{product.units}}</a>
                 </div>
               </div>

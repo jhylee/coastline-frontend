@@ -12,14 +12,16 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants
     }
 
     return {
+
+
       isAuthenticated: function() {
         if ($localStorage.token === undefined || $localStorage.token === null) {
-          console.log("token not present");
+          // console.log("token not present");
 
           return false;
         } else {
           var params = parseJwt($localStorage.token);
-          console.log("is token expired? " + Math.round(new Date().getTime() / 1000) <= params.exp);
+          // console.log("is token expired? " + Math.round(new Date().getTime() / 1000) <= params.exp);
 
           return Math.round(new Date().getTime() / 1000) <= params.exp;
         }
@@ -49,17 +51,17 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants
       logout: function (done) {
         delete $localStorage.token;
         $localStorage.$save();
-        console.log("token: " + $localStorage.token);
+        // console.log("token: " + $localStorage.token);
         done();
       },
       getToken: function () {
-        console.log("getting token: " + token);
+        // console.log("getting token: " + token);
         return token;
       },
       setToken: function (newToken) {
-        console.log("setting token: " + token + ", " + newToken);
+        // console.log("setting token: " + token + ", " + newToken);
         token = newToken;
-        console.log("token now: " + token);
+        // console.log("token now: " + token);
       },
 
 
@@ -88,11 +90,11 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants
 
       request: function (config) {
         config.headers = config.headers || {};
-        console.log("attaching token: " + $localStorage.token);
+        // console.log("attaching token: " + $localStorage.token);
         if ($localStorage.token) {
-          console.log("attaching token now");
+          // console.log("attaching token now");
           config.headers.Authorization = 'Bearer ' + $localStorage.token;
-          console.log(config.headers.Authorization);
+          // console.log(config.headers.Authorization);
         }
         return config;
       },

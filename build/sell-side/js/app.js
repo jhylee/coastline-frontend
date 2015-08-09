@@ -1,15 +1,18 @@
 var app = angular.module('coastlineWebApp', ['ui.router',
-    'ngStorage',
-    'coastlineWebApp.auth.controllers',
-    'coastlineWebApp.auth.services',
-    'coastlineWebApp.dashboard.controllers',
-    'coastlineWebApp.dashboard.services'
+  'ngStorage',
+  'coastlineWebApp.auth.controllers',
+  'coastlineWebApp.auth.services',
+  'coastlineWebApp.dashboard.controllers',
+  'coastlineWebApp.dashboard.services',
+  'coastlineWebApp.redirect.controllers',
+  'coastlineWebApp.redirect.services'
 ]);
 
 
-app.config(function ($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider) {
+app.config(function($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider) {
 
-  $urlRouterProvider.otherwise('/dashboard');
+  $urlRouterProvider.otherwise('/redirect');
+  //$locationProvider.html5Mode(true);
 
   $stateProvider
 
@@ -21,10 +24,12 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider, $htt
 
   // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
 
-  .state('dashboard', {
+    .state('dashboard', {
     url: '/dashboard',
-  //  templateUrl: '/sell-side/views/dashboard.html',
-    data : {requireLogin : true },
+    //  templateUrl: '/sell-side/views/dashboard.html',
+    data: {
+      requireLogin: true
+    },
     views: {
 
       'nav-top': {
@@ -92,8 +97,18 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider, $htt
     url: '/redirect',
 
     views: {
+
+      'nav-top': {
+        templateUrl: '/sell-side/views/login/nav-top.html'
+      },
+      'nav-side': {
+        templateUrl: '/sell-side/views/login/nav-side.html'
+      },
       'body': {
-        templateUrl: '/sell-side/views/redirect/redirect.html'
+        templateUrl: '/sell-side/views/redirect/body.html'
+      },
+      'footer': {
+        templateUrl: '/sell-side/views/login/footer.html'
       },
     }
 
@@ -124,53 +139,78 @@ app.config(function ($stateProvider, $locationProvider, $urlRouterProvider, $htt
 
 });
 
-app.run(function ($rootScope, $state, $location, AuthService) {
+app.run(function($rootScope, $state, $location, AuthService, RedirectService) {
 
-    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
+  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState) {
 
-      console.log("beginning redirect logic");
+    console.log({
+        'toState': toState.name,
+        'toParams': toParams.name,
+        'fromState': fromState.name,
+      });
 
-      var shouldLogin = toState.data !== undefined && toState.data.requireLogin && !AuthService.isAuthenticated();
 
-      // NOT authenticated - wants any private stuff
-      if(shouldLogin)
-      {
-        console.log(AuthService.isAuthenticated());
-        console.log("should login");
-        $state.go('login');
-        event.preventDefault();
+    // console.log("beginning redirect logic");
+
+    var shouldLogin = toState.data !== undefined && toState.data.requireLogin && !AuthService.isAuthenticated();
+
+    // NOT authenticated - wants any private stuff
+    if (shouldLogin) {
+
+      console.log("should login");
+
+      if (toState.name === 'login') {
+        console.log("trying to go to login")
         return;
       }
 
+      console.log(AuthService.isAuthenticated());
 
-      // authenticated (previously) comming not to root main
-      if(AuthService.isAuthenticated())
-      {
-        var shouldGoToMain = fromState.name === "" && toState.name !== "dashboard" ;
+      RedirectService.setRedirectState("login");
 
-        if (shouldGoToMain)
-        {
-            $state.go('dashboard');
-            event.preventDefault();
-        }
-        return;
+      event.preventDefault();
+
+
+
+      return;
+    }
+
+
+    // authenticated (previously) comming not to root main
+    if (AuthService.isAuthenticated()) {
+      console.log("is authenticated");
+      // var shouldGoToMain = fromState.name === "" && toState.name !== "dashboard";
+      var goToDashboard = (toState.name == "redirect");
+
+
+      if (goToDashboard) {
+        // $location.path("/dashboard");
+        console.log("go to dash");
+
+        RedirectService.setRedirectState("dashboard");
+
+
+        // event.preventDefault();
+        // event.preventDefault();
       }
+      return;
+    }
 
-      // // UNauthenticated (previously) comming not to root public
-      // var shouldGoToPublic = fromState.name === ""
-      //                   && toState.name !== "login" ;
-      //
-      // if(shouldGoToPublic)
-      // {
-      //     $state.go('login');console.log('p')
-      //     event.preventDefault();
-      // }
+    // // UNauthenticated (previously) comming not to root public
+    // var shouldGoToPublic = fromState.name === ""
+    //                   && toState.name !== "login" ;
+    //
+    // if(shouldGoToPublic)
+    // {
+    //     $state.go('login');console.log('p')
+    //     event.preventDefault();
+    // }
 
-      // unmanaged
-    });
+    // unmanaged
+  });
 });
 
-angular.module('coastlineConstants',[])
+angular.module('coastlineConstants', [])
   .constant('apiUrl', 'http://localhost:3000');
 
 //app.controller('authCtrl', ['$rootScope', '$scope', '$location', '$localStorage', 'Main', function ($rootScope, $scope, $location, $localStorage, Main) {

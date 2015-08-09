@@ -47,6 +47,10 @@ angular.module('coastlineWebApp.dashboard.services', ['ngStorage','coastlineCons
         console.log("availability: " + formData.availability);
         console.log("featured: " + formData.featured);
         $http.post(baseUrl + '/api/sell-side/add-product', formData).success(success).error(error);
+      },
+
+      deleteProduct: function (formData, success, error) {
+        $http.post(baseUrl + '/api/sell-side/delete-product', formData).success(success).error(error);
       }
 
     };

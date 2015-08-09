@@ -286,15 +286,36 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
 
 
 .controller('productDisplayCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService) {
-  DashboardService.products(
-    function (res) {
-      console.log("length" + res.length);
-      $scope.products = res;
-    },
-    function (err) {
-      console.log("err" + err);
-    }
-  )
+
+  $scope.getProducts = function() {
+    DashboardService.products(
+      function (res) {
+        console.log("length" + res.length);
+        $scope.products = res;
+      },
+      function (err) {
+        console.log("err" + err);
+      }
+    );
+  };
+
+  $scope.deleteProduct = function (ref) {
+    var formData = {
+      productID : ref
+    };
+
+    // console.log(productID);
+
+    DashboardService.deleteProduct(formData, function (res) {
+      console.log("deleted!");
+      $scope.getProducts();
+    }, function (err) {
+      console.log("error deleting product!");
+    });
+  };
+
+  $scope.getProducts();
+
 }])
 
 .controller('productEditCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService) {

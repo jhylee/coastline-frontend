@@ -416,3 +416,185 @@ table {
       font-weight: bold;
     }
   }
+
+
+  /* PAYMENT FORM */
+  .modal2 {
+    background: #ffffff;
+    -webkit-border-radius: 3px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 3px;
+    -moz-background-clip: padding;
+    border-radius: 3px;
+    background-clip: padding-box;
+    overflow: hidden;
+  }
+  .modal2 .form .form-row {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin: 0 0 30px;
+  }
+  .modal2 .form .form-row:last-child {
+    margin: 0;
+  }
+  .modal2 .form .form-row:last-child .input-group {
+    width: 75%;
+    margin: 0 15px 0 0;
+  }
+  .modal2 .form .form-row:last-child .input-group:last-child {
+    width: 25%;
+    margin: 0 0 0 15px;
+  }
+  .modal2 .form .input-group {
+    width: 100%;
+  }
+  .modal2 .form label {
+    display: block;
+    width: 100%;
+    margin: 0 0 10px;
+    color: #000;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+  .alignright {
+    float: right;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+  .alignleft {
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  .modal2 .form input {
+    outline: 1px solid rgba(0, 0, 0, 0.3);
+    display: block;
+    background: rgba(77, 76, 76, 0.05);
+    width: 100%;
+    margin: 0;
+    border: 2px;
+    -webkit-border-radius: 3px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 3px;
+    -moz-background-clip: padding;
+    border-radius: 3px;
+    background-clip: padding-box;
+    padding: 12px;
+    color: #999;
+    font-size: 14px;
+    font-weight: 300;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .modal2 .header {
+    background: #90A4AE;
+    padding: 30px;
+    text-align: center;
+  }
+  .modal2 .header h1 {
+    margin: 0 0 15px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .modal2 .card-type {
+    letter-spacing: 8px;
+    color: #fff;
+    opacity: 0.8;
+  }
+
+  .modal2 .content {
+    padding: 30px;
+  }
+  .modal2 .footer .button {
+    outline: none;
+    display: block;
+    background: #009688;
+    width: 100%;
+    border: 0;
+    padding: 20px 30px;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 30px;
+    margin-top: 50px;
+  }
+  .info {
+    width: 300px;
+    margin: 50px auto;
+    text-align: center;
+  }
+  .info h1 {
+    margin: 0 0 15px;
+    padding: 0;
+    font-size: 24px;
+    font-weight: 400;
+    color: #333;
+  }
+  .info span {
+    color: #666;
+    font-size: 12px;
+  }
+  .info span a {
+    color: #000000;
+    text-decoration: none;
+  }
+  .info span .fa {
+    color: #90A4AE;
+  }
+  lesshat-selector {
+    -lh-property: 0; }
+  @-webkit-keyframes active{ 0%{ bottom: -60px; opacity: 0; } 100%{ bottom: -30px; opacity: 1 }}
+  @-moz-keyframes active{ 0%{ bottom: -60px; opacity: 0; } 100%{ bottom: -30px; opacity: 1 }}
+  @-o-keyframes active{ 0%{ bottom: -60px; opacity: 0; } 100%{ bottom: -30px; opacity: 1 }}
+  @keyframes active{ 0%{ bottom: -60px; opacity: 0; } 100%{ bottom: -30px; opacity: 1 };
+  }
+  lesshat-selector {
+    -lh-property: 0; }
+  @-webkit-keyframes active{ 0%{ bottom: -60px; opacity: 0; } 100%{ bottom: -30px; opacity: 1 }}
+  @-moz-keyframes active{ 0%{ bottom: -60px; opacity: 0; } 100%{ bottom: -30px; opacity: 1 }}
+  @-o-keyframes active{ 0%{ bottom: -60px; opacity: 0; } 100%{ bottom: -30px; opacity: 1 }}
+  @keyframes active{ 0%{ bottom: -60px; opacity: 0; } 100%{ bottom: -30px; opacity: 1 };
+  }
+
+  .dropdown{
+    font-size: 14px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+
+  .fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
