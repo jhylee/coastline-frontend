@@ -206,7 +206,7 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 
 
     var orderDetails = {
-      sellerUsername: "abdulkhan",
+      sellerUsername: ShopService.getSellerUsername(),
       name: $scope.name,
       email: $scope.email,
       phoneNumber: $scope.phoneNumber,
@@ -256,7 +256,6 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 
       ShopService.makeOrder(order, function(res) {
         $state.go('thank-you');
-        console.log("nigger");
       }, function(error) {
         window.alert("error! " + error);
       });
