@@ -24,6 +24,12 @@ hr.light {
     border-color: #fff;
 }
 
+hr.thin {
+  max-width: 100%;
+    border-color: #4DB6AC;
+    border-width: 1px;
+}
+
 a {
     color: #00BCD4;
     -webkit-transition: all .35s;
@@ -598,6 +604,10 @@ max-width: 250px;}
 }
 .contact{
   background-color: #E1F5FE;
+}
+
+.terms{
+  background-color: #B2DFDB;
 }
 
 .footer{
