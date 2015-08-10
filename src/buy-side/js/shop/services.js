@@ -8,7 +8,7 @@ angular.module('coastlineShop.shop.services', ['ngStorage','coastlineConstants']
     var orderDetails = null;
     var checkoutState = 0;
     var products = [];
-    var sellerUsername = "johndoe";
+    var sellerUsername = "abdulkhan";
     var addedItems = [];
 
     return {
