@@ -1,4 +1,4 @@
-<div ng-controller="cartCtrl" class="container">
+<div class="container">
 
 
   <div class="container-fluid" padding:0>
@@ -25,7 +25,7 @@
                     <th>Subtotal</th>
                   </tr>
                 </thead>
-                <tbody >
+                <tbody ng-controller="cartCtrl">
                   <tr ng-repeat="product in items track by $index">
                     <td>
                       <input type="checkbox" name="msg[]" value="26" class="checkbox" ng-checked="selectedItems[$index]" ng-click="toggleItemSelection($index)" />
