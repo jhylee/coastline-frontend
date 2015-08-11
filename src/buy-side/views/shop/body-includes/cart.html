@@ -1,4 +1,4 @@
-<div ng-controller="cartCtrl" class="container">
+<div class="container">
 
 
   <div class="container-fluid" padding:0>
@@ -25,10 +25,10 @@
                     <th>Subtotal</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody ng-controller="cartCtrl">
                   <tr ng-repeat="product in items track by $index">
                     <td>
-                      <input type="checkbox" name="msg[]" value="26" class="checkbox" ng-checked="expression" ng-click="toggleItemSelection($index)" />
+                      <input type="checkbox" name="msg[]" value="26" class="checkbox" ng-checked="selectedItems[$index]" ng-click="toggleItemSelection($index)" />
                     </td>
                     <td data-label="Product">{{product.name}}</td>
                     <td data-label="Unit Price">${{product.unitPrice}}/{{product.units}}</td>
@@ -64,7 +64,7 @@
   </div>
   <div class="btn-success-padding">
     <p align="right">
-      <button type="order" class="btn btn-success btn-lg"><i class="fa fa-check"></i> Checkout</button>
+      <button ng-click="setPageSelection(2)" href="javascript:void(0)" type="order" class="btn btn-success btn-lg"><i class="fa fa-check"></i> Checkout</button>
     </p>
   </div>
 

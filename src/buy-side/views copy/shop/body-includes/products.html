@@ -9,6 +9,8 @@
 
       <!-- <div class="row">
         <div ng-repeat="product in products">
+
+
           <div class="col-md-4 wp4 delay-05s">
             <div ng-controller="productCtrl">
               <div class="overlay-effect effects clearfix">
@@ -21,7 +23,9 @@
               </div>
             </div>
           </div>
+
         </div>
+
       </div> -->
       <!-- Projects Row -->
 
@@ -30,32 +34,18 @@
           <div class="row">
 
 
-            <div ng-repeat="product in products" class="column ng-scope">
-              <div ng-controller="productCtrl" class="card ng-scope">
+            <div ng-repeat="product in products" class="column">
+              <div ng-controller="productCtrl" class="card">
                 <div class="image">
                   <img src="img/bass.jpg">
-                  <span class="title ng-binding">{{product.name}}</span>
+                  <span class="title">{{product.name}}</span>
                 </div>
                 <!-- <div class="content">
-                              <p>170g units approx. Flank steak from pasture-raised Angus, hormones and antibiotics free and tender.</p>
-                            </div> -->
-                <div ng-init="addButtonState = getAddButtonState(product.name)" class="action">
-
-                  <div ng-switch on="addButtonState">
-                    <!-- ngSwitchDefault:  -->
-                    <div ng-switch-when="0" class="ng-scope">
-                      <a ng-click="addToCart(product)" href="javascript:void(0)" class="alignleft"><i class="fa fa-plus-square-o"></i> Add To Cart</a>
-                    </div>
-
-                    <!-- ngSwitchWhen: 1 -->
-                    <div ng-switch-when="1" class="ng-scope">
-                      <a href="#" class="alignleft"><i class="fa fa-check-square-o"></i> Added!</a>
-                    </div>
-                    <!-- end ngSwitchWhen: -->
-                  </div>
-
-
-                  <a class="alignright ng-binding">${{product.unitPrice}}/{{product.units}}</a>
+                  <p>170g units approx. Flank steak from pasture-raised Angus, hormones and antibiotics free and tender.</p>
+                </div> -->
+                <div class="action">
+                  <a ng-click="addToCart(product)" href="javascript:void(0)" class="alignleft"><i class="fa fa-plus-square-o"></i> Add To Cart</a>
+                  <a class="alignright">${{product.unitPrice}}/{{product.units}}</a>
                 </div>
               </div>
             </div>
@@ -67,7 +57,7 @@
       <!-- /.row -->
 
       <!-- Pagination -->
-      <!-- <div class="row text-center">
+      <div class="row text-center">
         <div class="col-lg-12">
           <ul class="pagination">
             <li>
@@ -93,6 +83,6 @@
             </li>
           </ul>
         </div>
-      </div> -->
+      </div>
       <!-- /.row -->
       </div>

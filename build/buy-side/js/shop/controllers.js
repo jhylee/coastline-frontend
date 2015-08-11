@@ -171,6 +171,10 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
     $scope.refreshState();
   };
 
+  $scope.getTotalCartValue = function () {
+    return ShopService.getTotalCartValue();
+  };
+
   console.log("checkoutCtrl");
   console.log("cart length: " + $localStorage.cart.length);
 
@@ -255,6 +259,7 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
       console.log(order.sellerUsername + " " + order.buyerEmail);
 
       ShopService.makeOrder(order, function(res) {
+        ShopService.setPageSelection(0);
         $state.go('thank-you');
       }, function(error) {
         window.alert("error! " + error);
