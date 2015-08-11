@@ -8,7 +8,7 @@ angular.module('coastlineShop.shop.services', ['ngStorage','coastlineConstants']
     var orderDetails = null;
     var checkoutState = 0;
     var products = [];
-
+    var sellerUsername = "abdulkhan";
     var addedItems = [];
 
     return {
@@ -32,6 +32,10 @@ angular.module('coastlineShop.shop.services', ['ngStorage','coastlineConstants']
         $localStorage.$save();
       },
 
+      getSellerUsername: function() {
+        return sellerUsername;
+      },
+
 
       // for page navigation
       getPageSelection: function () {
@@ -44,7 +48,7 @@ angular.module('coastlineShop.shop.services', ['ngStorage','coastlineConstants']
       // for product page
       getProducts: function(success, error) {
         var formData = {
-          username: "abdulkhan"
+          username: sellerUsername
         }
         $http.post(baseUrl + '/api/buy-side/products', formData).success(
           function (res) {

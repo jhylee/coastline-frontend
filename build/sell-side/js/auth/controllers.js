@@ -80,7 +80,9 @@ angular.module('coastlineWebApp.auth.controllers', ['ui.router', 'ngStorage', 'c
   };
 
   $scope.signUp = function () {
-    $state.go('redirect');
+
+    // RedirectService.setRedirectState("wait");
+    // $state.go('redirect');
 
     var formData = {
       organization: $scope.organization,

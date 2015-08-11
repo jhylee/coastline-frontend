@@ -1,124 +1,148 @@
 <div ng-controller="transactionDetailCtrl" id="page-wrapper">
 
-
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-lg-12">
       <h1>
         Order #{{getRef(order)}}
+        <a href="invoiceFull.html"><i class="fa fa-external-link"></i></a>
       </h1>
+      <br>
     </div>
-    <div class="col-xs-6 text-right">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-5">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4>Customer: <a href="#">{{getName(order)  }}</a></h4>
-        </div>
+
+    <div class="col-xs-12 col-md-4 col-lg-4">
+      <div class="panel panel-default height">
+        <div class="panel-heading">Customer</div>
         <div class="panel-body">
-          <p>
-            Address
-            <br> details
-            <br> more
-            <br>
-          </p>
+          <strong>Adress:</strong> 16737 84Ave
+          <br>
+          <strong>Details:</strong> Delivery
+          <br>
+          <strong>More:</strong>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-lg-4">
+      <div class="panel panel-default height">
+        <div class="panel-heading">Payment Information</div>
+        <div class="panel-body">
+          <strong>Card Name:</strong> Visa
+          <br>
+          <strong>Card Number:</strong> ***** 332
+          <br>
+          <strong>Exp Date:</strong> 09/2020
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-lg-4">
+      <div class="panel panel-default height">
+        <div class="panel-heading">To: Client Name</div>
+        <div class="panel-body">
+          <strong>Bank Name:</strong>
+          <br>
+          <strong>Account Number : --------</strong>
+          <br>
+          <strong>IBAN : --------</strong>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="panel panel-default height">
+        <div class="panel-heading">Bank Details</div>
+        <div class="panel-body">
+          <strong>Card Name:</strong> Visa
+          <br>
+          <strong>Card Number:</strong> ***** 332
+          <br>
+          <strong>Exp Date:</strong> 09/2020
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="panel panel-default height">
+        <div class="panel-heading">Contact Details</div>
+        <div class="panel-body">
+          <strong>Email:</strong> you@example.com
+          <br>
+          <strong>Phoe Number:</strong> 134-132-1234
+          <br>
+          <strong>Payment Method:</strong> VISA
+          <br>
         </div>
       </div>
     </div>
 
-    <div class="col-xs-5 col-xs-offset-2 text-right">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4>To : <a href="#">Client Name</a></h4>
-        </div>
-        <div class="panel-body">
-          <p>
-            Address
-            <br> details
-            <br> more
-            <br>
-          </p>
-        </div>
-      </div>
-    </div>
+
   </div>
 
   <!-- / end client details section -->
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>
-          <h4>Product</h4>
-        </th>
-        <th>
-          <h4 class="text-center">Quantity</h4>
-        </th>
-        <th>
-          <h4 class="text-center">Unit Price</h4>
-        </th>
-        <th>
-          <h4 class="text-center">Subtotal</h4>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="product in order.products">
-        <td>{{product.name}}</td>
-        <td class="text-right">{{product.quantity + " " + product.units}}</td>
-        <td class="text-right">${{product.unitPrice}}/{{product.units}}</td>
-        <td class="text-right">${{product.quantity * product.unitPrice}}</td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="row text-right">
-    <div class="col-xs-2 col-xs-offset-8">
-      <p>
-        <strong>
-          Total:
-        </strong>
-      </p>
-    </div>
-    <div class="col-xs-2">
-      <strong>
-        ${{order.totalAmount}}
-      </strong>
-    </div>
-  </div>
+
   <div class="row">
-    <div class="col-xs-5">
-      <div class="panel panel-info">
+    <div class="col-md-12">
+      <div class="panel panel-default">
         <div class="panel-heading">
-          <h4>Bank details</h4>
+          <h3 class="text-center">
+            <strong>Order summary</strong>
+          </h3>
         </div>
         <div class="panel-body">
-          <p>Your Name</p>
-          <p>Bank Name</p>
-          <p>SWIFT : --------</p>
-          <p>Account Number : --------</p>
-          <p>IBAN : --------</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-7">
-      <div class="span7">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h4>Contact Details</h4>
-          </div>
-          <div class="panel-body">
-            <p>
-              Email : you@example.com
-              <br>
-              <br> Mobile : --------
-              <br>
-              <br> Twitter : <a href="https://twitter.com/tahirtaous">@TahirTaous</a>
-            </p>
-            <h4>Payment should be made by Bank Transfer</h4>
+          <div class="table-responsive">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <td>
+                    <strong>Product</strong>
+                  </td>
+                  <td class="text-center">
+                    <strong>Quantity</strong>
+                  </td>
+                  <td class="text-center">
+                    <strong>Unit Price</strong>
+                  </td>
+                  <td class="text-right">
+                    <strong>Total</strong>
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="product in order.products">
+                  <td>Atlantic Cod{{product.name}}</td>
+                  <td class="text-right">{{product.quantity + " " + product.units}}</td>
+                  <td class="text-right">{{product.unitPrice}}/{{product.units}}</td>
+                  <td class="text-right">{{product.quantity * product.unitPrice}}</td>
+                </tr>
+
+                <tr>
+                  <td class="highrow"></td>
+                  <td class="highrow"></td>
+                  <td class="highrow text-center">
+                    <strong>Subtotal</strong>
+                  </td>
+                  <td class="highrow text-right">$0.00</td>
+                </tr>
+                <tr>
+                  <td class="emptyrow"></td>
+                  <td class="emptyrow"></td>
+                  <td class="emptyrow text-center">
+                    <strong>Shipping</strong>
+                  </td>
+                  <td class="emptyrow text-right">$0.00</td>
+                </tr>
+                <tr>
+                  <td class="emptyrow"></td>
+                  <td class="emptyrow"></td>
+                  <td class="emptyrow text-center">
+                    <strong>Total</strong>
+                  </td>
+                  <td class="emptyrow text-right">$0.00</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>

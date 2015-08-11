@@ -17,7 +17,7 @@
                   <div ng-switch on="getCheckoutState()">
                     <div ng-switch-when="0">
                       <div ng-controller="checkoutPart1Ctrl">
-                        <form class='modal2'>
+                        <form ng-submit="proceedToPayment()" class='modal2'>
                           <header class='header'>
                           </header>
                           <div class='content'>
@@ -25,55 +25,55 @@
                               <div class='col-md-6 form-group'>
                                 <div class='input-group'>
                                   <label for=''>Name</label>
-                                  <input placeholder='ex. John Doe' type='text'>
+                                  <input ng-model="name" placeholder='ex. John Doe' type='text'>
                                 </div>
                               </div>
                               <div class='col-md-6 form-group'>
                                 <div class='input-group'>
                                   <label for=''>Email</label>
-                                  <input placeholder='ex. your@email.com' type='text'>
+                                  <input ng-model="email" placeholder='ex. your@email.com' type='text'>
                                 </div>
                               </div>
 
                               <div class='col-md-6 form-group'>
                                 <div class='input-group'>
                                   <label for=''>Phone Number</label>
-                                  <input maxlength='12' placeholder='ex. 123-123-1234' type='text'>
+                                  <input ng-model="phoneNumber" maxlength='12' placeholder='ex. 123-123-1234' type='text'>
                                 </div>
                               </div>
 
                               <div class='col-md-6 form-group'>
                                 <div class='input-group'>
                                   <label for=''>Address</label>
-                                  <input placeholder='ex. 12345 84th Avenue' type='text'>
+                                  <input ng-model="address" placeholder='ex. 12345 84th Avenue' type='text'>
                                 </div>
                               </div>
 
                               <div class='col-md-6 form-group'>
                                 <div class='input-group'>
                                   <label for=''>City</label>
-                                  <input placeholder='ex. Surrey' type='text'>
+                                  <input ng-model="city" placeholder='ex. Surrey' type='text'>
                                 </div>
                               </div>
 
                               <div class='col-md-6 form-group'>
                                 <div class='input-group'>
                                   <label for=''>Province/State</label>
-                                  <input placeholder='ex. B.C' type='text'>
+                                  <input ng-model="state" placeholder='ex. B.C' type='text'>
                                 </div>
                               </div>
 
                               <div class='col-md-6 form-group'>
                                 <div class='input-group'>
                                   <label for=''>Country</label>
-                                  <input placeholder='ex. Canada' type='text'>
+                                  <input ng-model="country" placeholder='ex. Canada' type='text'>
                                 </div>
                               </div>
 
                               <div class='col-md-6 form-group'>
                                 <div class='input-group'>
                                   <label for=''>Zip / Postal Code</label>
-                                  <input maxlength="6" placeholder='ex. V4N213' type='text'>
+                                  <input ng-model="postalCode" maxlength="6" placeholder='ex. V4N213' type='text'>
                                 </div>
                               </div>
 
@@ -88,7 +88,7 @@
                             </div>
                         </form>
 
-
+                        <!--
                         <form ng-submit="proceedToPayment()" accept-charset="UTF-8" class="require-validation" id="payment-form">
                           <div style="margin:0;padding:0;display:inline">
                             <input name="utf8" type="hidden" value="✓" />
@@ -164,7 +164,7 @@
 
 
                         </form>
-
+ -->
 
 
                         </div>
@@ -178,9 +178,19 @@
                     <div ng-switch-when="1">
 
                       <div ng-controller="checkoutPart2Ctrl">
-                        <form class='modal2'>
+
+
+                        <form stripe-form="stripeCallback" class='modal2' accept-charset="UTF-8" class="require-validation" id="payment-form">
+
+                          <div style="margin:0;padding:0;display:inline">
+                            <input name="utf8" type="hidden" value="✓" />
+                            <input name="_method" type="hidden" value="PUT" />
+                            <input name="authenticity_token" type="hidden" value="qLZ9cScer7ZxqulsUWazw4x3cSEzv899SP/7ThPCOV8=" />
+                          </div>
+
+
                           <header class='header'>
-                            <h1>Payment of $145.00</h1>
+                            <h1>Payment of ${{getTotalCartValue()}}</h1>
                             <div class='card-type'>
 
                               <i class="fa fa-cc-stripe fa-4x"></i>
@@ -202,35 +212,35 @@
                               <div class='col-md-6 form-group'>
                                 <div class='input-group'>
                                   <label for=''>Card Number</label>
-                                  <input maxlength='16' placeholder='No Spaces or Dashes Please!' type='number'>
+                                  <input ng-model="number" maxlength='16' placeholder='No Spaces or Dashes Please!' type='text'>
                                 </div>
                               </div>
 
                               <div class='col-md-6 form-group'>
                                 <label for=''>Expiration Date</label>
-                                <input maxlength='7' placeholder='MM/YYYY' type='text'>
+                                <input ng-model="expiry" maxlength='7' placeholder='MM/YYYY' type='text'>
                                 <br>
                               </div>
 
                               <div class='col-md-6 form-group'>
                                 <label for=''>CVC</label>
-                                <input maxlength='3' placeholder='ex. 311' type='number'>
+                                <input ng-model="cvc" maxlength='4' placeholder='ex. 311' type='text'>
                                 <br>
                               </div>
                             </div>
                             <footer class='footer'>
                               <div class='col-md-6 form-group'>
-                                <button class='button'><i class="fa fa-shopping-cart"></i> Back To Cart</button>
+                                <button ng-click="backToOrderInfo()" class='button'><i class="fa fa-shopping-cart"></i> Go Back</button>
                               </div>
                               <div class='col-md-6 form-group'>
-                                <button class='button'>Complete Payment <i class="fa fa-check"></i></button>
+                                <button class='button' type='submit'>Complete Payment <i class="fa fa-check"></i></button>
                               </div>
                             </footer>
                           </div>
                         </form>
 
 
-                        <form stripe-form="stripeCallback" accept-charset="UTF-8" class="require-validation" id="payment-form">
+                        <!-- <form stripe-form="stripeCallback" accept-charset="UTF-8" class="require-validation" id="payment-form">
                           <div style="margin:0;padding:0;display:inline">
                             <input name="utf8" type="hidden" value="✓" />
                             <input name="_method" type="hidden" value="PUT" />
@@ -263,7 +273,7 @@
                             </div>
                           </div>
 
-                        </form>
+                        </form> -->
 
                       </div>
 
