@@ -5,6 +5,12 @@
 body {
   padding-top: 50px; }
 
+.alignleft {
+  float: left; }
+
+.alignright {
+  float: right; }
+
 /*
  * Global add-ons
  */

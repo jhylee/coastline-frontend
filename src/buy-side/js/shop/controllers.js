@@ -64,7 +64,8 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
     }, function(err) {
       console.log("error getting products");
     });
-  }
+  };
+
 
   $scope.getProducts();
 
@@ -82,7 +83,13 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
     } else {
       return 0;
     }
-  }
+  };
+
+
+  $scope.getImageSrc = function() {
+    console.log(ShopService.getImageUrl("abdulkhan", "cod", "default"));
+    return ShopService.getImageUrl("abdulkhan", "cod", "default"); // enter url here
+  };
 
 
   $scope.addToCart = function(item) {
@@ -171,7 +178,7 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
     $scope.refreshState();
   };
 
-  $scope.getTotalCartValue = function () {
+  $scope.getTotalCartValue = function() {
     return ShopService.getTotalCartValue();
   };
 

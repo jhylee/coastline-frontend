@@ -68,6 +68,12 @@ angular.module('coastlineShop.shop.services', ['ngStorage','coastlineConstants']
         return false;
       },
 
+      getImageUrl: function (username, seafoodName, imageType) {
+        return apiUrl + "/api/buy-side/img/" + username + "/" + seafoodName + "/" + imageType;
+      },
+
+
+
 
 
       setCheckoutState: function(value) {

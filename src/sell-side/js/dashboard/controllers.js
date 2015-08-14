@@ -1,6 +1,6 @@
-angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage', 'coastlineWebApp.dashboard.services'])
+angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage', 'coastlineWebApp.dashboard.services', 'coastlineConstants'])
 
-.controller('dashboardCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService) {
+.controller('dashboardCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', 'Views', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService, Views) {
 
   $scope.$storage = $localStorage;
 
@@ -23,12 +23,12 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
 
   $scope.setCurrentOrderRef = function (ref) {
     DashboardService.setCurrentOrderRef(ref);
-    $scope.setSelection(4);
+    $scope.setSelection(Views.ORDER_DETAIL);
   };
 
 }])
 
-.controller('transactionsCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService) {
+.controller('ordersCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService) {
 
   $scope.$storage = $localStorage;
 
@@ -43,6 +43,22 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
     }
   );
   //console.log ("again, res: " + $scope.details.firstName);
+
+  $scope.getOrders = function () {
+    console.log("getOrders()");
+
+    DashboardService.orders(
+      function (res) {
+        $scope.orders = res;
+        // console.log ("res: " + $scope.orders);
+      },
+      function (err) {
+        console.log ("err: " + err);
+        // TODO - account for error connecting
+      }
+    );
+  }
+
 
   DashboardService.accountDetails(
     function (res) {
@@ -131,7 +147,7 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
 
 }])
 
-.controller('transactionDetailCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService) {
+.controller('orderDetailCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', 'Views', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService, Views) {
   $scope.$storage = $localStorage;
 
   $scope.ref = DashboardService.getCurrentOrderRef();
@@ -281,6 +297,11 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
     return ;
   };
 
+  $scope.goBackToOrders = function () {
+    console.log("goBackToOrders");
+    DashboardService.setSelection(Views.ORDERS);
+  };
+
 
 }])
 
@@ -342,7 +363,7 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
 
 
     DashboardService.addProduct(formData, function (res) {
-        DashboardService.setSelection(2);
+        DashboardService.setSelection(Views.PRODUCTS);
       },
       function (err) {
         console.log(err);

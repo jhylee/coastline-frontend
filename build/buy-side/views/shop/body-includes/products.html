@@ -33,7 +33,7 @@
             <div ng-repeat="product in products" class="column ng-scope">
               <div ng-controller="productCtrl" class="card ng-scope">
                 <div class="image">
-                  <img src="img/bass.jpg">
+                  <img ng-src="{{getImageSrc()}}">
                   <span class="title ng-binding">{{product.name}}</span>
                 </div>
                 <!-- <div class="content">

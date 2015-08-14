@@ -31,7 +31,6 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider, $http
       requireLogin: true
     },
     views: {
-
       'nav-top': {
         templateUrl: '/sell-side/views/dashboard/nav-top.html'
       },
@@ -44,8 +43,7 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider, $http
       'footer': {
         templateUrl: '/sell-side/views/dashboard/footer.html'
       },
-    },
-
+    }
   })
 
 
@@ -105,7 +103,7 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider, $http
         templateUrl: '/sell-side/views/login/nav-side.html'
       },
       'body': {
-        templateUrl: '/sell-side/views/redirect/body.html'
+        templateUrl: '/sell-side/views/redirect/redirect.html'
       },
       'footer': {
         templateUrl: '/sell-side/views/login/footer.html'
@@ -170,6 +168,8 @@ app.run(function($rootScope, $state, $location, AuthService, RedirectService) {
 
       event.preventDefault();
 
+      $state.go("redirect");
+
 
 
       return;
@@ -211,7 +211,14 @@ app.run(function($rootScope, $state, $location, AuthService, RedirectService) {
 });
 
 angular.module('coastlineConstants', [])
-  .constant('apiUrl', 'http://localhost:3000');
+  .constant('apiUrl', 'http://localhost:3000')
+  .constant('Views', {
+    HOME: 0,
+    ORDERS: 1,
+    PRODUCTS: 2,
+    ADD_PRODUCT: 3,
+    ORDER_DETAIL: 4
+  });
 
 //app.controller('authCtrl', ['$rootScope', '$scope', '$location', '$localStorage', 'Main', function ($rootScope, $scope, $location, $localStorage, Main) {
 //

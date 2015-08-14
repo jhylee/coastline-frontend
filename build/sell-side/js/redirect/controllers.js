@@ -20,6 +20,7 @@ angular.module('coastlineWebApp.redirect.controllers', ['ui.router', 'ngStorage'
   //   //      alert("Failed to logout!");
   //   //    });
   // };
+  console.log("redirectCtrl");
 
   console.log(RedirectService.getRedirectState());
 
