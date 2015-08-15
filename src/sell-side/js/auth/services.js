@@ -1,4 +1,4 @@
-angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants'])
+angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants', 'ui.router'])
 
 
 .factory('AuthService', ['$http', '$window', '$localStorage', 'apiUrl', function ($http, $window, $localStorage, apiUrl) {
@@ -69,7 +69,7 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants
   }
 ])
 
-.factory('HttpInterceptorForToken', ['$rootScope', '$localStorage', function ($rootScope, $localStorage) {
+.factory('HttpInterceptorForToken', ['$rootScope', '$localStorage', '$state', function ($rootScope, $localStorage, $state) {
     return {
       // request : function(config) {
       //     console.log("intercepting");
@@ -101,7 +101,9 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants
 
       response: function (response) {
         if (response.status === 401) {
-          // handle the case where the user is not authenticated
+          // delete $localStorage.token;
+          // $localStorage.$save();
+          // $state.go("login");
         }
         return response || $q.when(response);
       }

@@ -12,7 +12,13 @@ angular.module('coastlineWebApp.dashboard.services', ['ngStorage','coastlineCons
         $http.get(baseUrl + '/api/sell-side/account/details').success(success).error(error);
       },
       orders: function (success, error) {
-        $http.get(baseUrl + '/api/sell-side/orders').success(success).error(error);
+        $http.get(baseUrl + '/api/sell-side/orders').success(function (res) {
+          console.log("orders success: " + res.status);
+          success(res);
+        }).error(function (err) {
+          console.log("orders error: " + err.status);
+          error(err);
+        });
       },
       products: function (success, error) {
         $http.get(baseUrl + '/api/sell-side/products').success(success).error(error);
