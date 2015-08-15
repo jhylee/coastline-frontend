@@ -75,6 +75,8 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
     return order.ref;
   };
 
+
+
   $scope.getPaymentMethod = function (order) {
     return order.paymentMethod;
   };
@@ -95,7 +97,7 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
     // /return order.dateInitialized.toString();
 
     var today = new Date(order.dateInitialized.toString());
-    console.log(today.getDate());
+    //console.log(today.getDate());
     var dd = today.getDate();
     var mm = today.getMonth()+1; //January is 0!
 
@@ -198,103 +200,156 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
 
   // TODO - DRY approach (repeated in other controller)
   $scope.getRef = function (order) {
-    return order.ref;
+    if (order) {
+      return order.ref;
+    }
   };
 
   $scope.getName = function (order) {
-    return order.buyerName;
+    if (order) {
+      return order.buyerName;
+    }
+  };
+
+  $scope.getAddress = function (order) {
+    if (order) {
+      return order.buyerAddress;
+    }
+  };
+
+  $scope.getCity = function (order) {
+    if (order) {
+      return order.buyerCity;
+    }
+  };
+
+  $scope.getState = function (order) {
+    if (order) {
+      return order.buyerState;
+    }
+  };
+
+  $scope.getPostalCode = function (order) {
+    if (order) {
+      return order.buyerPostalCode;
+    }
+  };
+
+  $scope.getPhoneNumber = function (order) {
+    if (order) {
+      return order.buyerPhoneNumber;
+    }
+  };
+
+  $scope.getEmail = function (order) {
+    if (order) {
+      return order.buyerEmail;
+    }
   };
 
   $scope.getPaymentMethod = function (order) {
-    return order.paymentMethod;
+    if (order) {
+      return order.paymentMethod;
+    }
   };
 
   $scope.getStatus = function (order) {
-    if (order.dateCleared != null) {
-      if (order.dateCharged != null) {
-        return "Charged";
+    if (order) {
+
+      if (order.dateCleared != null) {
+        if (order.dateCharged != null) {
+          return "Charged";
+        } else {
+          return "Fulfilled";
+        }
       } else {
-        return "Fulfilled";
+        return "Outstanding";
       }
-    } else {
-      return "Outstanding";
     }
   };
 
   $scope.getDateInitialized = function (order) {
-    // /return order.dateInitialized.toString();
+    if (order) {
 
-    var today = new Date(order.dateInitialized.toString());
-    console.log(today.getDate());
-    var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
+      // /return order.dateInitialized.toString();
 
-    var yyyy = today.getFullYear();
-      if(dd<10){
-          dd='0'+dd
-      }
-      if(mm<10){
-          mm='0'+mm
-      }
-    return mm+'/'+dd+'/'+yyyy;
+      var today = new Date(order.dateInitialized.toString());
+      console.log(today.getDate());
+      var dd = today.getDate();
+      var mm = today.getMonth()+1; //January is 0!
+
+      var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd
+        }
+        if(mm<10){
+            mm='0'+mm
+        }
+      return mm+'/'+dd+'/'+yyyy;
+    }
   };
 
   $scope.getDateFulfilled = function (order) {
-    // /return order.dateInitialized.toString();
+    if (order) {
 
-    if (order.dateFulfilled == null) {
-      return "N/A";
+      // /return order.dateInitialized.toString();
+
+      if (order.dateFulfilled == null) {
+        return "N/A";
+      }
+
+      var today = new Date(order.dateFulfilled.toString());
+      console.log(today.getDate());
+      var dd = today.getDate();
+      var mm = today.getMonth()+1; //January is 0!
+
+      var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd
+        }
+        if(mm<10){
+            mm='0'+mm
+        }
+      return mm+'/'+dd+'/'+yyyy;
     }
-
-    var today = new Date(order.dateFulfilled.toString());
-    console.log(today.getDate());
-    var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
-
-    var yyyy = today.getFullYear();
-      if(dd<10){
-          dd='0'+dd
-      }
-      if(mm<10){
-          mm='0'+mm
-      }
-    return mm+'/'+dd+'/'+yyyy;
   };
 
   $scope.getTotalAmount = function (order) {
-    var val = Math.round(order.totalAmount * 100) / 100;
-    var str = val.toString();
+    if (order) {
+      var val = Math.round(order.totalAmount * 100) / 100;
+      var str = val.toString();
 
-    var afterDecimal = false;
-    var digitAfterDecimal = 0;
-    var number = true;
+      var afterDecimal = false;
+      var digitAfterDecimal = 0;
+      var number = true;
 
-    for (i = 0; i < str.length; i++) {
-      if (afterDecimal==true) {
-        digitAfterDecimal += 1;
-      };
+      for (i = 0; i < str.length; i++) {
+        if (afterDecimal==true) {
+          digitAfterDecimal += 1;
+        };
 
-      if (str.charAt(i) == ".") {
-        afterDecimal = true;
-      };
+        if (str.charAt(i) == ".") {
+          afterDecimal = true;
+        };
 
-      // case 1: no decimal (i.e. 4)
-      if ((i == str.length - 1)&&(afterDecimal==false)){
-        return "$" + str + ".00";
-      };
+        // case 1: no decimal (i.e. 4)
+        if ((i == str.length - 1)&&(afterDecimal==false)){
+          return "$" + str + ".00";
+        };
 
-      // case 2: 4.1 scenario
-      if ((i == str.length - 1)&&(digitAfterDecimal==1)){
-        return "$" + str + "0";
-      };
+        // case 2: 4.1 scenario
+        if ((i == str.length - 1)&&(digitAfterDecimal==1)){
+          return "$" + str + "0";
+        };
 
-      // case 3: 4.11 (will definitely be at end, if not, then bug, but there shouldn't be a bug)
-      if ((digitAfterDecimal==2)) {
-        return "$" + str;
+        // case 3: 4.11 (will definitely be at end, if not, then bug, but there shouldn't be a bug)
+        if ((digitAfterDecimal==2)) {
+          return "$" + str;
+        }
       }
-    }
 
-    return ;
+      return ;
+    }
   };
 
   $scope.goBackToOrders = function () {
@@ -340,6 +395,15 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
 }])
 
 .controller('productEditCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService) {
+  console.log('productEditCtrl');
+  $scope.name = null;
+  //
+  // $scope.$watch('name', function() {
+  //   console.log('hey, myVar has changed!');
+  // });
+
+  $scope.imageUrl = "";
+
   $scope.addProduct = function () {
 
     console.log("addProduct");
@@ -363,13 +427,64 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
 
 
     DashboardService.addProduct(formData, function (res) {
-        DashboardService.setSelection(Views.PRODUCTS);
-      },
-      function (err) {
-        console.log(err);
-      });
+      DashboardService.setSelection(Views.PRODUCTS);
+    },
+    function (err) {
+      console.log(err);
+    });
 
+  };
+
+  $scope.getEnv = function() {
+    return "localdev";
   }
+
+  $scope.getSeafoodTypes = function () {
+    console.log("getSeafoodTypes");
+    DashboardService.getSeafoodTypes(function (res) {
+      $scope.seafoodTypes = res;
+      console.log(res);
+    }, function (err) {
+      $scope.seafoodTypes = ["ERROR"];
+    });
+  };
+
+  $scope.getImageUrl = function (name) {
+    console.log("getImageUrl");
+
+    DashboardService.getImageUrl(name, function (res) {
+      $scope.imageUrl = res;
+      console.log("image URL " + $scope.imageUrl);
+    }, function (err) {
+      $scope.imageUrl = "";
+      console.log("error getting image URL");
+    });
+  };
+
+  $scope.inputChanged = function (str) {
+    if (str) {
+      console.log("inputChanged");
+      $scope.name = str;
+      console.log($scope.name);
+      $scope.getImageUrl($scope.name);
+
+    }
+  };
+
+  $scope.selectedSeafood = function (selection) {
+    if (selection) {
+      console.log("selected");
+      $scope.name = selection.title;
+      console.log($scope.name);
+      $scope.getImageUrl($scope.name);
+
+    }
+  };
+
+
+  $scope.getSeafoodTypes();
+
+
 }])
 
 .controller('navTopCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService) {

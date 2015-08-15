@@ -26,13 +26,75 @@
 
                   <br>
                   <br>
-                  <div class="row">
+                  <!-- <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
                         <h4>Seafood Type:</h4><input ng-model="name" type="name" class="form-control" id="exampleInputEmail1" placeholder="i.e. Cod, Lobster, etc.">
                       </div>
                     </div>
+                  </div> -->
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <h4>Seafood Types:</h4>
+
+                        <style>
+                        .form-control {
+                            outline: 0;
+                            border-color: #ECECEC;
+                            border-style: solid;
+                            border-width: 1px;
+                            width: 95%;
+                            background-color: #ffffff;
+                            padding: 6px;
+                            border-radius: 2px;
+                            margin-bottom: 5px;
+                            font-size: 14px;
+                        }
+
+                        .form-control-small {
+                            -webkit-transition: width .5s ease-in-out;
+                            -moz-transition: width .5s ease-in-out;
+                            -o-transition: width .5s ease-in-out;
+                            -ms-transition: width .5s ease-in-out;
+                            transition: width .5s ease-in-out;
+                            width: 72%;
+                        }
+
+                        .form-control:-webkit-autofill {
+                            background-color: #fff !important;
+                        }
+
+                        .form-control-fill {
+                            width: 96%;
+                        }
+
+                        #types_dropdown {
+                          overflow-y: auto;
+                          max-height: 150px;
+                          border: 2px;
+                        }
+
+                        input:-webkit-autofill {
+                            -webkit-box-shadow: 0 0 0px 1000px white inset;
+                        }
+                        </style>
+
+                        <angucomplete-alt id="types"
+                          placeholder="Cod, Tilapia, etc."
+                          pause="400"
+                          local-data="seafoodTypes"
+                          title-field="name"
+                          search-fields="name"
+                          minlength="0"
+                          input-class="form-control"
+                          input-changed="inputChanged"
+                          selected-object="selectedSeafood"/>
+                      </div>
+                    </div>
                   </div>
+
 
                   <div class="row">
                     <div class="col-md-4">
@@ -86,6 +148,16 @@
                             <option value="false">No</option>
                           </select>
                         </h4>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <img ng-src="{{imageUrl}}" />
                       </div>
                     </div>
 

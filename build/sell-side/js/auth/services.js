@@ -100,6 +100,10 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants
       },
 
       response: function (response) {
+        if (response == null) {
+          $state.go("login");
+        }
+
         if (response.status === 401) {
           // delete $localStorage.token;
           // $localStorage.$save();

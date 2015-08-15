@@ -1,6 +1,6 @@
-angular.module('coastlineWebApp.dashboard.services', ['ngStorage','coastlineConstants'])
+angular.module('coastlineWebApp.dashboard.services', ['ngStorage', 'coastlineConstants', 'ui.router', 'angucomplete-alt'])
 
-.factory('DashboardService', ['$http', '$localStorage', 'apiUrl', function ($http, $localStorage, apiUrl) {
+.factory('DashboardService', ['$http', '$localStorage', 'apiUrl', '$state', function ($http, $localStorage, apiUrl, $state) {
     var baseUrl = apiUrl;
     var token = "";
     var selection = 1;
@@ -16,7 +16,8 @@ angular.module('coastlineWebApp.dashboard.services', ['ngStorage','coastlineCons
           console.log("orders success: " + res.status);
           success(res);
         }).error(function (err) {
-          console.log("orders error: " + err.status);
+          console.log("orders error");
+          $state.go("login");
           error(err);
         });
       },
@@ -42,6 +43,22 @@ angular.module('coastlineWebApp.dashboard.services', ['ngStorage','coastlineCons
       getSelection: function () {
         return selection;
       },
+
+      getSeafoodTypes: function (success, error) {
+        $http.get(baseUrl + '/api/sell-side-helper/seafoodTypes').success(success).error(error);
+      },
+
+      getImageUrl: function (name, success, error) {
+        console.log("service " + name)
+        $http.get(baseUrl + '/api/sell-side-helper/imgUrl/abdulkhan/' + name).success(function (res) {
+          var url = baseUrl + res;
+          console.log(url);
+          success(url);
+        }).error(function (err) {
+          error(err);
+        });
+      },
+
       fulfillOrder: function (formData, success, error) {
         $http.post(baseUrl + '/api/sell-side/fulfill-order', formData).success(success).error(error);
       },

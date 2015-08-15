@@ -18,17 +18,17 @@
           </h4>
         </div>
         <div class="panel-body">
-          <strong>{{order.buyerName}}</strong>
+          <strong>{{getName(order)}}</strong>
           <br>
-          {{order.buyerAddress}}
+          {{getAddress(order)}}
           <br>
-          {{order.buyerCity}}, {{order.buyerState}}
+          {{getCity(order)}}, {{getState(order)}}
           <br>
-          {{order.buyerCountry}}, {{order.buyerPostalCode}}
+          {{order.getCountry(country)}}, {{getPostalCode(order)}}
           <br><br>
-          {{order.buyerPhoneNumber}}
+          {{order.getPhoneNumber(order)}}
           <br>
-          {{order.buyerEmail}}
+          {{getEmail(order)}}
 
 
 
