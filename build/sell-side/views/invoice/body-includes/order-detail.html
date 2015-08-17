@@ -4,7 +4,7 @@
     <div class="col-lg-12">
       <h1>
         Order #{{getRef(order)}}
-        <a ui-sref="invoice" target="_blank"><i class="fa fa-external-link"></i></a>
+        <a href="invoiceFull.html"><i class="fa fa-external-link"></i></a>
         <span class="pull-right"><button type="button" class="btn btn-danger" ng-click='goBackToOrders()'>Back to Orders</button></span>
       </h1>
       <br>
@@ -24,9 +24,9 @@
           <br>
           {{getCity(order)}}, {{getState(order)}}
           <br>
-          {{getPostalCode(order)}}
+          {{order.getCountry(country)}}, {{getPostalCode(order)}}
           <br><br>
-          {{getPhoneNumber(order)}}
+          {{order.getPhoneNumber(order)}}
           <br>
           {{getEmail(order)}}
 

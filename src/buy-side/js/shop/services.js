@@ -32,6 +32,11 @@ angular.module('coastlineShop.shop.services', ['ngStorage','coastlineConstants']
         $localStorage.$save();
       },
 
+      emptyCart: function() {
+        $localStorage.cart = [];
+        $localStorage.selectedItems = [];
+      },
+
       getSellerUsername: function() {
         return sellerUsername;
       },
@@ -68,8 +73,17 @@ angular.module('coastlineShop.shop.services', ['ngStorage','coastlineConstants']
         return false;
       },
 
-      getImageUrl: function (username, seafoodName, imageType) {
-        return apiUrl + "/api/buy-side/img/" + username + "/" + seafoodName + "/" + imageType;
+
+      getImageUrl: function (username, seafoodName, imageType, success) {
+        $http.get(baseUrl + '/api/sell-side-helper/imgUrl/abdulkhan/' + seafoodName).success(function (res) {
+          var url = baseUrl + res;
+          success(url);
+        }).error(function (err) {
+          console.log("error getting url");
+        });
+
+
+        //return apiUrl + "/api/buy-side/img/" + username + "/" + seafoodName + "/" + imageType;
       },
 
 
