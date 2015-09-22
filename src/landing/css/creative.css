@@ -1104,3 +1104,10 @@ FLoating labels
 .fa-heart {
   color: rgb(251, 31, 31);
 }
+
+
+.headerimg {
+  max-height: auto;
+  max-width: 80px;
+  padding-bottom: 20px;
+}
