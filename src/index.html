@@ -80,15 +80,17 @@
       <div class="header-content-inner">
         <h1>COASTLINE MARKET<img src = "landing/img/logo.jpg" class = "headerimg"></h1>
 
-        <h2 class="typed-cursor">A local movement</h2>
-
+        <h2 class="typed-cursor">* Currently in closed beta.</h2>
 
         <h3>Coastline is built for CSF's, fishermen, and fish vendors.</h3>
         <hr>
-
+<!--
         <a href="sell-side/index.html" class="btn btn-white-fill">Sell Seafood</a>
-        <a href="#about" class="btn btn-white-fill page-scroll">Learn More</a>
+-->
+        <a href="#about" class="btn btn-white-fill page-scroll">What is Coastline?</a>
+<!--
         <a href="buy-side/index.html" class="btn btn-white-fill">Buy Seafood</a>
+-->
 
       </div>
     </div>
@@ -183,7 +185,7 @@
       <div class="call-to-action">
         <h2>Our Featured Vendors</h2>
         <hr class="light">
-        <a href="sell-side/index.html" class="btn btn-blue">Join Them Today!</a>
+         <a href="#contact" class="btn btn-blue page-scroll">Join Them Today!</a>
       </div>
     </div>
   </aside>
@@ -322,16 +324,17 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 text-center">
           <h1 class="section-heading">Interested?</h1>
-          <h3> Request Beta Access!</h3>
+          <h3> Request A Product Demo!</h3>
           <hr>
 
-          <form class="cd-form floating-labels">
+
+          <form class="cd-form floating-labels" action ="//formspree.io/joseph@coastlinemarket.com" method="POST">
             <fieldset>
-<!--
+              <!--
               <div class="error-message">
                 <p>Please enter a valid email address</p>
               </div> -->
-
+<!--
               <ul class="cd-form-list">
                 <li>
                   <input type="radio" name="radio-button" id="cd-radio-1" checked>
@@ -348,17 +351,15 @@
                   <label for="cd-radio-3">Both</label>
                 </li>
               </ul>
-
+-->
               <div class="icon">
                 <label class="cd-label" for="cd-name">Name</label>
-                <input class="user" type="text" name="cd-name" id="cd-name" required placeholder="Jane Doe">
+                <input class="user" type="text" name="Name" id="cd-name" required placeholder="Jane Doe">
               </div>
-
-
 
               <div class="icon">
                 <label class="cd-label" for="cd-name">Company</label>
-                <input class="user" type="text" name="cd-name" id="cd-name" required placeholder="Joe's Fish Market">
+                <input class="user" type="text" name="Company" id="cd-name" required placeholder="Joe's Fish Market">
               </div>
 
               <!-- <div class="icon">
@@ -368,7 +369,7 @@
 
               <div class="icon">
                 <label class="cd-label" for="cd-email">Email</label>
-                <input class="email" type="email" name="cd-email" id="cd-email" required placeholder="your@email.com">
+                <input class="email" type="email" name="Email" id="cd-email" required placeholder="your@email.com">
               </div>
 
 
@@ -381,16 +382,14 @@
                   <option value="2">Toronto</option>
                   <option value="3">Maritime Provinces</option>
                   <option value="4">Montreal</option>
+                  <option value="4">Other</option>
                 </select>
-
               </p>
-
               <div>
-                <input type="submit" value="Send Message">
+                <input type="submit" value="Send">
               </div>
             </fieldset>
           </form>
-
 
 
 
