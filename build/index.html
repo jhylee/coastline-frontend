@@ -100,9 +100,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 text-center">
-          <h2 class="section-heading">Buy Local & Support Your Fisheries</h2>
+          <h2 class="section-heading">Reshaping how CSFs and Fisheries do business.</h2>
           <hr class="light">
-          <p>What are Community Supported Fisheries?</p>
+          <p>What are Community Supported Fisheries (CSFs)?</p>
           <a href="http://www.youtube.com/v/EqWTTA2Kxog&hl=en_US&fs=1&autoplay=1
                     " class="btn btn-darkblue-fill">Watch Video</a>
         </div>
@@ -152,30 +152,32 @@
     </div>
     <div class="container">
       <div class="row">
+
         <div class="col-lg-4 col-md-6 text-center">
           <div class="service-box">
-            <i class="fa fa-5x fa-money wow fadeInLeft text-primary"></i>
-            <h3>Save Money</h3>
-            <p class="text-muted">Without a middleman, buyers save money, while sellers reap the benefits of a streamlined supply chain.
+            <i class="fa fa-5x fa-list-alt wow fadeInLeft text-primary"></i>
+            <h3>Monitor Supply Levels</h3>
+            <p class="text-muted">Real time updates on your seafood inventory. Integration with e-commerce, inventory system, and purchase orders eliminate manual data input.
             </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 text-center">
+          <div class="service-box">
+            <i class="fa fa-5x fa-map-marker wow fadeInLeft text-primary delay-05s"></i>
+            <h3>Track Inventory Location</h3>
+            <p class="text-muted">Know exactly where your inventory is within the supply chain, complete with information on seafood state (processed, raw, frozen).</p>
           </div>
 
         </div>
         <div class="col-lg-4 col-md-6 text-center">
           <div class="service-box">
-            <i class="fa fa-5x fa-globe wow fadeInLeft text-primary delay-05s"></i>
-            <h3>Support Local Fisheries</h3>
-            <p class="text-muted">By buying from local CSFs, buyers can support local fisheries, while sellers can establish a strong, local customer base.</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 text-center">
-          <div class="service-box">
-            <i class="fa fa-5x fa-heart-o wow fadeInLeft text-primary delay-1s"></i>
-            <h3>The Freshest Fish</h3>
-            <p class="text-muted">Local transactions with local vendors allows you to get your hands on the freshest ingredients. Go direct from rod to plate!
+            <i class="fa fa-5x fa-shopping-cart wow fadeInLeft text-primary delay-1s"></i>
+            <h3>Robust E-Commerce</h3>
+            <p class="text-muted">User friendly web interface, complete with inventory and payment integration. Local seafood listings ensures the freshest fish from local fishermen.
             </p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -183,9 +185,9 @@
   <aside class="bg-dark" id="vendors">
     <div class="container text-center">
       <div class="call-to-action">
-        <h2>Our Featured Vendors</h2>
+        <h2>We're bringing technological innovation to the fishing industry.</h2>
         <hr class="light">
-         <a href="#contact" class="btn btn-blue page-scroll">Join Them Today!</a>
+         <a href="#contact" class="btn btn-blue page-scroll">Join Us Today</a>
       </div>
     </div>
   </aside>
@@ -369,20 +371,27 @@
 
               <div class="icon">
                 <label class="cd-label" for="cd-email">Email</label>
-                <input class="email" type="email" name="Email" id="cd-email" required placeholder="your@email.com">
+                <input class="email" type="email" name="_replyto" id="cd-email" required placeholder="your@email.com">
+
+                <input type="hidden" name="_next" value="thankyou.html" />
+
+                <input type="hidden" name="_subject" value="New submission!" />
+
+                <input type="hidden" name="_cc" value="robert@coastlinemarket.com" />
+
               </div>
 
 
               <p class="cd-select icon">
                 <label class="cd-label" for="cd-email">Location</label>
 
-                <select class="budget">
+                <select class="budget" name ="Location" type="location">
                   <option value="0">Your Location</option>
-                  <option value="1">Vancouver</option>
-                  <option value="2">Toronto</option>
-                  <option value="3">Maritime Provinces</option>
-                  <option value="4">Montreal</option>
-                  <option value="4">Other</option>
+                  <option value="Vancouver">Vancouver</option>
+                  <option value="Toronto">Toronto</option>
+                  <option value="Maritimes">Maritime Provinces</option>
+                  <option value="Montreal">Montreal</option>
+                  <option value="Other">Other</option>
                 </select>
               </p>
               <div>
@@ -415,14 +424,10 @@
       <div class="col-md-12">
         <div style="clear: all;">
           <p class="alignleft"> &copy; 2015 Coastline Market. All Rights Reserved. |
-            <a href="termsofuse.html">Terms Of Use</a></p>
-
-          <p class="alignright">Made With <i class = "fa fa-heart"></i> in Bangalore, Calgary & London |
-            <a href="https://facebook.com"><i class = "fa fa-facebook"></i></a> |
-            <a href="https://instagram.com"><i class = "fa fa-instagram"></i></a> |
-            <a href="https://linkedin.com"><i class = "fa fa-linkedin"></i></a>
-
-
+            <a href="termsofuse.html">Terms of Use</a></p>
+          <p class="alignright">Made With <i class="fa fa-heart"></i> in Bangalore, Calgary & London |
+            <a href="https://www.facebook.com/coastlinemarket"><i class = "fa fa-facebook"></i></a> |
+            <a href="https://www.linkedin.com/company/coastline-market"><i class = "fa fa-linkedin"></i></a>
         </div>
       </div>
   </footer>
