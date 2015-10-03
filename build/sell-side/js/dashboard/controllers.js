@@ -229,6 +229,12 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
     }
   };
 
+  $scope.getCountry = function (order) {
+    if (order) {
+      return order.buyerCountry;
+    }
+  };
+
   $scope.getPostalCode = function (order) {
     if (order) {
       return order.buyerPostalCode;
@@ -394,7 +400,7 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
 
 }])
 
-.controller('productEditCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService) {
+.controller('productEditCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', 'Views', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService, Views) {
   console.log('productEditCtrl');
   $scope.name = null;
   //

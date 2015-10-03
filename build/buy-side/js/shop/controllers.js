@@ -1,4 +1,4 @@
-angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coastlineShop.shop.services', 'angularPayments'])
+angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coastlineShop.shop.services', 'angularPayments', 'coastlineConstants'])
 
 // for page navigation, first to be instantiated
 .controller('shopCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'ShopService', function($rootScope, $scope, $state, $location, $localStorage, ShopService) {
@@ -77,6 +77,12 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 
   $scope.$storage = $localStorage;
 
+
+
+  console.log('hihi');
+
+  console.log($scope.product);
+
   $scope.getAddButtonState = function(name) {
     if (ShopService.isProductAdded(name)) {
       return 1;
@@ -87,8 +93,12 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 
 
   $scope.getImageSrc = function() {
-    console.log(ShopService.getImageUrl("abdulkhan", "cod", "default"));
-    return ShopService.getImageUrl("abdulkhan", "cod", "default"); // enter url here
+
+      console.log("getImageSrc");
+      ShopService.getImageUrl("abdulkhan", $scope.product.name, "default", function (url) {
+        console.log(url);
+        $scope.imageSrc = url;
+      }); // enter url here
   };
 
 
@@ -96,6 +106,10 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
     ShopService.addToCart(item);
     $scope.addButtonState = 1;
   };
+
+  $scope.getImageSrc();
+
+
 }])
 
 .controller('cartCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'ShopService', function($rootScope, $scope, $state, $location, $localStorage, ShopService) {
@@ -109,6 +123,40 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
   console.log("cartCtrl");
   console.log($localStorage.cart[0]);
 
+  var formatNumber = function(number) {
+    number = Math.round(number * 100) / 100
+    var str = number.toString();
+
+    var afterDecimal = false;
+    var digitAfterDecimal = 0;
+    var number = true;
+
+    for (i = 0; i < str.length; i++) {
+      if (afterDecimal==true) {
+        digitAfterDecimal += 1;
+      };
+
+      if (str.charAt(i) == ".") {
+        afterDecimal = true;
+      };
+
+      // case 1: no decimal (i.e. 4)
+      if ((i == str.length - 1)&&(afterDecimal==false)){
+        return str + ".00";
+      };
+
+      // case 2: 4.1 scenario
+      if ((i == str.length - 1)&&(digitAfterDecimal==1)){
+        return str + "0";
+      };
+
+      // case 3: 4.11 (will definitely be at end, if not, then bug, but there shouldn't be a bug)
+      if ((digitAfterDecimal==2)) {
+        return str;
+      }
+    }
+  };
+
   var getItems = function() {
     console.log("getItems");
     console.log(ShopService.getItems());
@@ -121,8 +169,8 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
   };
 
   $scope.getPrice = function(unitPrice, quantity) {
-    if (quantity) return Number(unitPrice) * Number(quantity);
-    return unitPrice;
+    if (quantity) return formatNumber(Number(unitPrice) * Number(quantity));
+    return formatNumber(unitPrice);
   };
 
   $scope.addItem = function(item) {
@@ -150,7 +198,7 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
   };
 
   $scope.getTotal = function() {
-    return ShopService.getTotalCartValue();
+    return formatNumber(ShopService.getTotalCartValue());
   };
 
   $scope.refreshDeleteButton();
@@ -241,7 +289,7 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 }])
 
 
-.controller('checkoutPart2Ctrl', ['$rootScope', '$scope', '$window', '$state', '$location', '$localStorage', 'ShopService', function($rootScope, $scope, $window, $state, $location, $localStorage, ShopService) {
+.controller('checkoutPart2Ctrl', ['$rootScope', '$scope', '$window', '$state', '$location', '$localStorage', 'ShopService', 'apiUrl', function($rootScope, $scope, $window, $state, $location, $localStorage, ShopService, apiUrl) {
   $scope.getTotalAmount = function() {
     return ShopService.getTotalCartValue();
   };
@@ -263,10 +311,15 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 
       order.stripeToken = result.id;
 
+      if (apiUrl == "") {
+        //TODO - if local.... do something
+      }
+
       console.log(order.sellerUsername + " " + order.buyerEmail);
 
       ShopService.makeOrder(order, function(res) {
         ShopService.setPageSelection(0);
+        ShopService.emptyCart();
         $state.go('thank-you');
       }, function(error) {
         window.alert("error! " + error);

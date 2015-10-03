@@ -112,6 +112,27 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider, $http
 
   })
 
+  .state('invoice', {
+    url: '/invoice',
+
+    views: {
+      //
+      // 'nav-top': {
+      //   templateUrl: '/sell-side/views/invoice/nav-top.html'
+      // },
+      // 'nav-side': {
+      //   templateUrl: '/sell-side/views/invoice/nav-side.html'
+      // },
+      'body': {
+        templateUrl: '/sell-side/views/invoice/body.html'
+      },
+      // 'footer': {
+      //   templateUrl: '/sell-side/views/invoice/footer.html'
+      // },
+    }
+
+  })
+
 
   $httpProvider.interceptors.push('HttpInterceptorForToken');
 

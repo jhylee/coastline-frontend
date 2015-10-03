@@ -30,10 +30,10 @@
           <div class="row">
 
 
-            <div ng-repeat="product in products" class="column ng-scope">
-              <div ng-controller="productCtrl" class="card ng-scope">
+            <div ng-controller="productCtrl" ng-repeat="product in products" class="column ng-scope">
+              <div class="card ng-scope">
                 <div class="image">
-                  <img ng-src="{{getImageSrc()}}">
+                  <img ng-src="{{imageSrc}}">
                   <span class="title ng-binding">{{product.name}}</span>
                 </div>
                 <!-- <div class="content">
