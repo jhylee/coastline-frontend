@@ -219,7 +219,10 @@ NAVBAR
 .navbar a:focus {
   outline: 0;
   font-weight: bold;
-  color: #fff;}
+  color: #fff;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;}
 
 .navbar .navbar-nav {
   margin-top:6px;
@@ -230,10 +233,14 @@ NAVBAR
 
  .navbar .navbar-nav li a {
    font-weight: 400;
-   color: #fff}
+   color: #fff
+ }
 
-.navbar .navbar-nav li a:focus {
-  outline: 0; }
+.navbar .navbar-nav li a:hover, a:focus {
+  outline: 0;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out; }
 
 .navbar-default,
 .navbar-inverse {
@@ -872,6 +879,8 @@ STRIPE PAYMENT FORM
 .info span .fa {
   color: #90A4AE;
 }
+
+
 lesshat-selector {
   -lh-property: 0; }
 @-webkit-keyframes active{ 0%{ bottom: -60px; opacity: 0; } 100%{ bottom: -30px; opacity: 1 }}
