@@ -22,15 +22,13 @@
             </div>
           </div>
         </div>
-      </div> 
+      </div>
     -->
       <!-- Projects Row -->
 
       <section class="portfolio text-center section-padding" id="portfolio">
-        <div class="container">
+        <div class="cardContainer">
           <div class="row">
-
-
             <div ng-controller="productCtrl" ng-repeat="product in products" class="column ng-scope">
               <div class="card ng-scope">
                 <div class="image">
@@ -54,15 +52,12 @@
                     </div>
                     <!-- end ngSwitchWhen: -->
                   </div>
-
-
                   <a class="alignright ng-binding">${{product.unitPrice}}/{{product.units}}</a>
                 </div>
               </div>
             </div>
-
-
           </div>
+        </div>
       </section>
 
       <!-- /.row -->
@@ -96,4 +91,3 @@
         </div>
       </div> -->
       <!-- /.row -->
-      </div>
