@@ -358,7 +358,7 @@ PAGINATION
 .pagination > li > span:focus {
   color: #23527c;
   background-color: #B0BEC5;
-  border-color: #455A64;
+  border-color: #ECEFF1;
 }
 .pagination > .active > a,
 .pagination > .active > span,
