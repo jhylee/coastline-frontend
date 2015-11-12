@@ -1,0 +1,47 @@
+<div ng-controller="productDisplayCtrl" id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">My Products</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <p align="right">
+
+            <button type="button" class="btn btn-success" ng-click="setSelection(3)">Add New Product</button>
+          </p>
+
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+          <div class="dataTable_wrapper">
+            <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Unit Price</th>
+                    <th>Availability</th>
+                    <th>Photo</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                <tr ng-repeat="product in products">
+                  <td data-label="Seafood Type">{{product.name}}</td>
+                  <td data-label="Unit Price">${{product.unitPrice}}</td>
+                  <td data-label="Availability">{{product.availability}}</td>
+                  <td data-label="Photo"><a href="#">Edit</a> <a ng-click="deleteProduct(product._id)" href="javascript:void(0)">Delete</a></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

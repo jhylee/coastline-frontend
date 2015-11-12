@@ -1,0 +1,27 @@
+<div ng-switch on="items[getSelection()]">
+
+  <!-- HOME SECTION -->
+  <div ng-switch-default>
+    <div ng-include src="'views/dashboard/body-includes/home.html'"></div>
+  </div>
+
+  <!-- DISPLAY ORDER SECTION -->
+  <div ng-switch-when="orders">
+    <div ng-include src="'views/dashboard/body-includes/orders.html'"></div>
+  </div>
+
+  <!-- DISPLAY PRODUCT SECTION -->
+  <div ng-switch-when="products">
+    <div ng-include src="'views/dashboard/body-includes/products.html'"></div>
+  </div>
+
+  <!-- ADD PRODUCT SECTION -->
+  <div ng-switch-when="add-product">
+    <div ng-include src="'views/dashboard/body-includes/add-product.html'"></div>
+  </div>
+
+  <!-- ORDER DETAIL SECTION -->
+  <div ng-switch-when="order-detail">
+    <div ng-include src="'views/dashboard/body-includes/order-detail.html'"></div>
+  </div>
+</div>
