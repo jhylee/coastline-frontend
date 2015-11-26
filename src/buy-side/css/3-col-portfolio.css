@@ -7,7 +7,7 @@
 body {
   padding-top: 90px;
   padding-bottom: 90px;
-  background-color: #B2DFDB;
+  background-color: #E0F2F1;
   padding-left: 0px;
   padding-right: 0px;
   /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
@@ -214,7 +214,7 @@ NAVBAR
 .navbar {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  background-color: #009688;
+  background-color: #4DB6AC;
   opacity: 0.95;
   padding-bottom: 20px;
   padding-top: 10px;
@@ -277,7 +277,6 @@ NAVBAR
 MATERIAL CARDS
 ========================================================================== */
 
-
 /* End defaults*/
 
 .card {
@@ -287,7 +286,7 @@ MATERIAL CARDS
   position: relative;
   overflow: hidden;
   margin: 10px;
-  background: #E0F2F1;
+  background: #ECEFF1;
   box-shadow: rgba(0, 0, 0, 0.1) 0 8px 8px 0;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 8px 8px 0;
   -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 8px 8px 0;
@@ -358,7 +357,7 @@ MATERIAL CARDS
 }
 .cardContainer {
   padding-left: 0px;
-  padding-right: 20px;
+  padding-right: 15px;
   overflow-x: hidden;
 }
 .container {
@@ -386,7 +385,7 @@ PAGINATION
   float: left;
   padding: 6px 12px;
   line-height: 2;
-  color: #004D40;
+  color: #fff;
   text-decoration: none;
   background-color: #4DB6AC;
   margin: 4px;
@@ -719,7 +718,7 @@ STRIPE PAYMENT FORM
   box-sizing: border-box;
 }
 .modal2 .header {
-  background: #009688;
+  background: #4DB6AC;
   padding: 30px;
   text-align: center;
   border-radius: 4px;
@@ -743,7 +742,7 @@ STRIPE PAYMENT FORM
 .modal2 .footer .button {
   outline: none;
   display: block;
-  background: #009688;
+  background: #4DB6AC;
   width: 100%;
   border: 0;
   border-radius: 5px;

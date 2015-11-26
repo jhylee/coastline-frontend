@@ -73,6 +73,17 @@ angular.module('coastlineShop.shop.services', ['ngStorage','coastlineConstants']
         return false;
       },
 
+      //product deletion?
+
+      isProductDeleted: function (name) {
+        for (i = 0; i < $localStorage.cart.length; i++) {
+          if (name != $localStorage.cart[i].name) {
+            return true;
+          }
+        };
+        return false;
+      },
+
 
       getImageUrl: function (username, seafoodName, imageType, success) {
         $http.get(baseUrl + '/api/sell-side-helper/imgUrl/abdulkhan/' + seafoodName).success(function (res) {
@@ -117,6 +128,15 @@ angular.module('coastlineShop.shop.services', ['ngStorage','coastlineConstants']
         item.quantity = 1;
         $localStorage.cart.push(item);
         $localStorage.selectedItems.push(false);
+        $localStorage.$save();
+        console.log($localStorage.cart[0]);
+      },
+
+      deleteFromCart: function(item) {
+        console.log("delete from cart");
+        item.quantity = 0;
+        $localStorage.cart.pop(item);
+        $localStorage.selectedItems.pop(false);
         $localStorage.$save();
         console.log($localStorage.cart[0]);
       },

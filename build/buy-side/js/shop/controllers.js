@@ -86,7 +86,8 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
   $scope.getAddButtonState = function(name) {
     if (ShopService.isProductAdded(name)) {
       return 1;
-    } else {
+    }
+    else {
       return 0;
     }
   };
@@ -105,6 +106,11 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
   $scope.addToCart = function(item) {
     ShopService.addToCart(item);
     $scope.addButtonState = 1;
+  };
+
+  $scope.deleteFromCart = function(item) {
+    ShopService.deleteFromCart(item);
+    $scope.addButtonState = 0;
   };
 
   $scope.getImageSrc();
