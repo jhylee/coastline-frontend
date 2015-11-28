@@ -87,6 +87,7 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
     if (ShopService.isProductAdded(name)) {
       return 1;
     }
+
     else {
       return 0;
     }
