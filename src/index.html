@@ -6,17 +6,18 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="Coastline Market is an integrated e-commerce and inventory management platform for the fishing industry.">
+  <meta name="author" content="Coastline Market">
+  <meta name="viewport" content="width=device-width" />
 
-  <title>Coastline Market | A Local Movement</title>
+
+  <title>Buy and Sell Fresh Fish & Efficiently Track Inventory</title>
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="landing/css/bootstrap.min.css" type="text/css">
 
 
   <!-- Custom Fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:300,400,600,700,900,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:300,400,600,700,900,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -76,6 +77,10 @@
         <ul class="nav navbar-nav navbar-right">
 
           <li>
+            <a href="https://blog.coastlinemarket.com">Blog</a>
+          </li>
+
+          <li>
             <a class="page-scroll" href="#about">About</a>
           </li>
 
@@ -83,9 +88,7 @@
             <a class="page-scroll" href="#features">Features</a>
           </li>
 
-          <li>
-            <a class="page-scroll" href="#vendors">Vendors</a>
-          </li>
+
 
           <li>
             <a class="page-scroll" href="#contact">Contact</a>
@@ -112,7 +115,7 @@
         <!--
         <a href="sell-side/index.html" class="btn btn-white-fill">Sell Seafood</a>
 -->
-        <a href="#about" class="btn btn-white-fill page-scroll">What is Coastline?</a>
+        <a href="#about" class="btn btn-white-fill page-scroll">Learn More</a>
         <!--
         <a href="buy-side/index.html" class="btn btn-white-fill">Buy Seafood</a>
 -->
@@ -121,7 +124,7 @@
     </div>
   </header>
 
-
+  <!--
   <script>
     function videoSwitch() {
       if (document.getElementById('videoModal').style.display == "none") {
@@ -130,6 +133,7 @@
       }
     }
   </script>
+-->
 
   <section class="bg-primary" id="about">
     <div class="container">
@@ -137,14 +141,13 @@
         <div class="col-lg-8 col-lg-offset-2 text-center">
           <h2 class="section-heading">Reshaping how CSFs and Fisheries do business.</h2>
           <hr class="light">
-          <p>What are Community Supported Fisheries (CSFs)?</p>
-
-          <a href="javascript:void(0)" class="btn btn-darkblue-fill" onclick="videoSwitch()" id="playButton">Watch Video</a>
-
-
+          <p>What is Coastline?</p>
+          <a href="javascript:void(0)" class="btn btn-darkblue-fill" data-toggle="modal" data-target="#myModal1" id="playButton">Watch Video</a>
+          <!--
           <div style="display:none;" id="videoModal">
             <iframe width="560" height="315" class ="video" src="https://www.youtube.com/embed/EqWTTA2Kxog" frameborder="0" allowfullscreen></iframe>
           </div>
+        -->
         </div>
       </div>
 
@@ -203,25 +206,27 @@
         </div>
 
         <div class="col-md-7">
-          <div class="text-left wow fadeInUp text-primary delay-05s">
+          <div class="text-left wow fadeInUp text-primary">
             <h3>Vendors</h3>
             <br>
-            <p>Save Time & Money </i> <i class="fa fa-money"></i></p>
+            <p>Save Time & Money</p>
             <li>Automated workflow processes automates inventory accounting and invoicing</li>
             <li>Streamlined supply chain and increased profits through B2C E-Commerce</li>
-            <hr class="wider" align="left">
-
+            <br>
             <h3>Buyers</h3>
             <br>
-            <p> The Freshest Seafood <i class="fa fa-heart-o"></i></p>
+            <p> The Freshest Seafood</p>
             <li>Coastline connects buyers to local seafood vendors, who provide the freshest, most local seafood.</li>
             <li>Filter by category and price to narrow down your search to certain parameters or cut to the chase by searching for a specific item</li>
           </div>
         </div>
 
         <div class="col-md-5">
-          <div class="wow fadeInRight text-primary delay-1s">
-            <img src="landing/img/macblur.jpg">
+          <div class=" text-primary">
+            <div class="img-overlay">
+              <img src="landing/img/ecom.png" class="ecom wow fadeInRight delay-1s">
+              <img src="landing/img/inventory.png" class="inventory wow fadeInRight delay-05s">
+            </div>
           </div>
         </div>
       </div>
@@ -232,23 +237,25 @@
   <aside class="bg-dark" id="vendors">
     <div class="container text-center">
       <div class="call-to-action">
-        <h2>We're bringing technological innovation to the fishing industry.</h2>
+        <h2>Visit our blog for our latest content:</h2>
         <hr class="light">
-        <a href="#contact" class="btn btn-blue page-scroll">Join Us Today</a>
+        <a href="https://blog.coastlinemarket.com" class="btn btn-blue page-scroll">Visit the Coastline Blog</a>
       </div>
     </div>
   </aside>
+
+
 
   <section class="no-padding">
     <div class="container-fluid">
       <div class="row no-gutter">
         <div class="col-lg-4 col-sm-6">
-          <a href="#" class="portfolio-box">
+          <a href="#contact" class="portfolio-box page-scroll">
             <img src="landing/img/portfolio/1.jpg" class="img-responsive" alt="">
             <div class="portfolio-box-caption">
               <div class="portfolio-box-caption-content">
                 <div class="project-category text-faded">
-                  Vancouver, B.C
+                  Vancouver, BC
                 </div>
                 <div class="project-name">
                   This Could Be You!
@@ -258,12 +265,12 @@
           </a>
         </div>
         <div class="col-lg-4 col-sm-6">
-          <a href="#" class="portfolio-box">
+          <a href="#contact" class="portfolio-box page-scroll">
             <img src="landing/img/portfolio/2.jpg" class="img-responsive" alt="">
             <div class="portfolio-box-caption">
               <div class="portfolio-box-caption-content">
                 <div class="project-category text-faded">
-                  Surrey, B.C
+                  Toronto, ON
                 </div>
                 <div class="project-name">
                   This Could Be You!
@@ -273,12 +280,12 @@
           </a>
         </div>
         <div class="col-lg-4 col-sm-6">
-          <a href="#" class="portfolio-box">
+          <a href="#contact" class="portfolio-box page-scroll">
             <img src="landing/img/portfolio/3.jpg" class="img-responsive" alt="">
             <div class="portfolio-box-caption">
               <div class="portfolio-box-caption-content">
                 <div class="project-category text-faded">
-                  Halifax, N.S
+                  Halifax, NS
                 </div>
                 <div class="project-name">
                   This Could Be You!
@@ -287,55 +294,11 @@
             </div>
           </a>
         </div>
-        <!--
-        <div class="col-lg-4 col-sm-6">
-          <a href="#" class="portfolio-box">
-            <img src="landing/img/portfolio/4.jpg" class="img-responsive" alt="">
-            <div class="portfolio-box-caption">
-              <div class="portfolio-box-caption-content">
-                <div class="project-category text-faded">
-                  Victoria, B.C
-                </div>
-                <div class="project-name">
-                  This Could Be You!
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a href="#" class="portfolio-box">
-            <img src="landing/img/portfolio/5.jpg" class="img-responsive" alt="">
-            <div class="portfolio-box-caption">
-              <div class="portfolio-box-caption-content">
-                <div class="project-category text-faded">
-                  White Rock, B.C
-                </div>
-                <div class="project-name">
-                  This Could Be You!
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a href="#" class="portfolio-box">
-            <img src="landing/img/portfolio/6.jpg" class="img-responsive" alt="">
-            <div class="portfolio-box-caption">
-              <div class="portfolio-box-caption-content">
-                <div class="project-category text-faded">
-                  San Francinsco, CA
-                </div>
-                <div class="project-name">
-                  This Could Be You!
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
+
+
+
       </div>
     </div>
-  -->
   </section>
 
   <!--
@@ -466,15 +429,43 @@
     </div>
   </section>
 
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title text-center">What is Coastline?</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <iframe width="900" height="480" src="https://www.youtube.com/embed/_DAYCXHUdL4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-blue btn-modal" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
   <footer class="footer">
     <div class="row">
       <div class="col-md-12">
         <div style="clear: all;">
-          <p class="alignleft"> &copy; 2015 Coastline Market. All Rights Reserved. |
-            <a href="termsofuse.html">Terms of Use</a></p>
-          <p class="alignright">Made With <i class="fa fa-heart"></i> in Bangalore, Calgary & London |
-            <a href="https://www.facebook.com/coastlinemarket"><i class = "fa fa-facebook"></i></a> |
-            <a href="https://www.linkedin.com/company/coastline-market"><i class = "fa fa-linkedin"></i></a>
+          <p class="alignleft"> &copy; 2016 Coastline Market. All Rights Reserved. |
+            <a href="https://www.facebook.com/coastlinemarket"><i class = "fa fa-facebook-square"></i></a> |
+            <a href="https://www.linkedin.com/company/coastline-market"><i class = "fa fa-linkedin-square"></i></a> |
+            <a href="https://twitter.com/coastlinemarket"><i class = "fa fa-twitter-square"></i></a> |
+            <a href="termsofuse.html">Terms of Use</a>
+
+          </p>
+          <p class="alignright">Made With <i class="fa fa-heart"></i> in Calgary, Toronto & Vancouver
+
         </div>
       </div>
   </footer>
