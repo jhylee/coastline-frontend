@@ -1,8 +1,12 @@
 {
   "name": "coastline-frontend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Inventory Management and E-Commerce App",
   "main": "gulpfile.js",
+   "engines": {
+    "node": "4.1.1"
+  },
+
   "scripts": {
     "test": "npm install; gulp",
 
@@ -33,12 +37,5 @@
     "gulp-replace-task": "^0.2.1",
     "gulp-sass": "^2.0.3",
     "yargs": "^3.15.0"
-  },
-
-  "engines": {
-    "node": "4.2.2",
-    "npm": "3.3.9"
   }
-
-
 }
