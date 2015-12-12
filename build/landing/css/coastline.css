@@ -1,4 +1,4 @@
-/*!
+  /*!
  * Start Bootstrap - Creative Bootstrap Theme (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
@@ -24,14 +24,12 @@ hr.thin {
   border-color: #4DB6AC;
   border-width: 1px;
 }
-
 hr.wider {
   max-width: 100%;
   border-color: #fff;
   border-width: 1px;
   border-style: dashed;
 }
-
 a {
   color: #00BCD4;
   -webkit-transition: all .35s;
@@ -532,11 +530,9 @@ OUR TEAM
 .alignleft {
   float: left;
 }
-
 .alignright {
   float: right;
 }
-
 @media only screen and (max-width: 1000px) {
   .alignright {
     float: left;
@@ -544,11 +540,7 @@ OUR TEAM
   .alignleft {
     float: left;
   }
-
 }
-
-
-
 ul.social-buttons {
   list-style: none;
   margin: 0;
@@ -1030,8 +1022,6 @@ FLoating labels
 .fa-heart {
   color: rgb(251, 31, 31);
 }
-
-
 .headerimg {
   max-height: auto;
   max-width: 65px;
@@ -1042,8 +1032,6 @@ FLoating labels
     max-width: 45px;
   }
 }
-
-
 .laptop {
   background-image: url(../img/fishnet.jpg);
   -webkit-background-size: cover;
@@ -1051,7 +1039,6 @@ FLoating labels
   -o-background-size: cover;
   background-size: cover;
   background-attachment: fixed;
-
   overflow: hidden;
 }
 .laptop h2 {
@@ -1061,7 +1048,6 @@ FLoating labels
   text-transform: uppercase;
   margin-top: 60px;
 }
-
 .laptop h3 {
   color: #fff;
   font-size: 35px;
@@ -1069,19 +1055,15 @@ FLoating labels
   text-transform: uppercase;
   font-weight: bold;
 }
-
-
 .laptop p {
   color: #fff;
   text-transform: uppercase;
   font-size: 20px;
 }
-
 .img-overlay {
   position: relative;
   max-width: 800px;
 }
-
 .ecom {
   position: relative;
   border-radius: 7px;
@@ -1091,7 +1073,6 @@ FLoating labels
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 8px 8px 0;
   -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 8px 8px 0;
 }
-
 .inventory {
   position: absolute;
   border-radius: 5px;
@@ -1100,12 +1081,20 @@ FLoating labels
   left: -15px;
 }
 
+@media only screen and (max-width: 1000px) {
+  .inventory {
+    max-width: 100px;
+    left: 0px;
+  }
+  .ecom {
+    max-width: 400px;
+  }
+}
+
 .laptop li {
   color: #fff;
   font-size: 17px;
 }
-
-
 img.modalImg {
   border-radius: 5px;
   max-width: 100%;
@@ -1113,15 +1102,19 @@ img.modalImg {
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 8px 8px 0;
   -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 8px 8px 0;
 }
-
-div.modal-content{
+div.modal-content {
   overflow-x: hidden;
 }
-
 iframe {
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0 8px 8px 0;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 8px 8px 0;
   -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 8px 8px 0;
   max-width: 100%;
+}
+@media only screen and (max-width: 1000px) {
+  iframe {
+    max-width: 100%;
+    max-height: 350px;
+  }
 }
