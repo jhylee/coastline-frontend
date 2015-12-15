@@ -188,6 +188,27 @@ a.expand {
 NAVBAR
 ========================================================================== */
 
+@media handheld, screen and (max-width: 995px) {
+
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 30px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    overflow-x: hidden; 
+}
+.navbaar-header {
+  width: 100%;
+}
+}
+
+
 @media (min-width: 768px) {
   .navbar-fixed-top {
     padding: 25px 0;
@@ -195,19 +216,6 @@ NAVBAR
     -moz-transition: padding 0.3s;
     transition: padding 0.3s;
   }
-
-@media handheld, screen and (min-width: 995px) {
-   .navbar {
-    max-width: 100%;
-  }
-    .navbar-fixed-top {
-    padding: 25px 0;
-    -webkit-transition: padding 0.3s;
-    -moz-transition: padding 0.3s;
-    transition: padding 0.3s;
-  }
-}
-
 
   .navbar-fixed-top .navbar-brand {
     font-size: 2em;
