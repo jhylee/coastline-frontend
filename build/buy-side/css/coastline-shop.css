@@ -195,6 +195,20 @@ NAVBAR
     -moz-transition: padding 0.3s;
     transition: padding 0.3s;
   }
+
+@media handheld, screen and (min-width: 995px) {
+   .navbar {
+    max-width: 100%;
+  }
+    .navbar-fixed-top {
+    padding: 25px 0;
+    -webkit-transition: padding 0.3s;
+    -moz-transition: padding 0.3s;
+    transition: padding 0.3s;
+  }
+}
+
+
   .navbar-fixed-top .navbar-brand {
     font-size: 2em;
     -webkit-transition: all 0.3s;
