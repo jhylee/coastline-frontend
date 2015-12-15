@@ -12,7 +12,7 @@
       <div class="col-lg-12">
         <div class="panel panel-default">
           <div class="panel-heading">
-            Product Addition Form
+            <h4>Product Addition Form</h4>
           </div>
           <!-- /.panel-heading -->
           <form class='modal2' ng-submit="addProduct()">
@@ -22,7 +22,7 @@
                 <div class="row">
                   <div class="col-lg-6 form-group">
                     <div class="large-padded-row">
-                      <h4>Seafood Types:</h4>
+                      <h5>Seafood Types:</h5>
 
                       <style>
                         .form-control {
@@ -72,7 +72,7 @@
 
                   <div class="col-lg-6 form-group">
                     <div class="large-padded-row">
-                      <h4>Unit Price:</h4>
+                      <h5>Unit Price:</h5>
                       <input ng-model="unitPrice" type="unitPrice" class="form-control" id="exampleInputEmail1" placeholder="i.e. 4.50">
                     </div>
                   </div>
@@ -88,7 +88,7 @@
 
                 <div class='col-lg-2 form-group droppad'>
                   <div class="large-padded-row">
-                    <h4>Featured?</h4>
+                    <h5>Featured?</h5>
                     <select ng-model="featured" name="mydropdown" class="dropdown">
                       <option value="true">Yes</option>
                       <option value="false">No</option>
@@ -98,10 +98,10 @@
 
                 <div class='col-lg-2 form-group droppad'>
                   <div class="large-padded-row">
-                    <h4>Availability</h4>
+                    <h5>Availability</h5>
                     <select ng-model="availability" name="mydropdown" class="dropdown">
-                      <option value="None">None</option>
                       <option value="Low">Low</option>
+                      <option value="Medium">Medium</option>
                       <option value="High">High</option>
                     </select>
 
@@ -110,7 +110,7 @@
 
                 <div class='col-lg-2 form-group droppad'>
                   <div class="large-padded-row">
-                    <h4>Units</h4>
+                    <h5>Units</h5>
                     <select ng-model="units" name="mydropdown" class="dropdown">
                       <option value="lb">Pound</option>
                       <option value="kg">Kilogram</option>
