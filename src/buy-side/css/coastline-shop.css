@@ -594,11 +594,18 @@ hr.light {
   }
 }
 
+
 div.modal-content{
   background-color: #E0F2F1;
   overflow-x: hidden;
-
 }
+
+@media screen and (max-width: 600px) {
+  div.modal-content{
+  width: 90%;
+}
+}
+
 
 /*/////////////////////////////////////////
                BUTTON RECONFIG
