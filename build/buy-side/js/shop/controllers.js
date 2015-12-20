@@ -1,4 +1,4 @@
-angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coastlineShop.shop.services', 'angularPayments', 'coastlineConstants'])
+angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coastlineShop.shop.services', 'angularPayments', 'coastlineConstants', 'cgNotify'])
 
 // for page navigation, first to be instantiated
 .controller('shopCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'ShopService', function($rootScope, $scope, $state, $location, $localStorage, ShopService) {
@@ -115,6 +115,11 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
   };
 
   $scope.getImageSrc();
+
+  function myController($scope,notify){  // <-- Inject notify
+      notify('product added;'); // <-- Call notify with your message
+      notify({ message:'My message', templateUrl:'my_template.html'} );
+}
 
 
 }])
