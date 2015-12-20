@@ -27,8 +27,9 @@
 
       <div class="col-lg-12 text-center">
         <div class="product-search">
-          <input type="text" name="search" placeholder= "Search for an item..." class ="search">
-          <button>Search</button>
+          <input type="text" name="search" placeholder="Search for an item..." class="search">
+          <button onclick="#">Search</button>
+          <button class="filter" data-toggle="modal" data-target="#myModal1"><i class="fa fa-filter"></i></button>
         </div>
         <hr class="light">
       </div>
@@ -56,5 +57,54 @@
 
   </div>
   <!-- /.container -->
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <form class="cd-form floating-labels" action="#" method="POST">
+                <fieldset>
+                  <div class="col-md-12"><h2>Filter Options</h2><hr></div>
+                  <div class = "col-md-2">
+                    <input type="radio" name="radio-button" id="cd-radio-1" checked>
+                    <label for="cd-radio-1"> Local Fish </label>
+                  </div>
+                  <div class = "col-md-2">
+                    <input type="radio" name="radio-button" id="cd-radio-2">
+                    <label for="cd-radio-2"> Imported Fish </label>
+                  </div>
+                  <div class = "col-md-2">
+                    <input type="radio" name="radio-button" id="cd-radio-3">
+                    <label for="cd-radio-3"> Ocean Wise </label>
+                  </div>
+
+                  <div class="cd-select icon col-md-6">
+                    <label class="cd-label" for="cd-email">Location</label>
+
+                    <select class="budget" name="Location" type="location">
+                      <option value="0">Your Location</option>
+                      <option value="Vancouver">Vancouver</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                  <div class="col-md-12">
+                    <br>
+                    <input type="text" style="width:300px;">
+                  </div>
+                </fieldset>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-red btn-modal" value="Send">Filter</button>
+          <button type="button" class="btn btn-blue btn-modal" data-dismiss="modal">Close</button>
+        </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
 
 </div>
