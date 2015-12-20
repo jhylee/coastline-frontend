@@ -537,6 +537,13 @@ PAGINATION
   border-bottom-left-radius: 4px;
 }
 
+@media screen and (max-width: 600px) {
+  .product-search input[type="text"]{
+    font-size: 11px;
+    width: 165px;
+  }
+}
+
 input.search{
   padding-left:10px;
 }
