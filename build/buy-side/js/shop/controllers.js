@@ -107,22 +107,25 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
   $scope.addToCart = function(item) {
     ShopService.addToCart(item);
     $scope.addButtonState = 1;
+    notificationPop(item, notify);
   };
 
   $scope.deleteFromCart = function(item) {
     ShopService.deleteFromCart(item);
     $scope.addButtonState = 0;
+    notificationPop(item, notify);
   };
 
   $scope.getImageSrc();
 
-  function myController($scope,notify){  // <-- Inject notify
-      notify('product added;'); // <-- Call notify with your message
-      notify({ message:'My message', templateUrl:'my_template.html'} );
-}
-
+  function notificationPop($scope,notify){  // <-- Inject notify
+    notify('Your notification message'); // <-- Call notify with your message
+    notify({ message:'My message', templateUrl:'my_template.html'} );
+  }
 
 }])
+
+
 
 .controller('cartCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'ShopService', function($rootScope, $scope, $state, $location, $localStorage, ShopService) {
 

@@ -41,6 +41,7 @@
                   <p>170g units approx.</p>
                 </div>
               -->
+
                 <div ng-init="addButtonState = getAddButtonState(product.name)" class="action">
 
                   <div ng-switch on="addButtonState">
@@ -55,7 +56,6 @@
                     </div>
                     <!-- end ngSwitchWhen: -->
                   </div>
-
 
                   <a class="alignright ng-binding">${{product.unitPrice}}/{{product.units}}</a>
                 </div>

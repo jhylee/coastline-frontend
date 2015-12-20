@@ -188,6 +188,7 @@ a.expand {
 NAVBAR
 ========================================================================== */
 
+
 @media handheld, screen and (max-width: 995px) {
   .navbar-toggle {
     position: relative;
@@ -202,7 +203,7 @@ NAVBAR
     border-radius: 4px;
     overflow-x: hidden;
   }
-  .navbaar-header {
+  .navbar-header {
     max-width: inherit;
   }
 }
@@ -234,7 +235,6 @@ NAVBAR
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   background-color: #4DB6AC;
-  opacity: 0.95;
   padding-bottom: 20px;
   padding-top: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0 8px 8px 0;
