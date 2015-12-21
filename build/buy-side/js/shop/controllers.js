@@ -72,12 +72,15 @@ angular.module('coastlineShop.shop.controllers',
     });
   };
 
+/*
     $scope.searchProducts = function(string) {
       for (var i = 0; i < products.length; i++) {
-        products[i].name() != string;
-        product.hide();
+        products[i].name() == string;
+        newList.add(product[i]);
       }
+      newList.show();
     }
+*/
 
   $scope.getProducts();
 
