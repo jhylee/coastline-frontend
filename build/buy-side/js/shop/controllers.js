@@ -72,17 +72,10 @@ angular.module('coastlineShop.shop.controllers',
     });
   };
 
-/*
-    $scope.searchProducts = function(string) {
-      for (var i = 0; i < products.length; i++) {
-        products[i].name() == string;
-        newList.add(product[i]);
-      }
-      newList.show();
-    }
-*/
 
   $scope.getProducts();
+
+
 
 }])
 
@@ -120,7 +113,7 @@ angular.module('coastlineShop.shop.controllers',
   $scope.addToCart = function(item) {
     ShopService.addToCart(item);
     $scope.addButtonState = 1;
-    notify({ message:'Item Added To Cart!', duration:1200, classes:"alert-success"});
+    notify({ message:'Item Added To Cart', duration:1500, classes:"alert-success"});
 /*
     , templateUrl:'my_template.html'
     */
@@ -129,7 +122,7 @@ angular.module('coastlineShop.shop.controllers',
   $scope.deleteFromCart = function(item) {
     ShopService.deleteFromCart(item);
     $scope.addButtonState = 0;
-    notify({ message:'Item Deleted From Cart', duration:1200, classes:"alert-danger"});
+    notify({ message:'Item Deleted From Cart', duration:1500, classes:"alert-danger"});
   };
 
   $scope.getImageSrc();

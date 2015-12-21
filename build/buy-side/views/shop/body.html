@@ -25,16 +25,6 @@
         </ul>
       </div>
 
-      <div class="col-lg-12 text-center">
-        <div class="product-search">
-          <input type="text" name="search" placeholder="Search for an item..." class="search">
-          <button onclick="#">Search</button>
-          <button class="filter" data-toggle="modal" data-target="#myModal1"><i class="fa fa-filter"></i></button>
-        </div>
-        <hr class="light">
-      </div>
-
-
     </div>
     <!-- /.row -->
     <div ng-switch on="items[getPageSelection()]">
@@ -65,16 +55,19 @@
             <div class="col-md-12 text-center">
               <form class="cd-form floating-labels" action="#" method="POST">
                 <fieldset>
-                  <div class="col-md-12"><h2>Filter Options</h2><hr></div>
-                  <div class = "col-md-2">
+                  <div class="col-md-12">
+                    <h2>Filter Options</h2>
+                    <hr>
+                  </div>
+                  <div class="col-md-2">
                     <input type="radio" name="radio-button" id="cd-radio-1" checked>
                     <label for="cd-radio-1"> Local Fish </label>
                   </div>
-                  <div class = "col-md-2">
+                  <div class="col-md-2">
                     <input type="radio" name="radio-button" id="cd-radio-2">
                     <label for="cd-radio-2"> Imported Fish </label>
                   </div>
-                  <div class = "col-md-2">
+                  <div class="col-md-2">
                     <input type="radio" name="radio-button" id="cd-radio-3">
                     <label for="cd-radio-3"> Ocean Wise </label>
                   </div>
