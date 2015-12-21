@@ -1,4 +1,10 @@
-angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coastlineShop.shop.services', 'angularPayments', 'coastlineConstants', 'cgNotify'])
+angular.module('coastlineShop.shop.controllers',
+ ['ui.router',
+  'ngStorage', 
+  'coastlineShop.shop.services',
+   'angularPayments',
+    'coastlineConstants',
+     'cgNotify'])
 
 // for page navigation, first to be instantiated
 .controller('shopCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'ShopService', function($rootScope, $scope, $state, $location, $localStorage, ShopService) {
@@ -73,7 +79,7 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 
 }])
 
-.controller('productCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'ShopService', function($rootScope, $scope, $state, $location, $localStorage, ShopService) {
+.controller('productCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'ShopService', "notify", function($rootScope, $scope, $state, $location, $localStorage, ShopService, notify) {
 
   $scope.$storage = $localStorage;
 
@@ -107,21 +113,19 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
   $scope.addToCart = function(item) {
     ShopService.addToCart(item);
     $scope.addButtonState = 1;
-    notificationPop(item, notify);
+    notify({ message:'Item Added To Cart!', duration:1500, classes:"alert-success"});
+/*
+    , templateUrl:'my_template.html'
+    */
   };
 
   $scope.deleteFromCart = function(item) {
     ShopService.deleteFromCart(item);
     $scope.addButtonState = 0;
-    notificationPop(item, notify);
+    notify({ message:'Item Deleted From Cart', duration:1500, classes:"alert-failure"});
   };
 
   $scope.getImageSrc();
-
-  function notificationPop($scope,notify){  // <-- Inject notify
-    notify('Your notification message'); // <-- Call notify with your message
-    notify({ message:'My message', templateUrl:'my_template.html'} );
-  }
 
 }])
 

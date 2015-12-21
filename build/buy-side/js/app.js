@@ -2,7 +2,8 @@ var app = angular.module('coastlineShop', ['ui.router',
     'ngStorage',
     'coastlineShop.shop.controllers',
     'coastlineShop.shop.services',
-    'angularPayments'
+    'angularPayments',
+    'cgNotify'
 ]);
 
 
