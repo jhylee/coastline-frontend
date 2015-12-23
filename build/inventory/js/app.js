@@ -5,7 +5,9 @@ var app = angular.module('coastlineWebApp', ['ui.router',
   'coastlineWebApp.dashboard.controllers',
   'coastlineWebApp.dashboard.services',
   'coastlineWebApp.redirect.controllers',
-  'coastlineWebApp.redirect.services'
+  'coastlineWebApp.redirect.services',
+  'coastlineWebApp.visualizations',
+  'coastlineWebApp.visualizations.controllers'
 ]);
 
 
@@ -16,32 +18,24 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider, $http
 
   $stateProvider
 
-  // HOME STATES AND NESTED VIEWS ========================================
-  //   .state('home', {
-  //   url: '/',
-  //   templateUrl: '/sell-side/views/login.html'
-  // })
-
-  // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
-
-    .state('dashboard', {
-    url: '/dashboard',
-    //  templateUrl: '/sell-side/views/dashboard.html',
+    .state('main-menu', {
+    url: '/main-menu',
+    //  templateUrl: '/inventory/views/dashboard.html',
     data: {
       requireLogin: true
     },
     views: {
       'nav-top': {
-        templateUrl: '/sell-side/views/dashboard/nav-top.html'
+        templateUrl: '/inventory/views/main-menu/nav-top.html'
       },
       'nav-side': {
-        templateUrl: '/sell-side/views/dashboard/nav-side.html'
+        templateUrl: '/inventory/views/main-menu/nav-side.html'
       },
       'body': {
-        templateUrl: '/sell-side/views/dashboard/body.html'
+        templateUrl: '/inventory/views/main-menu/body.html'
       },
       'footer': {
-        templateUrl: '/sell-side/views/dashboard/footer.html'
+        templateUrl: '/inventory/views/main-menu/footer.html'
       },
     }
   })
@@ -53,16 +47,16 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider, $http
     views: {
 
       'nav-top': {
-        templateUrl: '/sell-side/views/login/nav-top.html'
+        templateUrl: '/inventory/views/login/nav-top.html'
       },
       'nav-side': {
-        templateUrl: '/sell-side/views/login/nav-side.html'
+        templateUrl: '/inventory/views/login/nav-side.html'
       },
       'body': {
-        templateUrl: '/sell-side/views/login/body.html'
+        templateUrl: '/inventory/views/login/body.html'
       },
       'footer': {
-        templateUrl: '/sell-side/views/login/footer.html'
+        templateUrl: '/inventory/views/login/footer.html'
       },
 
     }
@@ -75,16 +69,16 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider, $http
     views: {
 
       'nav-top': {
-        templateUrl: '/sell-side/views/sign-up/nav-top.html'
+        templateUrl: '/inventory/views/sign-up/nav-top.html'
       },
       'nav-side': {
-        templateUrl: '/sell-side/views/sign-up/nav-side.html'
+        templateUrl: '/inventory/views/sign-up/nav-side.html'
       },
       'body': {
-        templateUrl: '/sell-side/views/sign-up/body.html'
+        templateUrl: '/inventory/views/sign-up/body.html'
       },
       'footer': {
-        templateUrl: '/sell-side/views/sign-up/footer.html'
+        templateUrl: '/inventory/views/sign-up/footer.html'
       },
 
     }
@@ -97,41 +91,21 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider, $http
     views: {
 
       'nav-top': {
-        templateUrl: '/sell-side/views/login/nav-top.html'
+        templateUrl: '/inventory/views/login/nav-top.html'
       },
       'nav-side': {
-        templateUrl: '/sell-side/views/login/nav-side.html'
+        templateUrl: '/inventory/views/login/nav-side.html'
       },
       'body': {
-        templateUrl: '/sell-side/views/redirect/redirect.html'
+        templateUrl: '/inventory/views/redirect/redirect.html'
       },
       'footer': {
-        templateUrl: '/sell-side/views/login/footer.html'
+        templateUrl: '/inventory/views/login/footer.html'
       },
     }
 
   })
 
-  .state('invoice', {
-    url: '/invoice',
-
-    views: {
-      //
-      // 'nav-top': {
-      //   templateUrl: '/sell-side/views/invoice/nav-top.html'
-      // },
-      // 'nav-side': {
-      //   templateUrl: '/sell-side/views/invoice/nav-side.html'
-      // },
-      'body': {
-        templateUrl: '/sell-side/views/invoice/body.html'
-      },
-      // 'footer': {
-      //   templateUrl: '/sell-side/views/invoice/footer.html'
-      // },
-    }
-
-  })
 
 
   $httpProvider.interceptors.push('HttpInterceptorForToken');
@@ -208,7 +182,7 @@ app.run(function($rootScope, $state, $location, AuthService, RedirectService) {
         // $location.path("/dashboard");
         console.log("go to dash");
 
-        RedirectService.setRedirectState("dashboard");
+        RedirectService.setRedirectState("main-menu");
 
 
         // event.preventDefault();
