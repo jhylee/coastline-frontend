@@ -1,81 +1,180 @@
-angular.module('coastlineWebApp.dashboard.services', ['ngStorage', 'coastlineConstants', 'ui.router', 'angucomplete-alt'])
+angular.module('coastlineWebApp.dashboard.services', [])
 
-.factory('DashboardService', ['$http', '$localStorage', 'apiUrl', '$state', function ($http, $localStorage, apiUrl, $state) {
-    var baseUrl = apiUrl;
-    var token = "";
-    var selection = 1;
-    var currentOrderRef = null;
+// for creation of the VisDataSet
+.factory('VisDataSet', function() {
+    'use strict';
+    return function(data, options) {
+        // Create the new dataSets
+        return new vis.DataSet(data, options);
+    };
+})
 
+.factory('DashboardNavigation', function() {
+    var view = 'menu';
 
     return {
-      accountDetails: function (success, error) {
-        $http.get(baseUrl + '/api/sell-side/account/details').success(success).error(error);
-      },
-      orders: function (success, error) {
-        $http.get(baseUrl + '/api/sell-side/orders').success(function (res) {
-          console.log("orders success: " + res.status);
-          success(res);
-        }).error(function (err) {
-          console.log("orders error");
-          $state.go("login");
-          error(err);
-        });
-      },
-      products: function (success, error) {
-        $http.get(baseUrl + '/api/sell-side/products').success(success).error(error);
-      },
-      getCurrentOrder: function (success, error) {
-        var formData = {
-          ref: currentOrderRef
-        };
+        getView: function () {
+            return view;
+        },
+        setView: function (newView) {
+            view = newView;
+        }
+    }
+})
 
-        $http.post(baseUrl + '/api/sell-side/get-order', formData).success(success).error(error);
-      },
-      getCurrentOrderRef: function () {
-        return currentOrderRef;
-      },
-      setCurrentOrderRef: function (ref) {
-        currentOrderRef = ref;
-      },
-      setSelection: function (index) {
-        selection = index;
-      },
-      getSelection: function () {
-        return selection;
-      },
+.factory('NavTop', function() {
+    var view = 'menu';
 
-      getSeafoodTypes: function (success, error) {
-        $http.get(baseUrl + '/api/sell-side-helper/seafoodTypes').success(success).error(error);
-      },
+    return {
+        getFisheryName: function() {
+            $http.get(baseUrl + '/api/fisheries').success(function (res) {
+                console.log(results);
+                return "SUCCESS";
+            }).error(function (err) {
+                return "ERROR";
+            });
+        }
+    }
+})
 
-      getImageUrl: function (name, success, error) {
-        console.log("service " + name)
-        $http.get(baseUrl + '/api/sell-side-helper/imgUrl/abdulkhan/' + name).success(function (res) {
-          var url = baseUrl + res;
-          console.log(url);
-          success(url);
-        }).error(function (err) {
-          error(err);
-        });
-      },
+.factory('SupplyChainMenuNavigation', function() {
+    var view = 'home';
 
-      fulfillOrder: function (formData, success, error) {
-        $http.post(baseUrl + '/api/sell-side/fulfill-order', formData).success(success).error(error);
-      },
-      addProduct: function (formData, success, error) {
-        console.log("service");
-        console.log("name: " + formData.name);
-        console.log("unitPrice: " + formData.unitPrice);
-        console.log("units: " + formData.units);
-        console.log("availability: " + formData.availability);
-        console.log("featured: " + formData.featured);
-        $http.post(baseUrl + '/api/sell-side/add-product', formData).success(success).error(error);
-      },
+    return {
+        getView: function () {
+            return view;
+        },
+        setView: function (newView) {
+            view = newView;
+        }
+    }
+})
 
-      deleteProduct: function (formData, success, error) {
-        $http.post(baseUrl + '/api/sell-side/delete-product', formData).success(success).error(error);
-      }
+// for management of the supply chain builder
+.factory('SupplyChainSet', function() {
+    'use strict';
 
+    // farthest x point to the right
+    var furthestRight = -150;
+
+    // set inital stage object
+    var stages = [];
+
+    // stage currently selected on display
+    var selectedStage = null;
+
+    // find a stage by id
+    var findStage = function (stageId) {
+        for (var i = 0; i < stages.length; i++) {
+            if (stages[i].id == stageId) {
+                return i;
+            }
+        }
+        return null;
     };
-  }
-]);
+
+    // find an edge given the to and from values
+    var findEdge = function (fromId, toId, edges) {
+        for (var i = 0; i < edges.length; i++) {
+            if (edges[i].fromId == fromId && edges[i].to == toId) {
+                return i;
+            }
+        };
+        return null;
+    };
+
+    // get the stage furthest right
+    var refreshStageFurthestRight = function () {
+        for (var i = 0; i < stages.length; i ++) {
+            if (stages[i].x > furthestRight) furthestRight = stages[i].x;
+        }
+    }
+
+    // public methods
+    return {
+
+        // get all stages
+        getStages: function () {
+            return stages;
+        },
+
+        // get stage by id
+        getStage: function (id) {
+            return stages[findStage(id)];
+        },
+
+        // select stage by id
+        selectStage: function (stageId) {
+            selectedStage = stageId;
+        },
+
+        // deselect the current selected stage
+        deselectStage: function (stageId) {
+            selectedStage = null;
+        },
+
+        // get the current selected stage
+        getSelectedStage: function () {
+            console.log("getSelectedStage " + selectedStage);
+            return findStage(selectedStage);
+        },
+
+        // move the stage to a new (x, y) coordinate
+        moveStage: function (id, x, y) {
+            var index = findStage(id);
+            stages[index].x = x;
+            stages[index].y = y;
+            console.log(stages[index]);
+        },
+
+        // add a new stage
+        addStage: function (name, prev) {
+            var id = Date.now();
+            var x;
+            refreshStageFurthestRight();
+            console.log(furthestRight);
+
+            if (furthestRight == null) x = 0;
+            else x = furthestRight + 150;
+
+            if (prev) stages.push({ name: name, id: id, prev: [prev], next: [], x: x, y: 0 });
+            else stages.push({ name: name, id: id, prev: [], next: [], x: x, y: 0 });
+        },
+
+        // reconstructs the graph and returns nodes and edges for graphical display
+        getDisplayData: function () {
+            var data = {
+                nodes: [],
+                edges: []
+            };
+
+            for (var i = 0; i < stages.length; i ++) {
+                var node = {};
+                node.label = stages[i].name;
+                node.id = stages[i].id;
+                node.scaling = { min: 10, max: 10, label: { min: 10, max: 24} };
+                node.value = 25;
+                node.size = 25;
+                node.color = "#93D276"
+                node.shape = "box";
+                node.shadow = false;
+                node.x = stages[i].x;
+                node.y = stages[i].y;
+                data.nodes.push(node);
+            }
+
+            // link nodes
+            for (var i = 0; i < stages.length; i ++) {
+                for (var j = 0; j < stages[i].prev.length; j ++) {
+                    if (data.edges.indexOf({from: stages[i].prev[j], to: stages[i].id}) == -1 &&
+                        stages[i].prev[j] != null && stages[i].prev[j] != [] &&
+                        stages[i].id != null && stages[i].id != []) {
+                            data.edges.push({from: stages[i].prev[j], to: stages[i].id});
+                    }
+                };
+            }
+
+            return data;
+        },
+    };
+});

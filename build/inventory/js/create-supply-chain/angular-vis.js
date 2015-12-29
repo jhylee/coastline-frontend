@@ -1,4 +1,4 @@
-angular.module('coastlineWebApp.visualizations', [])
+angular.module('coastlineWebApp.visualizations.services', [])
 
     .factory('VisDataSet', function () {
         'use strict';

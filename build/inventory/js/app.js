@@ -6,8 +6,9 @@ var app = angular.module('coastlineWebApp', ['ui.router',
   'coastlineWebApp.dashboard.services',
   'coastlineWebApp.redirect.controllers',
   'coastlineWebApp.redirect.services',
-  'coastlineWebApp.visualizations',
-  'coastlineWebApp.visualizations.controllers'
+  'coastlineWebApp.dashboard.controllers',
+  'coastlineWebApp.dashboard.services',
+  
 ]);
 
 
@@ -18,24 +19,68 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider, $http
 
   $stateProvider
 
-    .state('main-menu', {
-    url: '/main-menu',
+  .state('create-supply-chain', {
+    url: '/create-supply-chain',
     //  templateUrl: '/inventory/views/dashboard.html',
     data: {
       requireLogin: true
     },
     views: {
       'nav-top': {
-        templateUrl: '/inventory/views/main-menu/nav-top.html'
+        templateUrl: '/inventory/views/create-supply-chain/nav-top.html'
       },
       'nav-side': {
-        templateUrl: '/inventory/views/main-menu/nav-side.html'
+        templateUrl: '/inventory/views/create-supply-chain/nav-side.html'
       },
       'body': {
-        templateUrl: '/inventory/views/main-menu/body.html'
+        templateUrl: '/inventory/views/create-supply-chain/body.html'
       },
       'footer': {
-        templateUrl: '/inventory/views/main-menu/footer.html'
+        templateUrl: '/inventory/views/create-supply-chain/footer.html'
+      },
+    }
+  })
+
+  .state('dashboard', {
+    url: '/dashboard',
+    //  templateUrl: '/inventory/views/dashboard.html',
+    data: {
+      requireLogin: true
+    },
+    views: {
+      'nav-top': {
+        templateUrl: '/inventory/views/dashboard/nav-top.html'
+      },
+      'nav-side': {
+        templateUrl: '/inventory/views/dashboard/nav-side.html'
+      },
+      'body': {
+        templateUrl: '/inventory/views/dashboard/body.html'
+      },
+      'footer': {
+        templateUrl: '/inventory/views/dashboard/footer.html'
+      },
+    }
+  })
+
+  .state('fishery-setup', {
+    url: '/fishery-setup',
+    //  templateUrl: '/inventory/views/dashboard.html',
+    data: {
+      requireLogin: true
+    },
+    views: {
+      'nav-top': {
+        templateUrl: '/inventory/views/fishery-setup/nav-top.html'
+      },
+      'nav-side': {
+        templateUrl: '/inventory/views/fishery-setup/nav-side.html'
+      },
+      'body': {
+        templateUrl: '/inventory/views/fishery-setup/body.html'
+      },
+      'footer': {
+        templateUrl: '/inventory/views/fishery-setup/footer.html'
       },
     }
   })
@@ -182,7 +227,7 @@ app.run(function($rootScope, $state, $location, AuthService, RedirectService) {
         // $location.path("/dashboard");
         console.log("go to dash");
 
-        RedirectService.setRedirectState("main-menu");
+        RedirectService.setRedirectState("dashboard");
 
 
         // event.preventDefault();
@@ -206,7 +251,7 @@ app.run(function($rootScope, $state, $location, AuthService, RedirectService) {
 });
 
 angular.module('coastlineConstants', [])
-  .constant('apiUrl', 'http://localhost:3000')
+  .constant('apiUrl', 'http://localhost:9000')
   .constant('Views', {
     HOME: 0,
     ORDERS: 1,
@@ -214,155 +259,3 @@ angular.module('coastlineConstants', [])
     ADD_PRODUCT: 3,
     ORDER_DETAIL: 4
   });
-
-//app.controller('authCtrl', ['$rootScope', '$scope', '$location', '$localStorage', 'Main', function ($rootScope, $scope, $location, $localStorage, Main) {
-//
-//  $scope.theToken = Main.getToken();
-//  console.log("Main.getToken()" + Main.getToken());
-//  console.log($localStorage.token);
-//  $scope.login = function () {
-//    var formData = {
-//      username: $scope.username,
-//      password: $scope.password
-//    }
-//
-//    Main.login(formData, function (res) {
-//      if (res.type == false) {
-//        alert(res.data)
-//      } else {
-//        $localStorage.token = res.token;
-//        console.log($localStorage.token);
-//        $scope.token = true;
-//        console.log($scope.token);
-//        Main.setToken($localStorage.token);
-//        window.location = "/";
-//      }
-//    }, function () {
-//      $rootScope.error = 'Failed to signin';
-//    })
-//  };
-//
-//  $scope.signUp = function () {
-//    var formData = {
-//      username: $scope.username,
-//      firstName: $scope.firstName,
-//      lastName: $scope.lastName,
-//      email: $scope.email,
-//      password: $scope.password
-//    }
-//
-//    if ($scope.buySell == "buy") {
-//
-//      console.log("sign up buyer");
-//
-//      Main.signUpBuyer(formData, function (res) {
-//        if (res.type == false) {
-//          alert(res.data)
-//        } else {
-//          //$localStorage.token = res.data.token;
-//          window.location = "/"
-//        }
-//      }, function () {
-//        $rootScope.error = 'Failed to signup';
-//      })
-//    } else if ($scope.buySell == "sell") {
-//
-//      console.log("sign up seller");
-//
-//
-//      Main.signUpSeller(formData, function (res) {
-//        if (res.type == false) {
-//          alert(res.data)
-//        } else {
-//          //$localStorage.token = res.body.token;
-//          window.location = "/"
-//        }
-//      }, function () {
-//        $rootScope.error = 'Failed to signup';
-//      })
-//
-//    } else {
-//      console.log("neither" + $scope.buySell);
-//    }
-//  }
-//
-//  $scope.me = function () {
-//    Main.me(function (res) {
-//      $scope.myDetails = res;
-//    }, function () {
-//      $rootScope.error = 'Failed to fetch details';
-//    })
-//  };
-//
-//  $scope.logout = function () {
-//    Main.logout(function () {
-//      window.location = "/"
-//    }, function () {
-//      alert("Failed to logout!");
-//    });
-//  };
-//
-//  $scope.token = false;
-//}]);
-//
-//app.controller('MeCtrl', ['$rootScope', '$scope', '$location', 'Main', function ($rootScope, $scope, $location, Main) {
-//  Main.me(function (res) {
-//    $scope.myDetails = res;
-//  }, function () {
-//    $rootScope.error = 'Failed to fetch details';
-//  })
-//}]);
-
-//app.factory('Main', ['$http', '$localStorage', function ($http, $localStorage) {
-//    var baseUrl = "http://localhost:3000";
-//    var token = "";
-//
-//
-//
-//    return {
-//      save: function (data, success, error) {
-//        $http.post(baseUrl + '/signin', data).success(success).error(error)
-//      },
-//
-//      signUpBuyer: function (data, success, error) {
-//        $http.post(baseUrl + '/users/signUp/buyer', data).success(success).error(error)
-//      },
-//
-//      signUpSeller: function (data, success, error) {
-//        var response = $http.post(baseUrl + '/users/signUp/seller', data).success(success).error(error)
-//        console.log(response);
-//      },
-//
-//      login: function (data, success, error) {
-//        $http.post(baseUrl + '/users/login', data).success(success).error(error)
-//      },
-//      me: function (success, error) {
-//        $http.get(baseUrl + '/me').success(success).error(error)
-//      },
-//      logout: function (success) {
-//        delete $localStorage.token;
-//        success();
-//      },
-//      getToken: function () {
-//        console.log("getting token: " + token);
-//        return token;
-//      },
-//      setToken: function (newToken) {
-//        console.log("setting token: " + token + ", " + newToken);
-//        token = newToken;
-//      }
-//
-//    };
-//
-//
-//
-//    //    function getToken() {
-//    //      return token;
-//    //    };
-//
-//    //    function setToken(newToken) {
-//    //      token = newToken;
-//    //    };
-//
-//  }
-//]);

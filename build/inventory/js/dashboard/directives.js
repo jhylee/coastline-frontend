@@ -1,12 +1,5 @@
-angular.module('coastlineWebApp.visualizations', [])
+angular.module('coastlineWebApp.dashboard.directives', [])
 
-    .factory('VisDataSet', function () {
-        'use strict';
-        return function (data, options) {
-            // Create the new dataSets
-            return new vis.DataSet(data, options);
-        };
-    })
 
 /**
  * TimeLine directive
@@ -91,13 +84,13 @@ angular.module('coastlineWebApp.visualizations', [])
             },
             link: function (scope, element, attr) {
                 var networkEvents = [
-                    'click',
+                    'click',                    // X
                     'doubleclick',
                     'oncontext',
                     'hold',
                     'release',
-                    'selectNode',
-                    'selectEdge',
+                    'selectNode',               // X
+                    'selectEdge',               // X
                     'deselectNode',
                     'deselectEdge',
                     'dragStart',
@@ -141,6 +134,7 @@ angular.module('coastlineWebApp.visualizations', [])
                     angular.forEach(scope.events, function (callback, event) {
                         if (networkEvents.indexOf(String(event)) >= 0) {
                             network.on(event, callback);
+                            console.log(String(event));
                         }
                     });
 
