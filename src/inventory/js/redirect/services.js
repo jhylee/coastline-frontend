@@ -48,11 +48,8 @@ angular.module('coastlineWebApp.redirect.services', ['ngStorage','coastlineConst
 
       request: function (config) {
         config.headers = config.headers || {};
-        // console.log("attaching token: " + $localStorage.token);
         if ($localStorage.token) {
-          // console.log("attaching token now");
           config.headers.Authorization = 'Bearer ' + $localStorage.token;
-          // console.log(config.headers.Authorization);
         }
         return config;
       },

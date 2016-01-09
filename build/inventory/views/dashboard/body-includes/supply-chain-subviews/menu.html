@@ -13,6 +13,27 @@
                 <div class="panel-container">
                     <div class="panel panel-default">
                         <div class="panel-body">
+                            <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Name</th>
+                                                <th>Date Created</th>
+                                                <th>Last Updated</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="supplyChain in supplyChains track by $index">
+                                                <td>{{$index + 1}}</td>
+                                                <td>{{supplyChain.name}}</td>
+                                                <td>{{supplyChain.dateCreated}}</td>
+                                                <td><button ng-click="editSupplyChain(supplyChain)" class="btn btn-default">View/Edit</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

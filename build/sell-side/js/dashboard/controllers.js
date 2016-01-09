@@ -493,7 +493,7 @@ angular.module('coastlineWebApp.dashboard.controllers', ['ui.router', 'ngStorage
 
 }])
 
-.controller('navTopCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService) {
+.controller('NavTopCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'DashboardService', function ($rootScope, $scope, $state, $location, $localStorage, DashboardService) {
 
   $scope.$storage = $localStorage;
   $scope.isToken = !($scope.$storage.token === undefined || $scope.$storage.token === null);

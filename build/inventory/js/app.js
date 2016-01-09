@@ -181,28 +181,15 @@ app.run(function($rootScope, $state, $location, AuthService, RedirectService) {
 
   $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState) {
 
-    console.log({
-        'toState': toState.name,
-        'toParams': toParams.name,
-        'fromState': fromState.name,
-      });
-
-
-    // console.log("beginning redirect logic");
-
     var shouldLogin = toState.data !== undefined && toState.data.requireLogin && !AuthService.isAuthenticated();
 
     // NOT authenticated - wants any private stuff
     if (shouldLogin) {
 
-      console.log("should login");
 
       if (toState.name === 'login') {
-        console.log("trying to go to login")
         return;
       }
-
-      console.log(AuthService.isAuthenticated());
 
       RedirectService.setRedirectState("login");
 
@@ -218,35 +205,14 @@ app.run(function($rootScope, $state, $location, AuthService, RedirectService) {
 
     // authenticated (previously) comming not to root main
     if (AuthService.isAuthenticated()) {
-      console.log("is authenticated");
       // var shouldGoToMain = fromState.name === "" && toState.name !== "dashboard";
       var goToDashboard = (toState.name == "redirect");
 
-
       if (goToDashboard) {
-        // $location.path("/dashboard");
-        console.log("go to dash");
-
         RedirectService.setRedirectState("dashboard");
-
-
-        // event.preventDefault();
-        // event.preventDefault();
       }
       return;
     }
-
-    // // UNauthenticated (previously) comming not to root public
-    // var shouldGoToPublic = fromState.name === ""
-    //                   && toState.name !== "login" ;
-    //
-    // if(shouldGoToPublic)
-    // {
-    //     $state.go('login');console.log('p')
-    //     event.preventDefault();
-    // }
-
-    // unmanaged
   });
 });
 

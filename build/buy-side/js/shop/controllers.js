@@ -9,7 +9,6 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 
   $scope.items = ['products', 'cart', 'checkout'];
 
-  console.log("hi");
 
   $scope.init = function() {
     ShopService.init();
@@ -56,7 +55,6 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 
   $scope.$storage = $localStorage;
 
-  console.log('init productDisplayCtrl');
 
   $scope.getProducts = function() {
     ShopService.getProducts(function(res) {
@@ -77,12 +75,6 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 
   $scope.$storage = $localStorage;
 
-
-
-  console.log('hihi');
-
-  console.log($scope.product);
-
   $scope.getAddButtonState = function(name) {
     if (ShopService.isProductAdded(name)) {
       return 1;
@@ -96,9 +88,7 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 
   $scope.getImageSrc = function() {
 
-      console.log("getImageSrc");
       ShopService.getImageUrl("abdulkhan", $scope.product.name, "default", function (url) {
-        console.log(url);
         $scope.imageSrc = url;
       }); // enter url here
   };
@@ -127,8 +117,6 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
   //   $localStorage.cart = [];
   // }
 
-  console.log("cartCtrl");
-  console.log($localStorage.cart[0]);
 
   var formatNumber = function(number) {
     number = Math.round(number * 100) / 100
@@ -165,8 +153,6 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
   };
 
   var getItems = function() {
-    console.log("getItems");
-    console.log(ShopService.getItems());
     $scope.items = ShopService.getItems();
     $scope.selectedItems = ShopService.getSelectedItems();
   };
@@ -186,13 +172,11 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 
 
   $scope.toggleItemSelection = function(index) {
-    console.log("toggleItemSelection");
     ShopService.toggleItemSelection(index);
     $scope.refreshDeleteButton();
   };
 
   $scope.deleteSelectedItems = function() {
-    console.log("deleteSelectedItems");
     ShopService.deleteSelectedItems();
     getItems();
     $scope.refreshDeleteButton();
@@ -200,7 +184,6 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
   };
 
   $scope.refreshDeleteButton = function() {
-    console.log("disabled: " + !ShopService.isAnythingSelected());
     $scope.isDeleteButtonDisabled = (!ShopService.isAnythingSelected());
   };
 
@@ -219,9 +202,7 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 
   // CHECKOUT STATES : 0 is basic info input, 1 is for stripe info
   $scope.refreshState = function() {
-    console.log("refresh, service: " + ShopService.getCheckoutState());
     $scope.checkoutState = ShopService.getCheckoutState();
-    console.log("refresh, checkoutState: " + $scope.checkoutState);
   };
 
   $scope.getCheckoutState = function() {
@@ -237,16 +218,12 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
     return ShopService.getTotalCartValue();
   };
 
-  console.log("checkoutCtrl");
-  console.log("cart length: " + $localStorage.cart.length);
-
   $scope.refreshState();
 }])
 
 .controller('checkoutPart1Ctrl', ['$rootScope', '$scope', '$window', '$state', '$location', '$localStorage', 'ShopService', function($rootScope, $scope, $window, $state, $location, $localStorage, ShopService) {
 
   if (ShopService.getOrderDetails()) {
-    console.log("ShopService.getOrderDetails() exists");
     var oldOrderDetails = ShopService.getOrderDetails();
 
     $scope.name = oldOrderDetails.name;
@@ -258,18 +235,12 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
     $scope.country = oldOrderDetails.country;
     $scope.postalCode = oldOrderDetails.postalCode;
 
-    console.log("old order name: " + $scope.name);
   };
 
 
 
 
   $scope.proceedToPayment = function() {
-
-    console.log("proceedToPayment");
-
-    console.log("name: " + $scope.name);
-
 
     var orderDetails = {
       sellerUsername: ShopService.getSellerUsername(),
@@ -287,8 +258,6 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
 
     ShopService.setOrderDetails(orderDetails);
 
-    console.log("ShopService.getOrderDetails().email = " + ShopService.getOrderDetails().email);
-
     $scope.setCheckoutState(1);
 
   };
@@ -302,20 +271,15 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
   };
 
   $scope.backToOrderInfo = function() {
-    console.log("ShopService.getOrderDetails().email = " + ShopService.getOrderDetails().email);
-
     ShopService.setCheckoutState(0);
   };
 
   $scope.stripeCallback = function(code, result) {
-    console.log("begin stripeCallback");
 
     if (result.error) {
       window.alert('it failed! error: ' + result.error.message);
     } else {
       var order = ShopService.getOrderDetails();
-      console.log("ShopService.getOrderDetails().buyerName = " + order.buyerName);
-
       order.stripeToken = result.id;
 
       if (apiUrl == "") {
@@ -336,8 +300,6 @@ angular.module('coastlineShop.shop.controllers', ['ui.router', 'ngStorage', 'coa
   };
 
   $scope.setOrderDetails = function() {
-    console.log("begin setOrderDetails");
-    console.log("end setOrderDetails");
   };
 
 }]);

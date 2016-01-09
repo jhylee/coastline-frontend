@@ -31,32 +31,25 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants
         $http.post(baseUrl + '/api/register', data).success(function (res) {
 
           $http.post(baseUrl + '/api/login', {username: data.username, password: data.password}).success(function(res) {
-            
             $localStorage.token = res.token;
-            console.log("on login");
-            console.log("res.token: " + res.token);
-
-            console.log("localStorage: " + $localStorage.token);
-            // console.log("scope storage: " + $scope.  $storage.token);
+            $localStorage.user = res.user;
             $localStorage.$save();
             
-              success(res);
+            success(res);
 
 
           }).error(error)
         }).error(error);
       },
 
-      createFishery: function (fisheryName, success, error) {
-          $http.post(baseUrl + '/api/fisheries', {name: fisheryName}).success(success).error(error);
+      createFishery: function (data, success, error) {
+          $http.post(baseUrl + '/api/fisheries', data).success(success).error(error);
       },
 
       login: function (data, success, error) {
         $http.post(baseUrl + '/api/login', data).success(function (res) {
           $localStorage.token = res.token;
-          console.log("on login");
-          console.log("localStorage: " + $localStorage.token);
-          // console.log("scope storage: " + $scope.  $storage.token);
+          $localStorage.user = res.user;
           $localStorage.$save();
 
           success(res);
@@ -70,6 +63,7 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants
 
       logout: function (done) {
         delete $localStorage.token;
+        delete $localStorage.user;
         $localStorage.$save();
         // console.log("token: " + $localStorage.token);
         done();

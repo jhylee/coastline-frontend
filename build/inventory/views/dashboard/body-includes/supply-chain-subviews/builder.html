@@ -11,7 +11,7 @@
             </fieldset>
             <fieldset class="form-group">
                 <label>Previous Stage</label>
-                <select ng-model="prev" ng-options="stage as stage.name for stage in getStages()" class="form-control">
+                <select ng-model="prev" ng-options="stage as stage.name for stage in stages" class="form-control">
                 </select>
             </fieldset>
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -45,7 +45,19 @@
         <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
     </div>
 </script>
-<div ng-controller="supplyChainCtrl">
+<script type="text/ng-template" id="exitSupplyChain.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Save and Exit?</h3>
+    </div>
+    <div class="modal-body">
+        
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+<div ng-controller="SupplyChainCtrl">
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h2 class="page-header light-text">Supply Chain Builder</h2>
         <div class="row placeholders">
@@ -59,7 +71,7 @@
                                 <button class="btn btn-default">Delete</button>
                                 <button class="btn btn-default">Link</button>
                                 <button class="btn btn-default">Unlink</button>
-                                <button class="btn btn-default">Undo</button>
+                                <button ng-click="saveSupplyChain()" class="btn btn-default">Save</button>
                             </div>
                         </div>
                         <div class="panel panel-default">

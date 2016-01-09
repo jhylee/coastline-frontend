@@ -2,31 +2,104 @@ var app = angular.module('coastlineWebApp.dashboard.controllers', ['ui.bootstrap
   'coastlineWebApp.dashboard.services', 
   'coastlineWebApp.dashboard.directives']);
 
-app.controller('supplyChainMenuCtrl', ['$scope', 'SupplyChainMenuNavigation', 
-    function ($scope, SupplyChainMenuNavigation) {
-      SupplyChainMenuNavigation.setView('menu');
+app.controller('SupplyChainMenuCtrl', ['$scope', 'SupplyChainMenuNavigation', 'SupplyChainSet', 'Fishery',
+    function ($scope, SupplyChainMenuNavigation, SupplyChainSet, Fishery) {
+        SupplyChainMenuNavigation.setView('menu');
 
-      $scope.getView = function (view) {
-        return SupplyChainMenuNavigation.getView();
-      }
+        $scope.getView = function (view) {
+            return SupplyChainMenuNavigation.getView();
+        };
 
-      $scope.createNewSupplyChain = function () {
-        SupplyChainMenuNavigation.setView('builder');
-      }
+        $scope.createNewSupplyChain = function () {
+            SupplyChainMenuNavigation.setView('create');
+        };
+
+        $scope.editSupplyChain = function (supplyChain) {
+            SupplyChainSet.setSupplyChain(supplyChain);
+            SupplyChainMenuNavigation.setView('builder');
+        };
+
+        $scope.getSupplyChains = function () {
+            Fishery.getFishery(function (fishery) {
+                SupplyChainMenuNavigation.getSupplyChains(fishery._id, function (res) {
+                    $scope.supplyChains = res;
+                    console.log("FDSFAS " + $scope.supplyChains);
+                }, function (error) {
+                  console.log("Error creating supplyChain.");
+                      console.log(error);
+                });
+            })
+        };
+
+
+        $scope.getSupplyChains();
+
+      
 
 }]);
 
 
+app.controller('SupplyChainCreateCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', 'Fishery',
+    function ($scope, VisDataSet, SupplyChainSet, Fishery) {
+
+        // get stages - for option display
+        $scope.createSupplyChain = function () {
+            var fisheryId;
+            var data = {name: $scope.name};
+
+            Fishery.getFishery(function (fishery) {
+                fisheryId = fishery._id;
+
+                SupplyChainSet.postSupplyChain(fisheryId, data, function (res) {
+                    console.log(res);
+                    //SupplyChainMenuNavigation.setView('builder');
+
+                }, function (error) {
+                    console.log("Error creating supplyChain.");
+                    console.log(error);
+                });
+
+            });
+
+            
+
+            
+        };
+
+     
+}]);
 
 
-app.controller('supplyChainCtrl', ['$scope', '$uibModal', 'VisDataSet', 'SupplyChainSet', 
-  function ($scope, $uibModal, VisDataSet, SupplyChainSet) {
+app.controller('SupplyChainCtrl', ['$scope', '$uibModal', 'VisDataSet', 'SupplyChainSet', 'SupplyChainMenuNavigation', 'DashboardNavigation',
+  function ($scope, $uibModal, VisDataSet, SupplyChainSet, SupplyChainMenuNavigation, DashboardNavigation) {
 
-    // get initial supply chain data
-    $scope.data = SupplyChainSet.getDisplayData();
+    $scope.$on("dashboardSwitch", function (event, newView) {
+      console.log(newView);
+      $scope.dashboardViewChange(newView);
+    });
+
+    SupplyChainSet.saveSupplyChain(function (res) {
+          console.log("saved");
+          $scope.refreshGraph();
+      }, function (err) {
+          console.log("error saving");
+      });
 
     // initialize events object
     $scope.events = {};
+
+    // parameters for the graph display
+    $scope.options = {
+      autoResize: true,
+      height: '100%',
+      width: '100%',
+      physics: {enabled: false},
+      edges: {arrows: {to: {enabled: true, scaleFactor: 1}},
+              smooth: {enabled: false}}
+    };
+
+    // get initial supply chain data
+    $scope.data = SupplyChainSet.getDisplayData();
 
     // callback for selectNode events
     $scope.events.selectNode = function (items) {
@@ -43,21 +116,11 @@ app.controller('supplyChainCtrl', ['$scope', '$uibModal', 'VisDataSet', 'SupplyC
     $scope.events.dragEnd = function (items) {
       console.log(items);
       if (items.nodes.length > 0) SupplyChainSet.moveStage(items.nodes[0], items.pointer.canvas.x, items.pointer.canvas.y);
-    }
+    };
 
     // refresh the graph display - done when changes are made
     $scope.refreshGraph = function () {
         $scope.data = SupplyChainSet.getDisplayData();
-    }
-
-    // parameters for the graph display
-    $scope.options = {
-      autoResize: true,
-      height: '100%',
-      width: '100%',
-      physics: {enabled: false},
-      edges: {arrows: {to: {enabled: true, scaleFactor: 1}},
-              smooth: {enabled: false}}
     };
 
     // add a stage - linked to the add button    
@@ -68,7 +131,7 @@ app.controller('supplyChainCtrl', ['$scope', '$uibModal', 'VisDataSet', 'SupplyC
       var modalInstance = $uibModal.open({
         animation: true,
         templateUrl: 'addModalContent.html',
-        controller: 'addStageCtrl',
+        controller: 'AddStageCtrl',
         size: 'lg',
         resolve: {}
       });
@@ -78,10 +141,13 @@ app.controller('supplyChainCtrl', ['$scope', '$uibModal', 'VisDataSet', 'SupplyC
         // OK callback
         function (stage) {
           // add the stage to the supply chain
-          SupplyChainSet.addStage(stage.name, stage.prev);
+          console.log(stage);
+          SupplyChainSet.addStage(stage.name, stage.prev, function() {
+              // refresh the graph to show the changes
+              $scope.refreshGraph();
+          });
 
-          // refresh the graph to show the changes
-          $scope.refreshGraph();
+          
 
           // CANCEL callback
       }, function () {});
@@ -95,7 +161,7 @@ app.controller('supplyChainCtrl', ['$scope', '$uibModal', 'VisDataSet', 'SupplyC
       var modalInstance = $uibModal.open({
         animation: true,
         templateUrl: 'editModalContent.html',
-        controller: 'editStageCtrl',
+        controller: 'EditStageCtrl',
         size: 'lg',
         resolve: {}
       });
@@ -117,7 +183,40 @@ app.controller('supplyChainCtrl', ['$scope', '$uibModal', 'VisDataSet', 'SupplyC
       }, function () {});
     };
 
+    $scope.saveSupplyChain = function() {
+      SupplyChainSet.saveSupplyChain(function (res) {
+          console.log("saved");
+          $scope.refreshGraph();
+      }, function (err) {
+          console.log("error saving");
+      });
+    }
 
+    // edit a stage - linked to the edit button
+    $scope.dashboardViewChange = function(dashboardView) {
+      // modal setup and preferences
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: 'exitSupplyChain.html',
+        controller: 'ExitSupplyChainCtrl',
+        size: 'lg',
+        resolve: {}
+      });
+
+      // called when modal is closed
+      modalInstance.result.then(
+        // OK callback
+        function (res) {
+          DashboardNavigation.setView(dashboardView);
+      }, function () {
+
+      });
+    };
+
+
+
+
+    
 
   } 
     
@@ -125,20 +224,22 @@ app.controller('supplyChainCtrl', ['$scope', '$uibModal', 'VisDataSet', 'SupplyC
     
 
 
-app.controller('addStageCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', '$uibModalInstance', 
+app.controller('AddStageCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', '$uibModalInstance', 
     function ($scope, VisDataSet, SupplyChainSet, $uibModalInstance) {
         
         // var prev = SupplyChainSet.getSelectedStage();
 
         // get stages - for option display
-        $scope.getStages = function () {
-            return SupplyChainSet.getStages();
-        };
+        $scope.stages = SupplyChainSet.getStages();
 
         // tied to ok button
         $scope.ok = function () {
-          if ($scope.prev) $uibModalInstance.close({name: $scope.name, prev: $scope.prev.id});
-          else $uibModalInstance.close({name: $scope.name});
+          if ($scope.prev) {
+              console.log('scope.prev._id ' + $scope.prev)
+              $uibModalInstance.close({name: $scope.name, prev: $scope.prev.self});
+          } else {
+              $uibModalInstance.close({name: $scope.name});
+          }
         };
 
         // tied to cancel button
@@ -147,7 +248,7 @@ app.controller('addStageCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', '$uibM
         };
 }]);
 
-app.controller('editStageCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', '$uibModalInstance', 
+app.controller('EditStageCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', '$uibModalInstance', 
     function ($scope, VisDataSet, SupplyChainSet, $uibModalInstance) {
         
         // get stages - for option display
@@ -170,30 +271,64 @@ app.controller('editStageCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', '$uib
         };
 }]);
 
+app.controller('ExitSupplyChainCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', '$uibModalInstance', 
+    function ($scope, VisDataSet, SupplyChainSet, $uibModalInstance) {
+        
+        // get stages - for option display
+        $scope.getStages = function () {
+            return SupplyChainSet.getStages();
+        };
 
-app.controller('sideNavCtrl', ['$scope', 'DashboardNavigation', 
+        // tied to ok button
+        $scope.ok = function () {
+          console.log("ok");
+          $uibModalInstance.close(true);
+        };
+
+        // tied to cancel button
+        $scope.cancel = function () {
+          console.log("cancel");
+          $uibModalInstance.dismiss(false);
+        };
+}]);
+
+
+
+app.controller('SideNavCtrl', ['$scope', 'DashboardNavigation', 
     function ($scope, DashboardNavigation) {
 
       $scope.setView = function (view) {
-        DashboardNavigation.setView(view);
-      }
+        console.log("view " + view);
+        var nocheck = DashboardNavigation.checkForUnsavedChanges(view);
+        console.log(nocheck);
+        if (nocheck) {
+          DashboardNavigation.setView(view);
+        }
+      };
 
 }]);
 
-app.controller('navTopCtrl', ['$scope', 'NavTop', 
-    function ($scope, NavTop) {
+app.controller('NavTopCtrl', ['$scope', 'Fishery', 
+    function ($scope, Fishery) {
+        
+        Fishery.getFishery(function (fishery) {
+            $scope.fisheryName = fishery.name;
+            console.log("$scope.fisheryName " + fishery.name);
 
-      $scope.getFisheryName = function () {
-        return NavTop.getFisheryName;
-      }
+        });
 
 }]);
 
-app.controller('dashboardDisplayCtrl', ['$scope', 'DashboardNavigation', 
+app.controller('DashboardDisplayCtrl', ['$scope', 'DashboardNavigation', 
     function ($scope, DashboardNavigation) {
 
       $scope.getView = function (view) {
         return DashboardNavigation.getView();
+      };
+
+
+      $scope.change = function() {
+        console.log("change");
       }
 
 }]);

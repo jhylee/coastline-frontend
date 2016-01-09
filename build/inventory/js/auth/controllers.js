@@ -6,10 +6,6 @@ angular.module('coastlineWebApp.auth.controllers', ['ui.router', 'ngStorage', 'c
   // $scope.isToken = !($scope.$storage.token === undefined || $scope.$storage.token === null);
 
   $scope.logout = function () {
-    console.log("TEST");
-    // console.log("token before logout: " + $localStorage.token);
-
-
     AuthService.logout(function() {
       $state.go('login');
     });
@@ -21,21 +17,10 @@ angular.module('coastlineWebApp.auth.controllers', ['ui.router', 'ngStorage', 'c
 // CONTROLLER FOR LOGIN/LOGOUT
 .controller('loginCtrl', ['$rootScope', '$scope', '$state', '$location', '$localStorage', 'AuthService', function ($rootScope, $scope, $state, $location, $localStorage, AuthService) {
 
-  //  if ($localStorage.token == undefined) {
-  //    console.log("token is undefined, changing to null");
-  //
-  //  }
-
   $scope.isToken = AuthService.isAuthenticated();
 
   $scope.$storage = $localStorage;
 
-
-  console.log("on creation");
-  console.log("localStorage: " + $localStorage.token);
-  console.log("scope storage: " + $scope.$storage.token);
-
-  
   $scope.login = function () {
     var formData = {
       username: $scope.username,
@@ -53,7 +38,7 @@ angular.module('coastlineWebApp.auth.controllers', ['ui.router', 'ngStorage', 'c
 
   $scope.createFishery = function () {
     var formData = {
-      fisheryName: $scope.fisheryName,
+      name: $scope.fisheryName,
     };
 
     AuthService.createFishery(formData, function (res) {
@@ -69,12 +54,16 @@ angular.module('coastlineWebApp.auth.controllers', ['ui.router', 'ngStorage', 'c
 
     // RedirectService.setRedirectState("wait");
     // $state.go('redirect');
+    
+
 
     var formData = {
       username: $scope.username,
       password: $scope.password,
       accountType: $scope.accountType
     };
+
+    console.log
 
     var fisheryName = $scope.fisheryName
 
