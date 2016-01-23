@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Coastline | A Local Movement</title>
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="../lib/bootstrap.min.css">
+
+  <!-- From Template -->
+  <!-- <link href="../lib/metisMenu.min.css" rel="stylesheet"> -->
+  <!-- <link href="../lib/morris.css" rel="stylesheet"> -->
+  <!-- <link href="../lib/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- <link rel="stylesheet" href="css/dashboard-styles.css" type="text/css"> -->
+  <!-- <link rel="stylesheet" href="css/login-styles.css" type="text/css"> -->
+
+  <!-- <link href="css/timeline.css" rel="stylesheet"> -->
+  <!-- <link href="inoviceStyles.css" rel="stylesheet"> -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+</head>
+
+<body>
+  <div ng-controller="transactionDetailCtrl" id="page-wrapper">
+    <header class="container">
+      <h1></h1>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-center">
+
+            <h1>Invoice for purchase #33221</h1>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12 col-md-4 col-lg-4 pull-left">
+              <div class="panel panel-default height">
+                <div class="panel-heading">Vendor Information</div>
+                <div class="panel-body">
+                  <strong>David Peere:</strong>
+                  <br> 1111 Army Navy Drive
+                  <br> Arlington
+                  <br> VA
+                  <br>
+                  <strong>22 203</strong>
+                  <br>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-4 col-lg-4">
+              <!-- <div class="panel panel-default height">
+                <div class="panel-heading">Payment Information</div>
+                <div class="panel-body">
+                  <strong>Card Name:</strong> Visa
+                  <br>
+                  <strong>Card Number:</strong> ***** 332
+                  <br>
+                  <strong>Exp Date:</strong> 09/2020
+                  <br>
+                </div>
+              </div> -->
+            </div>
+
+            <div class="col-xs-12 col-md-4 col-lg-4 pull-right">
+              <div class="panel panel-default height">
+                <div class="panel-heading">Customer Information</div>
+                <div class="panel-body">
+                  <strong>David Peere:</strong>
+                  <br> 1111 Army Navy Drive
+                  <br> Arlington
+                  <br> VA
+                  <br>
+                  <strong>22 203</strong>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="text-center">
+                <strong>Order summary</strong>
+              </h3>
+            </div>
+            <div class="panel-body">
+              <div class="table-responsive">
+                <table class="table table-condensed">
+                  <thead>
+                    <tr>
+                      <td>
+                        <strong>Item Name</strong>
+                      </td>
+                      <td class="text-center">
+                        <strong>Item Price</strong>
+                      </td>
+                      <td class="text-center">
+                        <strong>Item Quantity</strong>
+                      </td>
+                      <td class="text-right">
+                        <strong>Total</strong>
+                      </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Samsung Galaxy S5</td>
+                      <td class="text-center">$900</td>
+                      <td class="text-center">1</td>
+                      <td class="text-right">$900</td>
+                    </tr>
+                    <tr>
+                      <td>Samsung Galaxy S5 Extra Battery</td>
+                      <td class="text-center">$30.00</td>
+                      <td class="text-center">1</td>
+                      <td class="text-right">$30.00</td>
+                    </tr>
+                    <tr>
+                      <td>Screen protector</td>
+                      <td class="text-center">$7</td>
+                      <td class="text-center">4</td>
+                      <td class="text-right">$28</td>
+                    </tr>
+                    <tr>
+                      <td class="highrow"></td>
+                      <td class="highrow"></td>
+                      <td class="highrow text-center">
+                        <strong>Subtotal</strong>
+                      </td>
+                      <td class="highrow text-right">$958.00</td>
+                    </tr>
+                    <tr>
+                      <td class="emptyrow"></td>
+                      <td class="emptyrow"></td>
+                      <td class="emptyrow text-center">
+                        <strong>Shipping</strong>
+                      </td>
+                      <td class="emptyrow text-right">$20</td>
+                    </tr>
+                    <tr>
+                      <td class="emptyrow"></td>
+                      <td class="emptyrow"></td>
+                      <td class="emptyrow text-center">
+                        <strong>Total</strong>
+                      </td>
+                      <td class="emptyrow text-right">$978.00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+
+      .height {
+        min-height: 200px;
+      }
+
+      .icon {
+        font-size: 47px;
+        color: #000;
+      }
+
+      .iconbig {
+        font-size: 77px;
+        color: #000;
+      }
+
+      .table > tbody > tr > .emptyrow {
+        border-top: none;
+      }
+
+      .table > thead > tr > .emptyrow {
+        border-bottom: none;
+      }
+
+      .table > tbody > tr > .highrow {
+        border-top: 3px solid;
+      }
+
+      .container {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        /*margin-left: 150px;*/
+        /*margin-right: 150px;*/
+      }
+    </style>
+
+  </div>
+
+  </div>
+
+  </div>
+
+
+</body>
+
+</html>
