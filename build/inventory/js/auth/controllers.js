@@ -21,6 +21,43 @@ angular.module('coastlineWebApp.auth.controllers', ['ui.router', 'ngStorage', 'c
 
   $scope.$storage = $localStorage;
 
+  $scope.signUp = function () {
+
+    var formData = {
+      username: $scope.username,
+      password: $scope.password,
+      accountType: $scope.accountType
+    };
+
+    var fisheryName = $scope.fisheryName
+
+    AuthService.signUp(formData, fisheryName, function (res) {
+      AuthService.login(formData, function (res) {
+        $state.go('fishery-setup');
+      });
+    }, function (err) {
+      console.log("signup then login then error");
+      console.log(err);
+    });
+
+  };
+
+
+  $scope.createFishery = function () {
+    var formData = {
+      name: $scope.fisheryName,
+    };
+
+    AuthService.createFishery(formData, function (res) {
+        console.log(res);
+        $state.go('dashboard');
+      },
+      function (err) {
+        $rootScope.error = 'Failed to createFishery';
+        console.log("error createFishery");
+      });
+  };
+
   $scope.login = function () {
     var formData = {
       username: $scope.username,
@@ -34,48 +71,6 @@ angular.module('coastlineWebApp.auth.controllers', ['ui.router', 'ngStorage', 'c
         $rootScope.error = 'Failed to signin';
         console.log("error signing in");
       });
-  };
-
-  $scope.createFishery = function () {
-    var formData = {
-      name: $scope.fisheryName,
-    };
-
-    AuthService.createFishery(formData, function (res) {
-        $state.go('dashboard');
-      },
-      function (err) {
-        $rootScope.error = 'Failed to createFishery';
-        console.log("error createFishery");
-      });
-  };
-
-  $scope.signUp = function () {
-
-    // RedirectService.setRedirectState("wait");
-    // $state.go('redirect');
-    
-
-
-    var formData = {
-      username: $scope.username,
-      password: $scope.password,
-      accountType: $scope.accountType
-    };
-
-    console.log
-
-    var fisheryName = $scope.fisheryName
-
-    AuthService.signUp(formData, fisheryName, function (res) {
-      AuthService.login(formData, function (res) {
-        $state.go('fishery-setup');
-      });
-    }, function (err) {
-      console.log("signup then login then error");
-      console.log(err);
-    });
-
   };
 
   $scope.me = function () {

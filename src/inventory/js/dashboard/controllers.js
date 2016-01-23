@@ -1,6 +1,63 @@
 var app = angular.module('coastlineWebApp.dashboard.controllers', ['ui.bootstrap', 
   'coastlineWebApp.dashboard.services', 
-  'coastlineWebApp.dashboard.directives']);
+  'coastlineWebApp.dashboard.directives',
+  'coastlineWebApp.auth.services',
+  'ui.router']);
+
+
+
+app.controller('NavTopCtrl', ['$scope', 'Fishery', 'AuthService', '$state',
+    function ($scope, Fishery, AuthService, $state) {
+        $scope.fisheryName = "";
+        
+        Fishery.getFishery(function (fisheryName) {
+            $scope.fisheryName = fisheryName;
+            console.log("$scope.fisheryName " + fisheryName);
+        });
+
+        $scope.logout = function () {
+            AuthService.logout(function () {
+                $state.go('login');
+            });
+        };
+}]);
+
+
+app.controller('SideNavCtrl', ['$scope', 'DashboardNavigation', 
+    function ($scope, DashboardNavigation) {
+
+      $scope.setView = function (view) {
+        console.log("view " + view);
+        var nocheck = DashboardNavigation.checkForUnsavedChanges(view);
+        console.log(nocheck);
+        if (nocheck) {
+          DashboardNavigation.setView(view);
+        }
+      };
+
+}]);
+
+
+app.controller('DashboardDisplayCtrl', ['$scope', 'DashboardNavigation', 
+    function ($scope, DashboardNavigation) {
+
+      $scope.getView = function (view) {
+        return DashboardNavigation.getView();
+      };
+
+
+      $scope.change = function() {
+        console.log("change");
+      }
+
+}]);
+
+
+// PRODUCTS TAB (TODO)
+
+
+
+// SUPPLY CHAINS TAB
 
 app.controller('SupplyChainMenuCtrl', ['$scope', 'SupplyChainMenuNavigation', 'SupplyChainSet', 'Fishery',
     function ($scope, SupplyChainMenuNavigation, SupplyChainSet, Fishery) {
@@ -34,10 +91,7 @@ app.controller('SupplyChainMenuCtrl', ['$scope', 'SupplyChainMenuNavigation', 'S
 
         $scope.getSupplyChains();
 
-      
-
 }]);
-
 
 app.controller('SupplyChainCreateCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', 'Fishery',
     function ($scope, VisDataSet, SupplyChainSet, Fishery) {
@@ -60,12 +114,8 @@ app.controller('SupplyChainCreateCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet
                 });
 
             });
-
-            
-
-            
+  
         };
-
      
 }]);
 
@@ -212,17 +262,11 @@ app.controller('SupplyChainCtrl', ['$scope', '$uibModal', 'VisDataSet', 'SupplyC
 
       });
     };
-
-
-
-
     
 
   } 
     
 ]);
-    
-
 
 app.controller('AddStageCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', '$uibModalInstance', 
     function ($scope, VisDataSet, SupplyChainSet, $uibModalInstance) {
@@ -290,47 +334,6 @@ app.controller('ExitSupplyChainCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet',
           console.log("cancel");
           $uibModalInstance.dismiss(false);
         };
-}]);
-
-
-
-app.controller('SideNavCtrl', ['$scope', 'DashboardNavigation', 
-    function ($scope, DashboardNavigation) {
-
-      $scope.setView = function (view) {
-        console.log("view " + view);
-        var nocheck = DashboardNavigation.checkForUnsavedChanges(view);
-        console.log(nocheck);
-        if (nocheck) {
-          DashboardNavigation.setView(view);
-        }
-      };
-
-}]);
-
-app.controller('NavTopCtrl', ['$scope', 'Fishery', 
-    function ($scope, Fishery) {
-        
-        Fishery.getFishery(function (fishery) {
-            $scope.fisheryName = fishery.name;
-            console.log("$scope.fisheryName " + fishery.name);
-
-        });
-
-}]);
-
-app.controller('DashboardDisplayCtrl', ['$scope', 'DashboardNavigation', 
-    function ($scope, DashboardNavigation) {
-
-      $scope.getView = function (view) {
-        return DashboardNavigation.getView();
-      };
-
-
-      $scope.change = function() {
-        console.log("change");
-      }
-
 }]);
 
 

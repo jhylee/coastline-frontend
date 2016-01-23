@@ -11,6 +11,21 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants
       return JSON.parse($window.atob(base64));
     }
 
+    var login = function (data, success, error) {
+        $http.post(baseUrl + '/api/login', data).success(function (res) {
+          $localStorage.token = res.token;
+          $localStorage.user = res.user;
+          $localStorage.$save();
+
+          success(res);
+
+        }).error(function (err) {
+
+          error(err);
+
+        })
+    };
+
     return {
 
 
@@ -28,7 +43,7 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants
       },
 
       signUp: function (data, fisheryName, success, error) {
-        $http.post(baseUrl + '/api/register', data).success(function (res) {
+        $http.post(baseUrl + '/api/register', data).success(function (resp) {
 
           $http.post(baseUrl + '/api/login', {username: data.username, password: data.password}).success(function(res) {
             $localStorage.token = res.token;
@@ -43,23 +58,14 @@ angular.module('coastlineWebApp.auth.services', ['ngStorage','coastlineConstants
       },
 
       createFishery: function (data, success, error) {
-          $http.post(baseUrl + '/api/fisheries', data).success(success).error(error);
+          $http.post(baseUrl + '/api/fisheries', data).success(function (res) {
+            $localStorage.fisheryName = res.name;
+            console.log("$localStorage.fisheryName " + $localStorage.fisheryName);
+            success();
+          }).error(error);
       },
 
-      login: function (data, success, error) {
-        $http.post(baseUrl + '/api/login', data).success(function (res) {
-          $localStorage.token = res.token;
-          $localStorage.user = res.user;
-          $localStorage.$save();
-
-          success(res);
-
-        }).error(function (err) {
-
-          error(err);
-
-        });
-      },
+      login: login,
 
       logout: function (done) {
         delete $localStorage.token;
