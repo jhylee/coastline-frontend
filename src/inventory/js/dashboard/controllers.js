@@ -10,9 +10,9 @@ app.controller('NavTopCtrl', ['$scope', 'Fishery', 'AuthService', '$state',
     function ($scope, Fishery, AuthService, $state) {
         $scope.fisheryName = "";
         
-        Fishery.getFishery(function (fisheryName) {
-            $scope.fisheryName = fisheryName;
-            console.log("$scope.fisheryName " + fisheryName);
+        Fishery.getFishery(function (fishery) {
+            $scope.fisheryName = fishery.name;
+            console.log("$scope.fisheryName " + fishery);
         });
 
         $scope.logout = function () {
@@ -93,8 +93,8 @@ app.controller('SupplyChainMenuCtrl', ['$scope', 'SupplyChainMenuNavigation', 'S
 
 }]);
 
-app.controller('SupplyChainCreateCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', 'Fishery',
-    function ($scope, VisDataSet, SupplyChainSet, Fishery) {
+app.controller('SupplyChainCreateCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', 'SupplyChainMenuNavigation', 'Fishery', '$localStorage',
+    function ($scope, VisDataSet, SupplyChainSet, SupplyChainMenuNavigation, Fishery, $localStorage) {
 
         // get stages - for option display
         $scope.createSupplyChain = function () {
@@ -102,11 +102,14 @@ app.controller('SupplyChainCreateCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet
             var data = {name: $scope.name};
 
             Fishery.getFishery(function (fishery) {
-                fisheryId = fishery._id;
+                fisheryId = $localStorage.user.fishery;
+                console.log("fisheryId " + fishery._id);
 
                 SupplyChainSet.postSupplyChain(fisheryId, data, function (res) {
                     console.log(res);
                     //SupplyChainMenuNavigation.setView('builder');
+                    SupplyChainSet.setSupplyChain(res);
+                    SupplyChainMenuNavigation.setView('builder');
 
                 }, function (error) {
                     console.log("Error creating supplyChain.");

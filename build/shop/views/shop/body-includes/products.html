@@ -1,0 +1,100 @@
+<div ng-controller="productDisplayCtrl">
+
+  <!-- Projects Row -->
+  <section class="portfolio text-center section-padding" id="portfolio">
+
+
+    <div class="container">
+
+
+      <!-- <div class="row">
+        <div ng-repeat="product in products">
+          <div class="col-md-4 wp4 delay-05s">
+            <div ng-controller="productCtrl">
+              <div class="overlay-effect effects clearfix">
+                <div class="img">
+                  <img src="img/salmon.jpg">
+                  <h3>{{product.name}}</h3>
+                  <h4>${{product.unitPrice}}/{{product.units}}</h4>
+                  <button type="button" ng-click="addToCart(product)" class="btn btn-danger">Add To Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Projects Row -->
+
+      <section class="portfolio text-center section-padding" id="portfolio">
+        <div class="cardContainer">
+          <div class="row">
+
+
+            <div ng-controller="productCtrl" ng-repeat="product in products" class="column ng-scope">
+              <div class="card ng-scope">
+                <div class="image">
+                  <img ng-src="{{imageSrc}}">
+                  <span class="title ng-binding">{{product.name}}</span>
+                </div>
+                <!--
+                <div class="content">
+                  <p>170g units approx.</p>
+                </div>
+              -->
+                <div ng-init="addButtonState = getAddButtonState(product.name)" class="action">
+
+                  <div ng-switch on="addButtonState">
+                    <!-- ngSwitchDefault:  -->
+                    <div ng-switch-when="0" class="ng-scope">
+                      <a ng-click="addToCart(product)" href="javascript:void(0)" class="alignleft"><i class="fa fa-plus"></i> Add To Cart</a>
+                    </div>
+
+                    <!-- ngSwitchWhen: 1 -->
+                    <div ng-switch-when="1" class="ng-scope">
+                      <a ng-click="deleteFromCart(product)" href="javascript:void(0)" class="alignleft"><i class="fa fa-check-square-o"></i> Added!</a>
+                    </div>
+                    <!-- end ngSwitchWhen: -->
+                  </div>
+
+
+                  <a class="alignright ng-binding">${{product.unitPrice}}/{{product.units}}</a>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+      </section>
+
+      <!-- /.row -->
+
+      <!-- Pagination -->
+      <!-- <div class="row text-center">
+        <div class="col-lg-12">
+          <ul class="pagination">
+            <li>
+              <a href="#"><i class = "fa fa-chevron-left"></i></a>
+            </li>
+            <li class="active">
+              <a href="#">1</a>
+            </li>
+            <li>
+              <a href="#">2</a>
+            </li>
+            <li>
+              <a href="#">3</a>
+            </li>
+            <li>
+              <a href="#">4</a>
+            </li>
+            <li>
+              <a href="#">5</a>
+            </li>
+            <li>
+              <a href="#"><i class = "fa fa-chevron-right"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div> -->
+      <!-- /.row -->
+      </div>
