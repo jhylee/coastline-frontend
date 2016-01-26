@@ -232,7 +232,7 @@ app.run(function($rootScope, $state, $location, AuthService, RedirectService) {
 });
 
 angular.module('coastlineConstants', [])
-  .constant('apiUrl', 'http://localhost:9000')
+  .constant('apiUrl', 'http://localhost:3000')
   .constant('Views', {
     HOME: 0,
     ORDERS: 1,

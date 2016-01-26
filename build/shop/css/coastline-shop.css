@@ -188,6 +188,7 @@ a.expand {
 NAVBAR
 ========================================================================== */
 
+
 @media handheld, screen and (max-width: 995px) {
   .navbar-toggle {
     position: relative;
@@ -202,7 +203,7 @@ NAVBAR
     border-radius: 4px;
     overflow-x: hidden;
   }
-  .navbaar-header {
+  .navbar-header {
     max-width: inherit;
   }
 }
@@ -234,7 +235,6 @@ NAVBAR
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   background-color: #4DB6AC;
-  opacity: 0.95;
   padding-bottom: 20px;
   padding-top: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0 8px 8px 0;
@@ -399,14 +399,7 @@ MATERIAL CARDS
 PAGINATION
 //////////////////////////////////////////////////////////////*/
 
-@media screen and (max-width: 600px) {
-  .pagination {
-    max-width: 100%;
-    margin: 5px;
-    letter-spacing: 0px;
-    font-size: 11px;
-  }
-}
+
 .pagination {
   display: inline-block;
   padding-left: 0;
@@ -427,6 +420,7 @@ PAGINATION
   text-decoration: none;
   background-color: #4DB6AC;
   margin: 4px;
+
   border-color: #4DB6AC;
   transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -506,7 +500,116 @@ PAGINATION
   border-bottom-right-radius: 4px;
 }
 
-/*BUTTON RECONFIG*/
+@media screen and (max-width: 600px) {
+  .pagination {
+    max-width: 100%;
+    margin: 5px;
+    letter-spacing: 0px;
+    font-size: 11px;
+  }
+
+
+}
+
+.product-search {
+  margin-bottom: 20px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.product-search input[type="text"]
+{
+  width: 300px;
+  background-color: #B2DFDB;
+  opacity: 0.8;
+  padding-top: 1px;
+  border: 0 none;
+  height: 35px;
+  line-height: 30px;
+  margin-top: -5px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+@media screen and (max-width: 600px) {
+  .product-search input[type="text"]{
+    font-size: 11px;
+    width: 165px;
+  }
+  .product-search button {
+    letter-spacing: 0px;
+    font-size: 11px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+input.search{
+  padding-left:10px;
+}
+
+.product-search button {
+  background-color: #4DB6AC;
+  border-color: #4DB6AC;
+  border-style: none;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 4px;
+  height: 35px;
+  padding-right: 20px;
+  padding-left: 20px;
+  letter-spacing: 1px;
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.product-search button:hover {
+  background-color: #00BFA5;
+  border-color: #00BFA5;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  color: #23527c;
+}
+
+button.filter {
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+
+hr.light {
+  width: 95%;
+  opacity: 0.4;
+}
+
+@media screen and (max-width: 600px) {
+  .product-search button {
+    letter-spacing: 0px;
+    font-size: 11px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+
+div.modal-content{
+  background-color: #E0F2F1;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  div.modal-content{
+  width: 90%;
+}
+}
+
+
+/*/////////////////////////////////////////
+               BUTTON RECONFIG
+/////////////////////////////////////////*/
 
 .btn-danger {
   color: #fff;
