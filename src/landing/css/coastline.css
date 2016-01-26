@@ -1119,3 +1119,12 @@ img.modalImg {
 div.modal-content {
   overflow-x: hidden;
 }
+
+img.screenshot {
+  border-radius: 5px;
+  width: 360px;
+  height: 220px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 8px 8px 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 8px 8px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 8px 8px 0;
+}

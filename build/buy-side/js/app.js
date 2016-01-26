@@ -71,4 +71,4 @@ app.run( function ($window) {
 
 
 angular.module('coastlineConstants',[])
-  .constant('apiUrl', 'http://localhost:9000');
+  .constant('apiUrl', 'http://coastline-backend.herokuapp.com');
