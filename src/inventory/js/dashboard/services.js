@@ -1,14 +1,5 @@
 angular.module('coastlineWebApp.dashboard.services', ['ngStorage'])
 
-// for creation of the VisDataSet
-.factory('VisDataSet', ['$http', 'apiUrl', function($http, apiUrl) {
-    'use strict';
-    return function(data, options) {
-        // Create the new dataSets
-        return new vis.DataSet(data, options);
-    };
-}])
-
 .factory('NavTop', ['$http', 'apiUrl', function($http, apiUrl) {
     var view = 'menu';
     var baseUrl = apiUrl
@@ -20,9 +11,10 @@ angular.module('coastlineWebApp.dashboard.services', ['ngStorage'])
     }
 }])
 
+
 .factory('Fishery', ['$http', '$localStorage', 'apiUrl', function($http, $localStorage, apiUrl) {
     'use strict';
-    var fishery = $localStorage.fisheryName;
+    var fishery = {name: $localStorage.fisheryName, _id: $localStorage.user.fishery};
     var fisheryName;
     var baseUrl = apiUrl;
 
@@ -33,12 +25,12 @@ angular.module('coastlineWebApp.dashboard.services', ['ngStorage'])
                     if (res[i]._id == $localStorage.user.fishery) {
                         $localStorage.fisheryName = res[i].name;
                         $localStorage.$save();
-                        fishery = res[i];
+                        fishery = {name: res[i].name, _id: res[i]._id};
                         fisheryName = $localStorage.fisheryName;
                         console.log("fisheryName " + fisheryName);
                     }
                 }
-                success(fisheryName);
+                success(fishery);
             }).error(function (err) {
                 console.log("Error getting fishery. " + err)
             });
@@ -102,8 +94,17 @@ angular.module('coastlineWebApp.dashboard.services', ['ngStorage'])
     }
 }])
 
+// for creation of the VisDataSet
+.factory('VisDataSet', ['$http', 'apiUrl', function($http, apiUrl) {
+    'use strict';
+    return function(data, options) {
+        // Create the new dataSets
+        return new vis.DataSet(data, options);
+    };
+}])
+
 // for management of the supply chain builder
-.factory('SupplyChainSet', ['$http', 'apiUrl', 'Fishery', function($http, apiUrl, Fishery) {
+.factory('SupplyChainSet', ['$http', 'apiUrl', 'Fishery', '$localStorage', function($http, apiUrl, Fishery, $localStorage) {
     'use strict';
 
     var baseUrl = apiUrl;
@@ -168,7 +169,7 @@ angular.module('coastlineWebApp.dashboard.services', ['ngStorage'])
 
         saveSupplyChain: function (success, error) {
             Fishery.getFishery(function (fishery) {
-                $http.put(baseUrl + '/api/fisheries/' + fishery._id + '/supplychains/' + supplyChain._id, supplyChain).success(
+                $http.put(baseUrl + '/api/fisheries/' + $localStorage.user.fishery + '/supplychains/' + supplyChain._id, supplyChain).success(
                     function (res) {
                         supplyChain = res;
 

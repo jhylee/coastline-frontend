@@ -232,7 +232,7 @@ app.run(function($rootScope, $state, $location, AuthService, RedirectService) {
 });
 
 angular.module('coastlineConstants', [])
-  .constant('apiUrl', 'http://coastline-backend.herokuapp.com')
+  .constant('apiUrl', 'http://localhost:3000')
   .constant('Views', {
     HOME: 0,
     ORDERS: 1,

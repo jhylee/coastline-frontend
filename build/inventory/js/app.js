@@ -8,7 +8,8 @@ var app = angular.module('coastlineWebApp', ['ui.router',
   'coastlineWebApp.redirect.services',
   'coastlineWebApp.dashboard.controllers',
   'coastlineWebApp.dashboard.services',
-  
+  'coastlineWebApp.products.controllers',
+  'coastlineWebApp.products.services',
 ]);
 
 
