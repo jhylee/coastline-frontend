@@ -11,12 +11,9 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-navbar {
-    background-color: #252830
-}
 
 
-/* make sidebar nav vertical */ 
+/* make sidebar nav vertical */
 @media (min-width: 768px) {
   .sidebar-nav .navbar .navbar-collapse {
     padding: 0;
@@ -36,6 +33,7 @@ navbar {
     padding-top: 12px;
     padding-bottom: 12px;
   }
+
 }
 
 /*
@@ -49,7 +47,7 @@ navbar {
 
 .panel {
     height: 100%;
-    
+
 }
 
 .panel-body {

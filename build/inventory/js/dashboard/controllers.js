@@ -1,5 +1,5 @@
-var app = angular.module('coastlineWebApp.dashboard.controllers', ['ui.bootstrap', 
-  'coastlineWebApp.dashboard.services', 
+var app = angular.module('coastlineWebApp.dashboard.controllers', ['ui.bootstrap',
+  'coastlineWebApp.dashboard.services',
   'coastlineWebApp.dashboard.directives',
   'coastlineWebApp.auth.services',
   'ui.router']);
@@ -9,7 +9,7 @@ var app = angular.module('coastlineWebApp.dashboard.controllers', ['ui.bootstrap
 app.controller('NavTopCtrl', ['$scope', 'Fishery', 'AuthService', '$state',
     function ($scope, Fishery, AuthService, $state) {
         $scope.fisheryName = "";
-        
+
         Fishery.getFishery(function (fishery) {
             $scope.fisheryName = fishery.name;
             console.log("$scope.fisheryName " + fishery);
@@ -23,7 +23,7 @@ app.controller('NavTopCtrl', ['$scope', 'Fishery', 'AuthService', '$state',
 }]);
 
 
-app.controller('SideNavCtrl', ['$scope', 'DashboardNavigation', 
+app.controller('SideNavCtrl', ['$scope', 'DashboardNavigation',
     function ($scope, DashboardNavigation) {
 
       $scope.setView = function (view) {
@@ -38,7 +38,9 @@ app.controller('SideNavCtrl', ['$scope', 'DashboardNavigation',
 }]);
 
 
-app.controller('DashboardDisplayCtrl', ['$scope', 'DashboardNavigation', 
+
+
+app.controller('DashboardDisplayCtrl', ['$scope', 'DashboardNavigation',
     function ($scope, DashboardNavigation) {
 
       $scope.getView = function (view) {
@@ -54,6 +56,11 @@ app.controller('DashboardDisplayCtrl', ['$scope', 'DashboardNavigation',
 
 
 // PRODUCTS TAB (TODO)
+
+
+
+
+// ADD PRODUCTS TAB (TODO)
 
 
 
@@ -117,9 +124,9 @@ app.controller('SupplyChainCreateCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet
                 });
 
             });
-  
+
         };
-     
+
 }]);
 
 
@@ -176,7 +183,7 @@ app.controller('SupplyChainCtrl', ['$scope', '$uibModal', 'VisDataSet', 'SupplyC
         $scope.data = SupplyChainSet.getDisplayData();
     };
 
-    // add a stage - linked to the add button    
+    // add a stage - linked to the add button
     $scope.addStage = function() {
       console.log("addStage");
 
@@ -200,7 +207,7 @@ app.controller('SupplyChainCtrl', ['$scope', '$uibModal', 'VisDataSet', 'SupplyC
               $scope.refreshGraph();
           });
 
-          
+
 
           // CANCEL callback
       }, function () {});
@@ -228,7 +235,7 @@ app.controller('SupplyChainCtrl', ['$scope', '$uibModal', 'VisDataSet', 'SupplyC
 
           // set the stage name to the new name
           stage.name = res.name;
-          
+
           // refresh the graph to show the changes
           $scope.refreshGraph();
 
@@ -265,15 +272,15 @@ app.controller('SupplyChainCtrl', ['$scope', '$uibModal', 'VisDataSet', 'SupplyC
 
       });
     };
-    
 
-  } 
-    
+
+  }
+
 ]);
 
-app.controller('AddStageCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', '$uibModalInstance', 
+app.controller('AddStageCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', '$uibModalInstance',
     function ($scope, VisDataSet, SupplyChainSet, $uibModalInstance) {
-        
+
         // var prev = SupplyChainSet.getSelectedStage();
 
         // get stages - for option display
@@ -295,9 +302,9 @@ app.controller('AddStageCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', '$uibM
         };
 }]);
 
-app.controller('EditStageCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', '$uibModalInstance', 
+app.controller('EditStageCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', '$uibModalInstance',
     function ($scope, VisDataSet, SupplyChainSet, $uibModalInstance) {
-        
+
         // get stages - for option display
         $scope.getStages = function () {
             return SupplyChainSet.getStages();
@@ -318,9 +325,9 @@ app.controller('EditStageCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', '$uib
         };
 }]);
 
-app.controller('ExitSupplyChainCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', '$uibModalInstance', 
+app.controller('ExitSupplyChainCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet', '$uibModalInstance',
     function ($scope, VisDataSet, SupplyChainSet, $uibModalInstance) {
-        
+
         // get stages - for option display
         $scope.getStages = function () {
             return SupplyChainSet.getStages();
@@ -338,5 +345,3 @@ app.controller('ExitSupplyChainCtrl', ['$scope', 'VisDataSet', 'SupplyChainSet',
           $uibModalInstance.dismiss(false);
         };
 }]);
-
-

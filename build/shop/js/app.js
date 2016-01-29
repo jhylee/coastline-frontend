@@ -2,7 +2,8 @@ var app = angular.module('coastlineShop', ['ui.router',
     'ngStorage',
     'coastlineShop.shop.controllers',
     'coastlineShop.shop.services',
-    'angularPayments'
+    'angularPayments',
+    'cgNotify'
 ]);
 
 
@@ -70,4 +71,4 @@ app.run( function ($window) {
 
 
 angular.module('coastlineConstants',[])
-  .constant('apiUrl', 'http://localhost:9000');
+  .constant('apiUrl', 'http://coastline-backend.herokuapp.com');
