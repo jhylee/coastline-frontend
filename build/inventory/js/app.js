@@ -10,6 +10,8 @@ var app = angular.module('coastlineWebApp', ['ui.router',
   'coastlineWebApp.dashboard.services',
   'coastlineWebApp.products.controllers',
   'coastlineWebApp.products.services',
+  'coastlineWebApp.trackInventory.controllers',
+  'coastlineWebApp.trackInventory.services'
 ]);
 
 
@@ -218,7 +220,7 @@ app.run(function($rootScope, $state, $location, AuthService, RedirectService) {
 });
 
 angular.module('coastlineConstants', [])
-  .constant('apiUrl', 'http://coastline-backend.herokuapp.com')
+  .constant('apiUrl', 'http://localhost:9000')
   .constant('Views', {
     HOME: 0,
     ORDERS: 1,

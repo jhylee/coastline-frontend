@@ -10,6 +10,8 @@ var app = angular.module('coastlineWebApp', ['ui.router',
   'coastlineWebApp.dashboard.services',
   'coastlineWebApp.products.controllers',
   'coastlineWebApp.products.services',
+  'coastlineWebApp.trackInventory.controllers',
+  'coastlineWebApp.trackInventory.services'
 ]);
 
 
