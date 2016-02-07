@@ -6,14 +6,24 @@
 
     <div class="container">
 
-      <div class="col-lg-12 text-center">
-        <div class="product-search">
-          <input type="text" name="search" placeholder="Search for an item..." class="search">
-          <button onclick="#">Search</button>
-          <button class="filter" data-toggle="modal" data-target="#myModal1"><i class="fa fa-filter"></i></button>
+
+      <!-- <div class="row">
+        <div ng-repeat="product in products">
+          <div class="col-md-4 wp4 delay-05s">
+            <div ng-controller="productCtrl">
+              <div class="overlay-effect effects clearfix">
+                <div class="img">
+                  <img src="img/salmon.jpg">
+                  <h3>{{product.name}}</h3>
+                  <h4>${{product.unitPrice}}/{{product.units}}</h4>
+                  <button type="button" ng-click="addToCart(product)" class="btn btn-danger">Add To Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <hr class="light">
-      </div>
+      </div> -->
+      <!-- Projects Row -->
 
       <section class="portfolio text-center section-padding" id="portfolio">
         <div class="cardContainer">
@@ -31,7 +41,6 @@
                   <p>170g units approx.</p>
                 </div>
               -->
-
                 <div ng-init="addButtonState = getAddButtonState(product.name)" class="action">
 
                   <div ng-switch on="addButtonState">
@@ -46,6 +55,7 @@
                     </div>
                     <!-- end ngSwitchWhen: -->
                   </div>
+
 
                   <a class="alignright ng-binding">${{product.unitPrice}}/{{product.units}}</a>
                 </div>
