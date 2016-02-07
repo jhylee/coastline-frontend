@@ -104,7 +104,7 @@ angular.module('coastlineWebApp.dashboard.services', ['ngStorage'])
 }])
 
 // for management of the supply chain builder
-.factory('SupplyChainSet', ['$http', 'apiUrl', 'Fishery', '$localStorage', function($http, apiUrl, Fishery, $localStorage) {
+.factory('SupplyChainData', ['$http', 'apiUrl', 'Fishery', '$localStorage', function($http, apiUrl, Fishery, $localStorage) {
     'use strict';
 
     var baseUrl = apiUrl;
@@ -263,6 +263,12 @@ angular.module('coastlineWebApp.dashboard.services', ['ngStorage'])
                 })
                 // if (prev) supplyChain.stages.push({ name: name, id: id, prev: [prev], next: [], x: x, y: 0 });
                 // else supplyChain.stages.push({ name: name, id: id, prev: [], next: [], x: x, y: 0 });
+            }
+        },
+
+        getSupplyChain: function () {
+            if (supplyChain) {
+                return supplyChain;
             }
         },
 
