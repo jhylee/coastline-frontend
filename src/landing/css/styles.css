@@ -104,7 +104,10 @@ section.intro {
 
 }
 section.features-extra {
-  background: #F3F4F8; }
+  background: #ECEFF1;
+  padding-top: 50px;
+  padding-bottom: 80px;
+ }
 
 section.features, section.blog-intro, section.blog {
   background: #F3F4F8; }
